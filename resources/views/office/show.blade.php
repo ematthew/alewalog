@@ -272,7 +272,7 @@ active --}}
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="btn btn-outline-primary btn-sm col-md-12">
+                                    <button class="btn btn-outline-primary btn-sm col-md-12" onclick="print('docs/print.pdf')" >
                                         <i class="fa fa-print"></i> Print
                                     </button>
                                 </div>
@@ -290,6 +290,7 @@ active --}}
         <!-- /.container-fluid -->
     </div>
     <!-- End of Main Content -->
+
 @endsection
 
 
