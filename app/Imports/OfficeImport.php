@@ -16,11 +16,13 @@ class OfficeImport implements ToCollection
         foreach ($collection as $key => $row) 
         {
             // skip the first row
-            if($row[0] !== "pid"){
+            if($row[0] == "pid"){
+                // skip
+            }else{
 
                 // check if already exist!
                 $already_exist = Office::where('pid', $row[0])->first();
-                if($already_exist !== null){
+                if($already_exist == null){
 
                     // insert into office table
                     Office::create([

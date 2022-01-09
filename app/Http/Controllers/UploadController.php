@@ -36,13 +36,6 @@ class UploadController extends Controller
     public function upload(Request $request){
     	// body
         Excel::import(new OfficeImport, $request->file('excel_file'));
-
-        $data = [
-            'status' => 'success',
-            'message' => 'File uploaded succesfully!'
-        ];
-
-        return $data;
+        return redirect('/');
     }
-    
 }
