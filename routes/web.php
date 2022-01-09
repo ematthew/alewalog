@@ -23,6 +23,7 @@ Route::group(['prefix' => 'offices'], function() {
     Route::post('/create', 		'OfficeController@addOne')->name('office_add');
     Route::put('/update', 		'OfficeController@updateOne')->name('office_update');
     Route::delete('/delete', 	'OfficeController@deleteOne')->name('office_delete');
+    Route::get('/offices/pdf',  'OfficeController@createPDF')->name('createPDF');
 });
 
 /*

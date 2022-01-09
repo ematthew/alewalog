@@ -79,6 +79,7 @@
                                                 <td>
                                                     <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
+                                                        <a class="btn btn-primary" href="{{ URL::to('/office/pdf') }}">Export to PDF</a>
                                                     </a>
                                                 </td>
                                             </tr>

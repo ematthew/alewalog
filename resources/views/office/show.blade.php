@@ -273,6 +273,7 @@ active --}}
                             <button class="btn btn-outline-primary btn-sm col-md-12">
                                 <i class="fa fa-print"></i> Print
                             </button>
+
                         </div>
                     </div>
                 </div>
