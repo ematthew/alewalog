@@ -47,3 +47,10 @@ Route::group(['prefix' => 'uploads'], function() {
     Route::get('/', 			'UploadController@index')->name('upload');
     Route::post('/', 		    'UploadController@upload')->name('upload_file');
 });
+
+/*
+|--------------------------------------------------------------------------
+| generate qrcode
+|--------------------------------------------------------------------------
+*/
+Route::get('/generate-qrcode', [QrCodeController::class, 'index']);

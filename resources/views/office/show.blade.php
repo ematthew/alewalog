@@ -76,7 +76,7 @@ active --}}
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <th class="thr">Demand Notice is hereby given to</th>
-                                                        <th class="thl">Organisation name/PID</th>
+                                                        <th class="thl">{{ $office->occupant }}/{{ $office->pid }}</th>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -114,8 +114,11 @@ active --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 pr-4">
-                                                    <div class="row-border-mini px-2 py-2">
-                                                        QR Code
+                                                    <div class="">
+                                                        <p>QR Code</p>
+                                                        <span>{!! QrCode::size(120)->generate('RemoteStack') !!}</span> 
+                                                        <br> <br>
+                                                        <p>{{ $office->occupant }}/{{ $office->pid }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,20 +149,20 @@ active --}}
                                             <table class="table">
                                                 <tr>
                                                     <td>Annual Value: </td>
-                                                    <td></td>
+                                                    <td><span>&#8358;</span>{{ $office->annual_value }}</td>
                                                 </tr>
                                                     <td>Rate Payable </td>
-                                                    <td></td>
+                                                    <td><span>&#8358;</span>{{ $office->rate_payable }}</td>
                                                 </tr>
                                                     <td>Arrears Year: </td>
-                                                    <td></td>
+                                                    <td><span>&#8358;</span>{{ $office->arrears }}</td>
                                                 </tr>
                                                     <td>Penalty (10%): </td>
-                                                    <td></td>
+                                                    <td><span>&#8358;</span>{{ $office->penalty }}</td>
                                                 </tr>
                                                 </tr>
                                                     <td><strong>Grand:</strong> </td>
-                                                    <td></td>
+                                                    <td><span>&#8358;</span>{{ $office->grand_total }}</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -201,18 +204,26 @@ active --}}
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="row-border px-4 py-2">
+                                        <div class="row-border px-4 py-1">
                                            Your early compliance will be highly appreciated
                                         </div>
-                                        <div class="row-border px-4 py-2">
+                                        <div class="row-border px-4 py-1">
                                             <div class="row">
                                                <div class="col-sm-6">
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <br>
                                                    HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
                                                    Abuja Municipal Area Council
                                                </div>
                                                <div class="col-sm-6">
 
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <br>
                                                     DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
                                                     Abuja Municipal Area Council
@@ -227,30 +238,30 @@ active --}}
                                             <table>
                                                 <tr>
                                                     <td>Date of Dispatch:</td>
-                                                    <td></td>
+                                                    <td>-----------------------------</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Name of Officer</td>
-                                                    <td></td>
+                                                    <td>Name of Officer:</td>
+                                                    <td>-----------------------------</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Mode of Dispatch</td>
-                                                    <td></td>
+                                                    <td>Mode of Dispatch:</td>
+                                                    <td>-----------------------------</td>
                                                 </tr>
                                             </table>
                                             <br />
                                             <table>
                                                 <tr>
                                                     <td>Date of Dispatch:</td>
-                                                    <td></td>
+                                                    <td>-----------------------------</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Name of Officer</td>
-                                                    <td></td>
+                                                    <td>Name of Officer:</td>
+                                                    <td>-----------------------------</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Mode of Dispatch</td>
-                                                    <td></td>
+                                                    <td>Mode of Dispatch:</td>
+                                                    <td>-----------------------------</td>
                                                 </tr>
                                             </table>
                                         </div>
