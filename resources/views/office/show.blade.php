@@ -270,10 +270,18 @@ active --}}
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-outline-primary btn-sm col-md-12">
-                                <i class="fa fa-print"></i> Print
-                            </button>
-
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-outline-primary btn-sm col-md-12">
+                                        <i class="fa fa-print"></i> Print
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-outline-danger btn-sm col-md-12">
+                                        <i class="fa fa-file-pdf"></i> Download PDF
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
