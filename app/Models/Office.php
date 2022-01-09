@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Office extends Model
 {
     use HasFactory;
-
-     use HasFactory;
+    
     protected $fillable = [
         "pid",
         "occupant",
