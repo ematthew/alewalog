@@ -22,6 +22,12 @@
         .table-bordered thead td, .table-bordered thead th {
             border-bottom-width: 5px;
         }
+
+        .bg-gradient-primary {
+            background-color: #34a410;
+            background-image: linear-gradient(180deg,#1c4904 10%,#047607 100%);
+            background-size: cover;
+        }
     </style>
 </head>
 
