@@ -19,6 +19,7 @@ Route::get('/home', 		'HomeController@index')->name('index');
 */
 Route::group(['prefix' => 'offices'], function() {
     Route::get('/', 			'OfficeController@index')->name('offices');
+    Route::get('/view',         'OfficeController@view')->name('offices_show');
     Route::post('/create', 		'OfficeController@addOne')->name('office_add');
     Route::put('/update', 		'OfficeController@updateOne')->name('office_update');
     Route::delete('/delete', 	'OfficeController@deleteOne')->name('office_delete');

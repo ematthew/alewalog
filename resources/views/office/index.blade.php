@@ -26,6 +26,11 @@
                                 <table class="table table-bordered small" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>
+                                                <label for="check-all">
+                                                    <input type="checkbox" name="check-all" class="form-control"> All
+                                                </label>
+                                            </th>
                                             <th>PID</th>
                                             <th>OCCUPANT</th>
                                             <th>PROP ADDR</th>
@@ -49,25 +54,30 @@
                                     <tbody>
                                         @foreach($offices as $key => $office)
                                             <tr>
-                                                <td width="10%">{{ $office->pid }}</td>
-                                                <td width="10%">{{ $office->occupant }}</td>
-                                                <td width="10%">{{ $office->prop_addr }}</td>
-                                                <td width="10%">{{ $office->street_name }}</td>
-                                                <td width="10%">{{ $office->asset_no }}</td>
-                                                <td width="10%">{{ $office->cadastral_zone }}</td>
-                                                <td width="10%">{{ $office->prop_type }}</td>
-                                                <td width="10%">{{ $office->prop_use }}</td>
-                                                <td width="10%">{{ $office->rating_dist }}</td>
-                                                <td width="10%">{{ $office->annual_value }}</td>
-                                                <td width="10%">{{ $office->rate_payable }}</td>
-                                                <td width="10%">{{ $office->arrears }}</td>
-                                                <td width="10%">{{ $office->penalty }}</td>
-                                                <td width="10%">{{ $office->grand_total }}</td>
-                                                <td width="10%">{{ $office->category }}</td>
-                                                <td width="10%">{{ $office->group }}</td>
-                                                <td width="10%">{{ $office->active }}</td>
-                                                <td width="10%">
-                                                    <a href="{{url('office/view')}}?pid={{ $office->pid }}" class="">
+                                                <td>
+                                                    <label for="check-{{ $office->pid }}">
+                                                        <input type="checkbox" name="check-{{ $office->pid }}" style="width: 15px;height: 15px;">
+                                                    </label>
+                                                </td>
+                                                <td>{{ $office->pid }}</td>
+                                                <td>{{ $office->occupant }}</td>
+                                                <td>{{ $office->prop_addr }}</td>
+                                                <td>{{ $office->street_name }}</td>
+                                                <td>{{ $office->asset_no }}</td>
+                                                <td>{{ $office->cadastral_zone }}</td>
+                                                <td>{{ $office->prop_type }}</td>
+                                                <td>{{ $office->prop_use }}</td>
+                                                <td>{{ $office->rating_dist }}</td>
+                                                <td>{{ $office->annual_value }}</td>
+                                                <td>{{ $office->rate_payable }}</td>
+                                                <td>{{ $office->arrears }}</td>
+                                                <td>{{ $office->penalty }}</td>
+                                                <td>{{ $office->grand_total }}</td>
+                                                <td>{{ $office->category }}</td>
+                                                <td>{{ $office->group }}</td>
+                                                <td>{{ $office->active }}</td>
+                                                <td>
+                                                    <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
                                                 </td>

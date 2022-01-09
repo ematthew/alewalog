@@ -27,6 +27,17 @@ class OfficeController extends Controller
         $offices = Office::orderBy('pid', 'DESC')->paginate(10);
         return view('office.index', compact('offices'));
     }
+
+    /*
+    |-----------------------------------------
+    | SHOW VIEW INDEX
+    |-----------------------------------------
+    */
+    public function view(Request $request){
+        // body
+        $office = Office::where('pid', $request->pid)->first();
+        return view('office.show', compact('office'));
+    }
     
     /*
     |-----------------------------------------
