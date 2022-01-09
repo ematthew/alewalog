@@ -24,8 +24,8 @@
         }
 
         .bg-gradient-primary {
-            background-color: #34a410;
-            background-image: linear-gradient(180deg,#1c4904 10%,#047607 100%);
+            background-color: #0f1b0c;
+            background-image: linear-gradient(180deg,#132d05 10%,#063507 100%);
             background-size: cover;
         }
     </style>

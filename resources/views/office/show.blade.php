@@ -37,6 +37,23 @@
             direction: ltr;
         }
     </style>
+{{-- pid
+occupant
+prop_addr
+street_name
+asset_no
+cadastral_zone
+prop_type
+prop_use
+rating_dist
+annual_value
+rate_payable
+arrears
+penalty
+grand_total
+category
+group
+active --}}
     <!-- Main Content -->
     <div id="content">
 
@@ -48,7 +65,7 @@
                 <div class="col-xl-12 col-md-12 mb-4">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">PID: {{ $office->pid }}</h6>
+                            <h5 class="m-0 font-weight-bold text-primary">PID: {{ $office->pid }}</h5>
                         </div>
                         <div class="card-body">
                             <div class="print-wrapper">
@@ -71,27 +88,27 @@
                                                         <table>
                                                             <tr>
                                                                 <td>Name of Occupier:</td>
-                                                                <td></td>
+                                                                <td>{{ $office->occupant }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Assesment No:</td>
-                                                                <td></td>
+                                                                <td>{{ $office->asset_no }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Property Address:</td>
-                                                                <td></td>
+                                                                <td>{{ $office->prop_addr }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Cadastral Zone:</td>
-                                                                <td></td>
+                                                                <td>{{ $office->cadastral_zone }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Use of Property:</td>
-                                                                <td></td>
+                                                                <td>{{ $office->prop_type }}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Rating District:</td>
-                                                                <td></td>
+                                                                <td>{{ $office->rating_dist }}</td>
                                                             </tr>
                                                         </table>
                                                     </div>
