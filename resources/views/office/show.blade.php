@@ -9,19 +9,19 @@
         .row-border {
             width: 100%;
             min-height: 20px;
-            border: solid 1px #888;
+            border: solid 1px #000000;
             margin-bottom: 10px;
         }
 
         .row-border-mini {
             width: 100%;
             min-height: 100px;
-            border: solid 1px #888;
+            border: solid 1px #000000;
             margin-bottom: 10px;
         }
 
         .row-bill-title {
-            border: solid 1px #888;
+            border: solid 1px #000000;
             text-align: center;
             width: 50px;
         }
@@ -59,12 +59,12 @@ active --}}
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-            <div class="row"style="margin-top:150px;">
-                <div class="col-11">
+            <div class="row"style="margin-top:229px;">
+                <div class="col-12">
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
+                        {{-- <div class="card-header py-3">
                             <h5 class="m-0 font-weight-bold text-primary">PID: {{ $office->pid }}</h5>
-                        </div>
+                        </div> --}}
                         <div class="card-body">
                             <div class="print-wrapper">
                                 <div class="row">
@@ -82,31 +82,31 @@ active --}}
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="pl-2">
-                                                        <p>In respect to the property below:</p>
+                                                        <p><b>In respect to the property below:</b></p>
                                                         <table>
                                                             <tr>
-                                                                <td>Name of Occupier:</td>
-                                                                <td>{{ $office->occupant }}</td>
+                                                                <td><b>Name of Occupier :</b></td>
+                                                                <td><b>{{ $office->occupant }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Assesment No:</td>
-                                                                <td>{{ $office->asset_no }}</td>
+                                                                <td><b>Assesment No :</b></td>
+                                                                <td><b>{{ $office->asset_no }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Property Address:</td>
-                                                                <td>{{ $office->prop_addr }}</td>
+                                                                <td><b>Property Address :</b></td>
+                                                                <td><b>{{ $office->prop_addr }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Cadastral Zone:</td>
-                                                                <td>{{ $office->cadastral_zone }}</td>
+                                                                <td><b>Cadastral Zone :</b></td>
+                                                                <td><b>{{ $office->cadastral_zone }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Use of Property:</td>
-                                                                <td>{{ $office->prop_type }}</td>
+                                                                <td><b>Use of Property :</b></td>
+                                                                <td><b>{{ $office->prop_type }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Rating District:</td>
-                                                                <td>{{ $office->rating_dist }}</td>
+                                                                <td><b>Rating District :</b></td>
+                                                                <td><b>{{ $office->rating_dist }}</b></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -138,8 +138,8 @@ active --}}
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 offset-1">
-                                        <p style="text-align: center;">BILL INFORMATION</p>
+                                    <div class="col-md-4">
+                                        <p style="text-align: center;"><b>BILL INFORMATION</b></p>
                                         <div class="row-border">
                                             {{-- <div class="py-2 text-center mx-4">
                                                 
@@ -159,7 +159,7 @@ active --}}
                                                     <td><span>&#8358;</span>{{ $office->penalty }}</td>
                                                 </tr>
                                                 </tr>
-                                                    <td style="background-color:#eba134;"><strong>Grand:</strong> </td>
+                                                    <td style="background-color:#eba134;"><strong>GRAND TOTAL:</strong> </td>
                                                     <td style="background-color:#eba134;"><span>&#8358;</span>{{ $office->grand_total }}</td>
                                                 </tr>
                                             </table>
@@ -182,9 +182,9 @@ active --}}
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2">
                                             <p>
-                                                Payment Options: <br >
-                                                1. AMAC Bank Draft <br />
-                                                2. internet Banking Transfer <br />
+                                                <b>Payment Options:</b> <br >
+                                                <b>1. AMAC Bank Draft</b> <br />
+                                                <b>2. internet Banking Transfer</b> <br />
                                                 Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.
 
 
@@ -209,16 +209,16 @@ active --}}
                                             <div class="row" style="margin-top:100px;">
                                                <div class="col-sm-6">
                                                 <br>
-                                                   HEAD OF TENEMENT RATE <br />
+                                                   <b>HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
-                                                   Abuja Municipal Area Council
+                                                   Abuja Municipal Area Council</b>
                                                </div>
                                                <div class="col-sm-6">
 
                                                 <br>
-                                                    DIRECTOR OF OPERATIONS <br />
+                                                    <b>DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
-                                                    Abuja Municipal Area Council
+                                                    Abuja Municipal Area Council</b>
 
                                                </div>
                                             </div>

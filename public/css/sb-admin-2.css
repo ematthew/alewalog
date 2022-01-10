@@ -1485,7 +1485,7 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #858796;
+  color: #000000;
 }
 
 .table th,
@@ -1549,7 +1549,7 @@ pre code {
 .table-primary td,
 .table-primary thead th,
 .table-primary tbody + tbody {
-  border-color: #a3b6ee;
+  border-color: #000000;
 }
 
 .table-hover .table-primary:hover {
@@ -1696,7 +1696,7 @@ pre code {
 .table-dark,
 .table-dark > th,
 .table-dark > td {
-  background-color: #d1d1d5;
+  background-color: #000000;
 }
 
 .table-dark th,
