@@ -4,7 +4,7 @@
     Home
 @endsection
 
-{{-- @section('contents') --}}
+@section('contents')
     <style type="text/css">
         .row-border {
             width: 100%;
@@ -34,24 +34,23 @@
             text-align: left; 
             direction: ltr;
         }
+
+        @media print {
+            .print-wrapper {
+                background-color: white;
+                height: 100%;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                margin: 0;
+                padding: 15px;
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
     </style>
-{{-- pid
-occupant
-prop_addr
-street_name
-asset_no
-cadastral_zone
-prop_type
-prop_use
-rating_dist
-annual_value
-rate_payable
-arrears
-penalty
-grand_total
-category
-group
-active --}}
+
     <!-- Main Content -->
     <div id="content">
 
@@ -62,9 +61,9 @@ active --}}
             <div class="row"style="margin-top:229px;">
                 <div class="col-12">
                     <div class="card shadow mb-4">
-                        {{-- <div class="card-header py-3">
+                        <div class="card-header py-3">
                             <h5 class="m-0 font-weight-bold text-primary">PID: {{ $office->pid }}</h5>
-                        </div> --}}
+                        </div>
                         <div class="card-body">
                             <div class="print-wrapper">
                                 <div class="row">
@@ -264,7 +263,7 @@ active --}}
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="btn btn-outline-primary btn-sm col-md-12" onclick="print('docs/print.pdf')" >
+                                    <button class="btn btn-outline-primary btn-sm col-md-12" onclick="printDiv()">
                                         <i class="fa fa-print"></i> Print
                                     </button>
                                 </div>
@@ -283,10 +282,18 @@ active --}}
     </div>
     <!-- End of Main Content -->
 
-{{-- @endsection --}}
-
-
+@endsection
 
 @section('scripts')
-    
- @endsection 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script src="{{asset('js/print.min.js')}}"></script>
+    <script type="text/javascript">
+        function printDiv() {
+            $(".print-wrapper").printElement({
+            leaveOpen:true,
+            printMode:'popup'
+            });
+        }
+    </script>
+@endsection 
