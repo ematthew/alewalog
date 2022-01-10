@@ -58,7 +58,7 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-            <div class="row"style="margin-top:229px;">
+            <div class="row">
                 <div class="col-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -262,14 +262,9 @@
                         </div>
                         <div class="card-footer">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <button class="btn btn-outline-primary btn-sm col-md-12" onclick="printDiv()">
-                                        <i class="fa fa-print"></i> Print
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="btn btn-outline-danger btn-sm col-md-12">
-                                        <i class="fa fa-file-pdf"></i> Download PDF
+                                        <i class="fa fa-print"></i> Print or <i class="fa fa-file-pdf"></i> Download PDF
                                     </button>
                                 </div>
                             </div>
