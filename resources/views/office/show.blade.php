@@ -1,23 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 
-{{-- title section --}}
 @section('title')
     Home
 @endsection
 
-{{-- contents --}}
-@section('contents')
+{{-- @section('contents') --}}
     <style type="text/css">
         .row-border {
             width: 100%;
-            min-height: 50px;
+            min-height: 20px;
             border: solid 1px #888;
             margin-bottom: 10px;
         }
 
         .row-border-mini {
             width: 100%;
-            min-height: 150px;
+            min-height: 100px;
             border: solid 1px #888;
             margin-bottom: 10px;
         }
@@ -61,8 +59,8 @@ active --}}
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-12 col-md-12 mb-4">
+            <div class="row"style="margin-top:150px;">
+                <div class="col-11">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h5 class="m-0 font-weight-bold text-primary">PID: {{ $office->pid }}</h5>
@@ -72,7 +70,7 @@ active --}}
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border">
-                                            <div style="margin-left:100px;margin-right:200px;margin-top: 10px;">
+                                            <div style="margin-left:100px;margin-right:100px;margin-top: 10px;">
                                                 <table class="table table-bordered">
                                                     <tr>
                                                         <th class="thr">Demand Notice is hereby given to</th>
@@ -115,7 +113,6 @@ active --}}
                                                 </div>
                                                 <div class="col-md-4 pr-4">
                                                     <div class="">
-                                                        <p>QR Code</p>
                                                         <span>{!! QrCode::size(120)->generate('RemoteStack') !!}</span> 
                                                         <br> <br>
                                                         <p>{{ $office->occupant }}/{{ $office->pid }}</p>
@@ -126,7 +123,7 @@ active --}}
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4 offset-2" style="margin-top:60px;">
                                         <div class="row-border">
                                             <table class="table">
                                                 <tr>
@@ -141,11 +138,12 @@ active --}}
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4 offset-1">
+                                        <p style="text-align: center;">BILL INFORMATION</p>
                                         <div class="row-border">
-                                            <div class="py-2 text-center mx-4">
-                                                <p>BILL</p>
-                                            </div>
+                                            {{-- <div class="py-2 text-center mx-4">
+                                                
+                                            </div> --}}
                                             <table class="table">
                                                 <tr>
                                                     <td>Annual Value: </td>
@@ -161,8 +159,8 @@ active --}}
                                                     <td><span>&#8358;</span>{{ $office->penalty }}</td>
                                                 </tr>
                                                 </tr>
-                                                    <td><strong>Grand:</strong> </td>
-                                                    <td><span>&#8358;</span>{{ $office->grand_total }}</td>
+                                                    <td style="background-color:#eba134;"><strong>Grand:</strong> </td>
+                                                    <td style="background-color:#eba134;"><span>&#8358;</span>{{ $office->grand_total }}</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -204,15 +202,12 @@ active --}}
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="row-border px-4 py-1">
-                                           Your early compliance will be highly appreciated
+                                        <div class="">
+                                          <strong> Your early compliance will be highly appreciated</strong>
                                         </div>
-                                        <div class="row-border px-4 py-1">
-                                            <div class="row">
+                                        <div class="">
+                                            <div class="row" style="margin-top:100px;">
                                                <div class="col-sm-6">
-                                                <br>
-                                                <br>
-                                                <br>
                                                 <br>
                                                    HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
@@ -220,9 +215,6 @@ active --}}
                                                </div>
                                                <div class="col-sm-6">
 
-                                                <br>
-                                                <br>
-                                                <br>
                                                 <br>
                                                     DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
@@ -234,7 +226,7 @@ active --}}
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row-border px-4 py-2">
-                                            <div class="text-center"><p>ACKNOWLEDGEMENT</p></div>
+                                            <div class="text-center"><p><strong>ACKNOWLEDGEMENT</strong></p></div>
                                             <table>
                                                 <tr>
                                                     <td>Date of Dispatch:</td>
@@ -291,10 +283,10 @@ active --}}
     </div>
     <!-- End of Main Content -->
 
-@endsection
+{{-- @endsection --}}
 
 
-{{-- scripts --}}
+
 @section('scripts')
     
-@endsection
+ @endsection 
