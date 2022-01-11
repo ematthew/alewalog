@@ -68,9 +68,9 @@
                             <div class="print-wrapper">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border">
-                                            <div style="margin-left:100px;margin-right:100px;margin-top: 10px;">
-                                                <table class="table table-bordered">
+                                        <div class="row-border" style="color:#000 !important;">
+                                            <div style="margin-left:100px;margin-right:100px;margin-top: 10px; color:#000 !important;">
+                                                <table class="table table-bordered" style="color:#000 !important;">
                                                     <tr>
                                                         <th class="thr">Demand Notice is hereby given to</th>
                                                         <th class="thl">{{ $office->occupant }}/{{ $office->pid }}</th>
@@ -123,8 +123,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 offset-2" style="margin-top:60px;">
-                                        <div class="row-border">
-                                            <table class="table">
+                                        <div class="row-border" style="color:#000 !important;">
+                                            <table class="table" style="color:#000 !important;">
                                                 <tr>
                                                     <td>Bill Ref: </td>
                                                 </tr>
@@ -132,18 +132,18 @@
                                                 </tr>
                                                     <td>Revenue Code: </td>
                                                 </tr>
-                                                    <td>Rate Year: </td>
+                                                    <td>Rate Year: {{ date("Y") }}</td>
                                                 </tr>
                                             </table>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <p style="text-align: center;"><b>BILL INFORMATION</b></p>
-                                        <div class="row-border">
+                                        <div class="row-border" style="color:#000 !important;">
                                             {{-- <div class="py-2 text-center mx-4">
                                                 
                                             </div> --}}
-                                            <table class="table">
+                                            <table class="table" style="color:#000 !important;">
                                                 <tr>
                                                     <td>Annual Value: </td>
                                                     <td><span>&#8358;</span>{{ $office->annual_value }}</td>
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border px-4 py-2">
+                                        <div class="row-border px-4 py-2" style="color:#000 !important;">
                                             <b>
                                                 In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger">MERGEFIELD grand_total \# ₦#,##0.00₦ XXX,XXX,XXX.XX</span> in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. 
 
@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border px-4 py-2">
+                                        <div class="row-border px-4 py-2" style="color:#000 !important;">
                                             <p>
                                                 <b>Payment Options:</b> <br >
                                                 <b>1. AMAC Bank Draft</b> <br />
@@ -193,26 +193,26 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border px-4 py-2">
+                                        <div class="row-border px-4 py-2" style="color:#000 !important;">
                                             <b class="text-danger">NOTE</b>: Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" style="color:#000 !important;">
                                         <div class="">
                                           <strong> Your early compliance will be highly appreciated</strong>
                                         </div>
                                         <div class="">
                                             <div class="row" style="margin-top:100px;">
-                                               <div class="col-sm-6">
+                                               <div class="col-sm-6" style="color:#000 !important;">
                                                 <br>
                                                    <b>HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
                                                    Abuja Municipal Area Council</b>
                                                </div>
-                                               <div class="col-sm-6">
+                                               <div class="col-sm-6" style="color:#000 !important;">
 
                                                 <br>
                                                     <b>DIRECTOR OF OPERATIONS <br />
@@ -225,8 +225,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row-border px-4 py-2">
-                                            <div class="text-center"><p><strong>ACKNOWLEDGEMENT</strong></p></div>
-                                            <table>
+                                            <div class="text-center" style="color:#000 !important;"><p><strong>ACKNOWLEDGEMENT</strong></p></div>
+                                            <table style="color:#000 !important;">
                                                 <tr>
                                                     <td>Date of Dispatch:</td>
                                                     <td>-----------------------------</td>
@@ -241,7 +241,7 @@
                                                 </tr>
                                             </table>
                                             <br />
-                                            <table>
+                                            <table style="color:#000 !important;">
                                                 <tr>
                                                     <td>Date of Dispatch:</td>
                                                     <td>-----------------------------</td>
