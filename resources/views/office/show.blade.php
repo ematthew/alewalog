@@ -98,12 +98,16 @@
                 <div class="col-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <img src="/img/Demandnotice.png">
+                            
                         </div>
                         <div class="card-body">
                             <div class="print-wrapper">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <img src="{{asset('/img/Demandnotice.png')}}" width="920px">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <br />
                                         <div class="row-border" style="color:#000 !important; border: 1px solid #000 !important;">
                                             <div style="margin-left:100px;margin-right:100px;margin-top: 10px; color:#000 !important;">
                                                 <table class="table table-bordered" style="color:#000 !important;">
@@ -245,17 +249,18 @@
                                         </div>
                                         <div class="">
                                             <div class="row" style="margin-top:100px;">
-                                               <div class="col-3" style="color:#000 !important;">
+                                               <div class="col-md-6" style="color:#000 !important;">
                                                 <br>
-                                                    <p><img src="/img/htr.jpeg"></p><br>
-                                                   <b>HEAD OF TENEMENT RATE <br />
+                                                    <p><img src="/img/htr.jpeg"></p> <br />
+                                                    <b>HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
                                                    Abuja Municipal Area Council</b>
                                                </div>
-                                               <div class="col-3" style="color:#000 !important;">
+                                               <div class="col-md-6" style="color:#000 !important;">
 
                                                 <br>
-                                                    <p><img src="/img/doo.jpeg"></p><br>
+                                                    <p><img src="{{asset('/img/doo.jpeg')}}" width="168px"></p> 
+                                                    <br />
                                                     <b>DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
                                                     Abuja Municipal Area Council</b>
