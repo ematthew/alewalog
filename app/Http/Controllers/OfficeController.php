@@ -24,6 +24,7 @@ class OfficeController extends Controller
     |-----------------------------------------
     */
     public function index(Request $request){
+
     	// body
         $offices = Office::orderBy('pid', 'DESC')->paginate(10);
         return view('office.index', compact('offices'));
