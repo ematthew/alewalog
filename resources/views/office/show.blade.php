@@ -34,6 +34,13 @@
         .p{
             text.background-color: black;
         }
+
+        .table td, .table th {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #1b1c1d !important;
+        }
+
         @media print {
             .print-wrapper {
                 background-color: white;
@@ -70,6 +77,12 @@
                 border: solid 1px #000000;
                 text-align: center;
                 width: 50px;
+            }
+
+            .table td, .table th {
+                padding: 0.75rem;
+                vertical-align: top;
+                border-top: 1px solid #1b1c1d !important;
             }
         }
     </style>
@@ -167,22 +180,25 @@
                                                 
                                             </div> --}}
                                             <table class="table" style="color:#000 !important;">
-                                                <tr>
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td>Annual Value: </td>
-                                                    <td><span>&#8358;</span>{{ $office->annual_value }}</td>
+                                                    <td><span>&#8358;</span>{{ number_format($office->annual_value, 2) }}</td>
                                                 </tr>
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td>Rate Payable </td>
-                                                    <td><span>&#8358;</span>{{ $office->rate_payable }}</td>
+                                                    <td><span>&#8358;</span>{{ number_format($office->rate_payable, 2) }}</td>
                                                 </tr>
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td>Arrears Year: </td>
-                                                    <td><span>&#8358;</span>{{ $office->arrears }}</td>
-                                                </tr>
+                                                    <td><span>&#8358;</span>{{ number_format($office->arrears, 2) }}</td>
+                                                </tr style="border-bottom-style: 1px solid #000 !important;">
+                                                <tr/>
                                                     <td>Penalty (10%): </td>
-                                                    <td><span>&#8358;</span>{{ $office->penalty }}</td>
+                                                    <td><span>&#8358;</span>{{ number_format($office->penalty, 2) }}</td>
                                                 </tr>
-                                                </tr>
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td style="background-color:#eba134;"><strong>GRAND TOTAL:</strong> </td>
-                                                    <td style="background-color:#eba134;"><span>&#8358;</span>{{ $office->grand_total }}</td>
+                                                    <td style="background-color:#eba134;"><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</td>
                                                 </tr>
                                             </table>
                                         </div>
