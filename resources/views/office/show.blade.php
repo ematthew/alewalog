@@ -103,8 +103,8 @@
                         <div class="card-body">
                             <div class="print-wrapper">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <img src="{{asset('/img/Demandnotice.png')}}" width="920px">
+                                    <div class="col-md-10 offset-1">
+                                        <img src="{{asset('/img/demandnotice.jpeg')}}" width="920px" >
                                     </div>
                                     <div class="col-md-12">
                                         <br />
@@ -166,13 +166,13 @@
                                         <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <table class="table" style="color:#000 !important;">
                                                 <tr>
-                                                    <td>Bill Ref : <b>{{ date("Y /")  .$office->pid }}</b> </td>
+                                                    <td><b>Bill Ref : {{ date("Y /")  .$office->pid }}</b> </td>
                                                 </tr>
-                                                    <td>Agency Code:  </td>
+                                                    <td><b>Agency Code:</b>  </td>
                                                 </tr>
-                                                    <td>Revenue Code:1002 </td>
+                                                    <td><b>Revenue Code:1002 </b></td>
                                                 </tr>
-                                                    <td>Rate Year: <b>{{ date("Y") }}</b></td>
+                                                    <td><b> Rate Year: {{ date("Y") }}</b></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -185,24 +185,24 @@
                                             </div> --}}
                                             <table class="table" style="color:#000 !important;">
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td>Annual Value: </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->annual_value, 2) }}</td>
+                                                    <td><b>Annual Value:</b> </td>
+                                                    <td><span>&#8358;</span><b>{{ number_format($office->annual_value, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td>Rate Payable </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->rate_payable, 2) }}</td>
+                                                    <td><b>Rate Payable</b> </td>
+                                                    <td><span>&#8358;</span><b>{{ number_format($office->rate_payable, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td>Arrears Year: </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->arrears, 2) }}</td>
+                                                    <td><b>Arrears Year:</b> </td>
+                                                    <td><span>&#8358;</span><b>{{ number_format($office->arrears, 2) }}</b></td>
                                                 </tr style="border-bottom-style: 1px solid #000 !important;">
                                                 <tr/>
-                                                    <td>Penalty (10%): </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->penalty, 2) }}</td>
+                                                    <td><b>Penalty (10%):</b> </td>
+                                                    <td><span>&#8358;</span><b>{{ number_format($office->penalty, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td style="background-color:#eba134;"><strong>GRAND TOTAL:</strong> </td>
-                                                    <td style="background-color:#eba134;"><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</td>
+                                                    <td style="background-color:#eba134;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -212,7 +212,7 @@
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;">
                                             <b>
-                                                In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger"><strong><b><span>&#8358;</span>{{ $office->grand_total }}</b></strong></b></span> in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. 
+                                                In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger"><strong><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. 
 
                                                 Rating District
 
@@ -248,18 +248,17 @@
                                           <strong> Your early compliance will be highly appreciated</strong>
                                         </div>
                                         <div class="">
-                                            <div class="row" style="margin-top:100px;">
+                                            <div class="row" style="margin-top:50px;">
                                                <div class="col-md-6" style="color:#000 !important;">
                                                 <br>
-                                                    <p><img src="/img/htr.jpeg"></p> <br />
+                                                    <p><img src="/img/htr.png"></p> <br />
                                                     <b>HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
                                                    Abuja Municipal Area Council</b>
                                                </div>
                                                <div class="col-md-6" style="color:#000 !important;">
 
-                                                <br>
-                                                    <p><img src="{{asset('/img/doo.jpeg')}}" width="168px"></p> 
+                                                    <p><img src="{{asset('/img/doo.jpeg')}}" width="210px"></p> 
                                                     <br />
                                                     <b>DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
@@ -269,36 +268,36 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" style="margin-top:80;">
                                         <div class="row-border px-4 py-2" style="border: 1px solid #000 !important;">
                                             <div class="text-center" style="color:#000 !important;"><p><strong>ACKNOWLEDGEMENT</strong></p></div>
                                             <table style="color:#000 !important;">
                                                 <tr>
-                                                    <td>Date of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>
+                                                    <td><b>Date of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Name of Officer:</td>
-                                                    <td>-----------------------------------------------------</td>    
+                                                    <td><b>Name of Officer:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>    
                                                 </tr>
                                                 <tr>
-                                                    <td>Mode of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>
+                                                    <td><b>Mode of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>
                                                 </tr>
                                             </table>
                                             <br />
                                             <table style="color:#000 !important;">
                                                 <tr>
-                                                    <td>Date of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>    
+                                                    <td><b>Date of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>    
                                                 </tr>
                                                 <tr>
-                                                    <td>Name of Officer:</td>
-                                                    <td>-----------------------------------------------------</td>    
+                                                    <td><b>Name of Officer:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>    
                                                 </tr>
                                                 <tr>
-                                                    <td>Mode of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>                                                    
+                                                    <td><b>Mode of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>                          
                                                 </tr>
                                             </table>
                                         </div>
