@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('contents')
-<div class="container">
+
+<div class="card mb-3">
+  <img src="..." class="card-img-top" alt="...">
+
+  <div class="container">
     <div style="height: 200px;"></div>
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -71,4 +75,10 @@
         </div>
     </div>
 </div>
+  
+</div>
+
 @endsection
+
+
+
