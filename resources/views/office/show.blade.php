@@ -124,28 +124,28 @@
                                                         <p><b>In respect to the property below:</b></p>
                                                         <table>
                                                             <tr>
-                                                                <td><b>Name of Occupier :</b></td>
-                                                                <td><b>{{ $office->occupant }}</b></td>
+                                                                <td style="color: black;"><b>Name of Occupier :</b></td>
+                                                                <td style="color: blue"><b>{{ $office->occupant }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Assesment No :</b></td>
-                                                                <td><b>{{ $office->asset_no }}</b></td>
+                                                                <td style="color:black;"><b>Assesment No :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->asset_no }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Property Address :</b></td>
-                                                                <td><b>{{ $office->prop_addr }}</b></td>
+                                                                <td style="color:black;"><b>Property Address :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->prop_addr }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Cadastral Zone :</b></td>
-                                                                <td><b>{{ $office->cadastral_zone }}</b></td>
+                                                                <td style="color:black;"><b>Cadastral Zone :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->cadastral_zone }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Use of Property :</b></td>
-                                                                <td><b>{{ $office->prop_type }}</b></td>
+                                                                <td style="color:black;"><b>Use of Property :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->prop_type }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Rating District :</b></td>
-                                                                <td><b>{{ $office->rating_dist }}</b></td>
+                                                                <td style="color:black;"><b>Rating District :</b></td>
+                                                                <td style="color:blue"><b>{{ $office->rating_dist }}</b></td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -178,7 +178,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <p style="text-align: center;"><b>BILL INFORMATION</b></p>
+                                        <p style="text-align: center; color: black;" ><b>BILL INFORMATION</b></p>
                                         <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
                                             {{-- <div class="py-2 text-center mx-4">
                                                 
@@ -186,23 +186,23 @@
                                             <table class="table" style="color:#000 !important;">
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td><b>Annual Value:</b> </td>
-                                                    <td><span>&#8358;</span><b>{{ number_format($office->annual_value, 2) }}</b></td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->annual_value, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td><b>Rate Payable</b> </td>
-                                                    <td><span>&#8358;</span><b>{{ number_format($office->rate_payable, 2) }}</b></td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->rate_payable, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td><b>Arrears Year:</b> </td>
-                                                    <td><span>&#8358;</span><b>{{ number_format($office->arrears, 2) }}</b></td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->arrears, 2) }}</b></td>
                                                 </tr style="border-bottom-style: 1px solid #000 !important;">
                                                 <tr/>
                                                     <td><b>Penalty (10%):</b> </td>
-                                                    <td><span>&#8358;</span><b>{{ number_format($office->penalty, 2) }}</b></td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->penalty, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td style="background-color:#eba134;"><strong>GRAND TOTAL:</strong> </td>
-                                                    <td style="background-color:#eba134;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
+                                                    <td style="background-color:#eba134; color: blue;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -212,9 +212,7 @@
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;">
                                             <b>
-                                                In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger"><strong><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. 
-
-                                                Rating District
+                                                In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger"><strong><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> <b>in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. Rating District</b>
 
                                             </b>
                                         </div>
@@ -227,7 +225,7 @@
                                                 <b>Payment Options:</b> <br >
                                                 <b>1. AMAC Bank Draft</b> <br />
                                                 <b>2. Internet Banking Transfer:<span class="text-danger"> <strong><b>AMAC-ALEWA, FCMB Account. No. 8672253011</b></strong></span> </b> <br />
-                                                Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.
+                                                <b>Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.</b>
 
 
                                             </p>
@@ -237,7 +235,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
-                                            <b class="text-danger">NOTE</b>: Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.
+                                            <b class="text-danger">NOTE</b>: <b>Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.</b>
                                         </div>
                                     </div>
                                 </div>
