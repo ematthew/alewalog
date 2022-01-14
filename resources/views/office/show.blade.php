@@ -48,6 +48,30 @@
                 font-size: 14px;
                 line-height: 18px;
             }
+
+            table {
+                border: 1px solid #000;
+            }
+
+            .row-border {
+                width: 100%;
+                min-height: 20px;
+                border: solid 1px #000000;
+                margin-bottom: 10px;
+            }
+
+            .row-border-mini {
+                width: 100%;
+                min-height: 100px;
+                border: solid 1px #000000;
+                margin-bottom: 10px;
+            }
+
+            .row-bill-title {
+                border: solid 1px #000000;
+                text-align: center;
+                width: 50px;
+            }
         }
     </style>
 
@@ -68,7 +92,7 @@
                             <div class="print-wrapper">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border" style="color:#000 !important;">
+                                        <div class="row-border" style="color:#000 !important; border: 1px solid #000 !important;">
                                             <div style="margin-left:100px;margin-right:100px;margin-top: 10px; color:#000 !important;">
                                                 <table class="table table-bordered" style="color:#000 !important;">
                                                     <tr>
@@ -123,7 +147,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 offset-2" style="margin-top:60px;">
-                                        <div class="row-border" style="color:#000 !important;">
+                                        <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <table class="table" style="color:#000 !important;">
                                                 <tr>
                                                     <td>Bill Ref: </td>
@@ -139,7 +163,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <p style="text-align: center;"><b>BILL INFORMATION</b></p>
-                                        <div class="row-border" style="color:#000 !important;">
+                                        <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
                                             {{-- <div class="py-2 text-center mx-4">
                                                 
                                             </div> --}}
@@ -167,7 +191,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border px-4 py-2" style="color:#000 !important;">
+                                        <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;">
                                             <b>
                                                 In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger">MERGEFIELD grand_total \# ₦#,##0.00₦ XXX,XXX,XXX.XX</span> in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. 
 
@@ -179,7 +203,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border px-4 py-2" style="color:#000 !important;">
+                                        <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <p>
                                                 <b>Payment Options:</b> <br >
                                                 <b>1. AMAC Bank Draft</b> <br />
@@ -193,7 +217,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border px-4 py-2" style="color:#000 !important;">
+                                        <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <b class="text-danger">NOTE</b>: Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.
                                         </div>
                                     </div>
@@ -224,7 +248,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="row-border px-4 py-2">
+                                        <div class="row-border px-4 py-2" style="border: 1px solid #000 !important;">
                                             <div class="text-center" style="color:#000 !important;"><p><strong>ACKNOWLEDGEMENT</strong></p></div>
                                             <table style="color:#000 !important;">
                                                 <tr>
@@ -286,8 +310,12 @@
     <script type="text/javascript">
         function printDiv() {
             $(".print-wrapper").printElement({
-            leaveOpen:true,
-            printMode:'popup'
+                leaveOpen:true,
+                printMode:'popup',
+                printBodyOptions:{
+                    styleToAdd:'1px solid #000 !important;',
+                    classNameToAdd : 'row-border'
+                }
             });
         }
     </script>
