@@ -98,7 +98,7 @@
                 <div class="col-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">PID: {{ $office->pid }}</h5>
+                            <img src="/img/Demandnotice.png">
                         </div>
                         <div class="card-body">
                             <div class="print-wrapper">
@@ -239,23 +239,23 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6" style="color:#000 !important;">
+                                    <div class="col-6" style="color:#000 !important;">
                                         <div class="">
                                           <strong> Your early compliance will be highly appreciated</strong>
                                         </div>
                                         <div class="">
                                             <div class="row" style="margin-top:100px;">
-                                               <div class="col-sm-6" style="color:#000 !important;">
+                                               <div class="col-3" style="color:#000 !important;">
                                                 <br>
                                                     <p><img src="/img/htr.jpeg"></p><br>
                                                    <b>HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
                                                    Abuja Municipal Area Council</b>
                                                </div>
-                                               <div class="col-sm-6" style="color:#000 !important;">
+                                               <div class="col-3" style="color:#000 !important;">
 
                                                 <br>
-                                                    <p><img src="/img/htr.jpeg"></p><br>
+                                                    <p><img src="/img/doo.jpeg"></p><br>
                                                     <b>DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
                                                     Abuja Municipal Area Council</b>
