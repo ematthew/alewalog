@@ -58,7 +58,7 @@ class OfficeController extends Controller
           });
         }
         
-        return view('office.show', compact('office'));
+        return view('office.index', compact('office'));
     }
 
      // Generate PDF

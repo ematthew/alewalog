@@ -189,7 +189,7 @@
                                                 </div>
                                                 <div class="col-md-4 pr-4">
                                                     <div class="">
-                                                        <span>{!! QrCode::size(120)->generate('the occupier' .$office->pid .$office->grand_total)!!}</span>
+                                                        <span>{!! QrCode::size(120)->generate('the occupier: '.$office->asset_no  .' pid No:' .$office->pid .' Grand Total: '.$office->grand_total )!!}</span>
                                                         <br> <br>
                                                         <p>{{ $office->occupant }}/{{ $office->pid }}</p>
                                                     </div>
