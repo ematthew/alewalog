@@ -40,6 +40,24 @@
             vertical-align: top;
             border-top: 1px solid #1b1c1d !important;
         }
+        .watermarked {
+        position: relative;
+       }
+
+      .watermarked:after {
+       content: "";
+       display: block;
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       top: 0px;
+       left: 0px;
+       background-image: url({{ asset('img/logo.jpeg') }});
+       background-size: 100px 100px;
+       background-position: 30px 30px;
+       background-repeat: no-repeat;
+       opacity: 0.7;
+     }
 
         @media print {
             .print-wrapper {
@@ -152,7 +170,7 @@
                                                 </div>
                                                 <div class="col-md-4 pr-4">
                                                     <div class="">
-                                                        <span>{!! QrCode::size(120)->generate('the occupier')!!}</span> 
+                                                        <span>{!! QrCode::size(120)->generate('the occupier' .$office->pid .$office->grand_total)!!}</span> 
                                                         <br> <br>
                                                         <p>{{ $office->occupant }}/{{ $office->pid }}</p>
                                                     </div>
@@ -161,6 +179,7 @@
                                         </div>
                                     </div>
                                 </div>
+            
                                 <div class="row">
                                     <div class="col-md-4 offset-2" style="margin-top:60px;">
                                         <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
