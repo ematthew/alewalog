@@ -40,6 +40,24 @@
             vertical-align: top;
             border-top: 1px solid #1b1c1d !important;
         }
+        .watermarked {
+        position: relative;
+       }
+
+      .watermarked:after {
+       content: "";
+       display: block;
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       top: 0px;
+       left: 0px;
+       background-image: url({{ asset('img/logo.jpeg') }});
+       background-size: 100px 100px;
+       background-position: 30px 30px;
+       background-repeat: no-repeat;
+       opacity: 0.7;
+     }
 
         @media print {
             .print-wrapper {
@@ -85,6 +103,24 @@
                 border-top: 1px solid #1b1c1d !important;
             }
         }
+
+        /*.watermarked {
+          position: absolute;
+        }*/
+
+        .watermarkedd {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 500px;
+          left: 25%;
+          background-image: url({{ url('img/watermark.jpeg') }});
+          background-size: 500px 500px;
+          background-position: 30px 30px;
+          background-repeat: no-repeat;
+          opacity: 0.2;
+        }
     </style>
 
     <!-- Main Content -->
@@ -102,9 +138,10 @@
                         </div>
                         <div class="card-body">
                             <div class="print-wrapper">
+                                <div class="watermarkedd"></div>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <img src="{{asset('/img/Demandnotice.png')}}" width="920px">
+                                    <div class="col-md-10 offset-1">
+                                        <img src="{{asset('/img/demandnotice.jpeg')}}" width="920px" >
                                     </div>
                                     <div class="col-md-12">
                                         <br />
@@ -124,35 +161,35 @@
                                                         <p><b>In respect to the property below:</b></p>
                                                         <table>
                                                             <tr>
-                                                                <td><b>Name of Occupier :</b></td>
-                                                                <td><b>{{ $office->occupant }}</b></td>
+                                                                <td style="color: black;"><b>Name of Occupier :</b></td>
+                                                                <td style="color: blue"><b>{{ $office->occupant }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Assesment No :</b></td>
-                                                                <td><b>{{ $office->asset_no }}</b></td>
+                                                                <td style="color:black;"><b>Assesment No :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->asset_no }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Property Address :</b></td>
-                                                                <td><b>{{ $office->prop_addr }}</b></td>
+                                                                <td style="color:black;"><b>Property Address :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->prop_addr }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Cadastral Zone :</b></td>
-                                                                <td><b>{{ $office->cadastral_zone }}</b></td>
+                                                                <td style="color:black;"><b>Cadastral Zone :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->cadastral_zone }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Use of Property :</b></td>
-                                                                <td><b>{{ $office->prop_type }}</b></td>
+                                                                <td style="color:black;"><b>Use of Property :</b></td>
+                                                                <td style="color:blue;"><b>{{ $office->prop_type }}</b></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Rating District :</b></td>
-                                                                <td><b>{{ $office->rating_dist }}</b></td>
+                                                                <td style="color:black;"><b>Rating District :</b></td>
+                                                                <td style="color:blue"><b>{{ $office->rating_dist }}</b></td>
                                                             </tr>
                                                         </table>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 pr-4">
                                                     <div class="">
-                                                        <span>{!! QrCode::size(120)->generate($office->pid) !!}</span> 
+                                                        <span>{!! QrCode::size(120)->generate('the occupier' .$office->pid .$office->grand_total)!!}</span>
                                                         <br> <br>
                                                         <p>{{ $office->occupant }}/{{ $office->pid }}</p>
                                                     </div>
@@ -161,48 +198,49 @@
                                         </div>
                                     </div>
                                 </div>
+            
                                 <div class="row">
                                     <div class="col-md-4 offset-2" style="margin-top:60px;">
                                         <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <table class="table" style="color:#000 !important;">
                                                 <tr>
-                                                    <td>Bill Ref : <b>{{ date("Y /")  .$office->pid }}</b> </td>
+                                                    <td><b>Bill Ref : {{ date("Y /")  .$office->pid }}</b> </td>
                                                 </tr>
-                                                    <td>Agency Code:  </td>
+                                                    <td><b>Agency Code:</b>  </td>
                                                 </tr>
-                                                    <td>Revenue Code:1002 </td>
+                                                    <td><b>Revenue Code:1002 </b></td>
                                                 </tr>
-                                                    <td>Rate Year: <b>{{ date("Y") }}</b></td>
+                                                    <td><b> Rate Year: {{ date("Y") }}</b></td>
                                                 </tr>
                                             </table>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <p style="text-align: center;"><b>BILL INFORMATION</b></p>
+                                        <p style="text-align: center; color: black;" ><b>BILL INFORMATION</b></p>
                                         <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
                                             {{-- <div class="py-2 text-center mx-4">
                                                 
                                             </div> --}}
                                             <table class="table" style="color:#000 !important;">
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td>Annual Value: </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->annual_value, 2) }}</td>
+                                                    <td><b>Annual Value:</b> </td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->annual_value, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td>Rate Payable </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->rate_payable, 2) }}</td>
+                                                    <td><b>Rate Payable</b> </td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->rate_payable, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td>Arrears Year: </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->arrears, 2) }}</td>
+                                                    <td><b>Arrears Year:</b> </td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->arrears, 2) }}</b></td>
                                                 </tr style="border-bottom-style: 1px solid #000 !important;">
                                                 <tr/>
-                                                    <td>Penalty (10%): </td>
-                                                    <td><span>&#8358;</span>{{ number_format($office->penalty, 2) }}</td>
+                                                    <td><b>Penalty (10%):</b> </td>
+                                                    <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->penalty, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
                                                     <td style="background-color:#eba134;"><strong>GRAND TOTAL:</strong> </td>
-                                                    <td style="background-color:#eba134;"><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</td>
+                                                    <td style="background-color:#eba134; color: blue;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -212,9 +250,7 @@
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;">
                                             <b>
-                                                In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger"><strong><b><span>&#8358;</span>{{ $office->grand_total }}</b></strong></b></span> in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. 
-
-                                                Rating District
+                                                In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span class="text-danger"><strong><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> <b>in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. Rating District</b>
 
                                             </b>
                                         </div>
@@ -227,7 +263,7 @@
                                                 <b>Payment Options:</b> <br >
                                                 <b>1. AMAC Bank Draft</b> <br />
                                                 <b>2. Internet Banking Transfer:<span class="text-danger"> <strong><b>AMAC-ALEWA, FCMB Account. No. 8672253011</b></strong></span> </b> <br />
-                                                Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.
+                                                <b>Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.</b>
 
 
                                             </p>
@@ -237,7 +273,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
-                                            <b class="text-danger">NOTE</b>: Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.
+                                            <b class="text-danger">NOTE</b>: <b>Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.</b>
                                         </div>
                                     </div>
                                 </div>
@@ -248,18 +284,17 @@
                                           <strong> Your early compliance will be highly appreciated</strong>
                                         </div>
                                         <div class="">
-                                            <div class="row" style="margin-top:100px;">
+                                            <div class="row" style="margin-top:50px;">
                                                <div class="col-md-6" style="color:#000 !important;">
                                                 <br>
-                                                    <p><img src="/img/htr.jpeg"></p> <br />
+                                                    <p><img src="/img/htr.png"></p> <br />
                                                     <b>HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
                                                    Abuja Municipal Area Council</b>
                                                </div>
                                                <div class="col-md-6" style="color:#000 !important;">
 
-                                                <br>
-                                                    <p><img src="{{asset('/img/doo.jpeg')}}" width="168px"></p> 
+                                                    <p><img src="{{asset('/img/doo.jpeg')}}" width="210px"></p> 
                                                     <br />
                                                     <b>DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
@@ -269,36 +304,36 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" style="margin-top:80;">
                                         <div class="row-border px-4 py-2" style="border: 1px solid #000 !important;">
                                             <div class="text-center" style="color:#000 !important;"><p><strong>ACKNOWLEDGEMENT</strong></p></div>
                                             <table style="color:#000 !important;">
                                                 <tr>
-                                                    <td>Date of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>
+                                                    <td><b>Date of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Name of Officer:</td>
-                                                    <td>-----------------------------------------------------</td>    
+                                                    <td><b>Name of Officer:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>    
                                                 </tr>
                                                 <tr>
-                                                    <td>Mode of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>
+                                                    <td><b>Mode of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>
                                                 </tr>
                                             </table>
                                             <br />
                                             <table style="color:#000 !important;">
                                                 <tr>
-                                                    <td>Date of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>    
+                                                    <td><b>Date of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>    
                                                 </tr>
                                                 <tr>
-                                                    <td>Name of Officer:</td>
-                                                    <td>-----------------------------------------------------</td>    
+                                                    <td><b>Name of Officer:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>    
                                                 </tr>
                                                 <tr>
-                                                    <td>Mode of Dispatch:</td>
-                                                    <td>-----------------------------------------------------</td>                                                    
+                                                    <td><b>Mode of Dispatch:</b></td>
+                                                    <td><b>-------------------------------------------------</b></td>                          
                                                 </tr>
                                             </table>
                                         </div>
