@@ -239,8 +239,8 @@
                                                     <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->penalty, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td style="background-color:#eba134;"><strong>GRAND TOTAL:</strong> </td>
-                                                    <td style="background-color:#eba134; color: blue;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
+                                                    <td style="background-color:yellow;"><strong>GRAND TOTAL:</strong> </td>
+                                                    <td style="background-color:yellow; color: blue;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -371,7 +371,9 @@
                 printMode:'popup',
                 printBodyOptions:{
                     styleToAdd:'1px solid #000 !important;',
+                    classNameToAdd : 'row-border',
                     classNameToAdd : 'row-border'
+                    
                 }
             });
         }
