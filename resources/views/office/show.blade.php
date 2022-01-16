@@ -203,7 +203,7 @@
                                                 </div>
                                                 <div class="col-md-4 pr-4">
                                                     <div class="">
-                                                        <span>{!! QrCode::size(120)->generate('the occupier' .$office->pid .$office->grand_total)!!}</span>
+                                                        <span>{!! QrCode::size(120)->generate('the occupier: '.$office->asset_no  .', Your pid No is:' .$office->pid .', Your Grand Total: '.(number_format($office->grand_total, 2)))!!}</span>
                                                         <br> <br>
                                                         <p>{{ $office->occupant }}/{{ $office->pid }}</p>
                                                     </div>
@@ -253,8 +253,8 @@
                                                     <td style="color:blue;"><span>&#8358;</span><b>{{ number_format($office->penalty, 2) }}</b></td>
                                                 </tr>
                                                 <tr style="border-bottom-style: 1px solid #000 !important;">
-                                                    <td style="background-color:#eba134;"><strong>GRAND TOTAL:</strong> </td>
-                                                    <td style="background-color:#eba134; color: blue;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
+                                                    <td style="background-color:yellow;"><strong>GRAND TOTAL:</strong> </td>
+                                                    <td style="background-color:yellow; color: blue;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -385,7 +385,9 @@
                 printMode:'popup',
                 printBodyOptions:{
                     styleToAdd:'1px solid #000 !important;',
+                    classNameToAdd : 'row-border',
                     classNameToAdd : 'row-border'
+                    
                 }
             });
         }
