@@ -23,7 +23,7 @@
                         </div>
                         <div class="mx-auto pull-right">
                             <div class="">
-                              <form action="" method="GET" role="search">
+                              <form action="{{url('search')}}" method="GET" role="search">
 
                                    <div class="input-group">
                                      <span class="input-group-btn mr-5 mt-1">
@@ -31,12 +31,12 @@
                                            <span class="fas fa-search">search</span>
                                         </button>
                                      </span>
-                                         <input type="text" class="form-control mr-6" name="term" placeholder="Search projects">
-                                          <a href="" class=" mt-1">
+                                         <input type="text" class="form-control mr-6" placeholder="Search projects">
                                          <span class="input-group-btn">
-                                            <button class="btn btn-danger" type="button" title="Refresh page">
-                                               <span class="fas fa-sync-alt"></span>
-                                            </button>s
+                                            <a href="" class="mr-5  mt-1">
+                                            <button class="btn btn-success" type="button" title="Refresh page">
+                                               <span class=" fas fa-sync-alt"></span>
+                                            </button>
                                          </span>
                                          </a>
                                    </div>
