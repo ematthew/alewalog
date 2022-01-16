@@ -73,6 +73,20 @@
                 line-height: 18px;
             }
 
+            .watermarkedd {
+              display: block;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 500px;
+              left: 25%;
+              background-image: url({{ url('img/watermark.jpeg') }});
+              background-size: 500px 500px;
+              background-position: 30px 30px;
+              background-repeat: no-repeat;
+              opacity: 0.2;
+            }
+
             table {
                 border: 1px solid #000;
             }
@@ -138,7 +152,7 @@
                         </div>
                         <div class="card-body">
                             <div class="print-wrapper">
-                                <div class="watermarkedd"></div>
+                                <div class="watermarkedd" style="display: block;width: 100%;height: 100%;position: absolute;top: 500px;left: 25%;background-image: url({{ url('img/watermark.jpeg') }});background-size: 500px 500px;background-position: 30px 30px;background-repeat: no-repeat;opacity: 0.2;"></div>
                                 <div class="row">
                                     <div class="col-md-10 offset-1">
                                         <img src="{{asset('/img/demandnotice.jpeg')}}" width="920px" >
