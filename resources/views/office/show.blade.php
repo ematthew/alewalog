@@ -156,8 +156,8 @@
                             
                         </div>
                         <div class="card-body">
-                            <div class="print-wrapper">
-                                <div class="watermarkedd" style="display: block;width: 100%;height: 100%;position: absolute;top: 500px;left: 25%;background-image: url({{ url('img/watermark.jpeg') }});background-size: 500px 500px;background-position: 30px 30px;background-repeat: no-repeat;opacity: 0.2;"></div>
+                            <div class="print-wrapper" style="margin-top: 50px;">
+                                <div class="watermarkedd" style="display: block;width: 100%;height: 100%;position: absolute;top: 500px;left: 25%;background-image: url({{ url('img/watermark.jpeg') }});background-size: 400px 400px;background-position: 30px 30px;background-repeat: no-repeat;opacity: 0.2;"></div>
                                 
                                 <div class="row py-2">
                                     <div class="col-md-10 offset-1">
@@ -267,7 +267,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row py-2">
+                                <div class="row py-4">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;">
                                             <b>
@@ -278,7 +278,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row py-2">
+                                <div class="row py-4">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <p>
@@ -293,7 +293,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row py-2">
+                                <div class="row py-4">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <b class="text-danger">NOTE</b>: <b>Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.</b>
