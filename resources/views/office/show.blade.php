@@ -135,6 +135,11 @@
           background-repeat: no-repeat;
           opacity: 0.2;
         }
+
+        * {
+            -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge */
+            color-adjust: exact !important;                 /*Firefox*/
+        }
     </style>
 
     <!-- Main Content -->

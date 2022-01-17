@@ -24,9 +24,21 @@ class OfficeController extends Controller
     |-----------------------------------------
     */
     public function index(Request $request){
+        // body
+        if($request->has('search_keywords')){
 
-    	// body
-        $offices = Office::orderBy('pid', 'DESC')->paginate(10);
+            $search_keywords = $request->search_keywords;
+            $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+            ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+            ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+            ->orWhere('pid', 'LIKE', "%$search_keywords%")
+            ->orderBy('pid', 'DESC')
+            ->paginate(10);
+
+        }else{
+            $offices = Office::orderBy('pid', 'DESC')->paginate(10);
+        }
+        
         return view('office.index', compact('offices'));
     }
 
@@ -41,21 +53,22 @@ class OfficeController extends Controller
         return view('office.show', compact('office'));
     }
 
-    public function search(Request $request)
-    {   $powerMeter = Office::query();
-            
-            $pid                      = $request->pid;
-            $cadastral_zone           = $request->cadastral_zone;
-            $asset_no                 = $request->asset_no;
-            $prop_addr                = $request->prop_addr;
+    public function search(Request $request){
+
+        $powerMeter = Office::query();
+
+        $pid                      = $request->pid;
+        $cadastral_zone           = $request->cadastral_zone;
+        $asset_no                 = $request->asset_no;
+        $prop_addr                = $request->prop_addr;
 
         if($request->has('keywords')){
-          $powerMeter->where(function($query) use($request) {
-          $query->where('pid', 'LIKE', "%{$pid}%")
-              ->orWhere('cadastral_zone', 'LIKE', "%{$cadastral_zone}%")
-              ->orWhere('asset_no', 'LIKE', "%{$asset_no}%")
-              ->orWhere('prop_addr', 'LIKE', "%{$prop_addr}%");
-          });
+            $powerMeter->where(function($query) use ($request) {
+            $query->where('pid', 'LIKE', "%{$pid}%")
+            ->orWhere('cadastral_zone', 'LIKE', "%{$cadastral_zone}%")
+            ->orWhere('asset_no', 'LIKE', "%{$asset_no}%")
+            ->orWhere('prop_addr', 'LIKE', "%{$prop_addr}%");
+            });
         }
         
         return view('office.index', compact('office'));

@@ -21,30 +21,25 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">All Offices</h6>
                         </div>
-                        <div class="mx-auto pull-right">
-                            <div class="">
-                              <form action="{{url('search')}}" method="GET" role="search">
-
-                                   <div class="input-group">
-                                     <span class="input-group-btn mr-5 mt-1">
-                                        <button class="btn btn-info" type="submit" title="Search projects">
-                                           <span class="fas fa-search">search</span>
-                                        </button>
-                                     </span>
-                                         <input type="text" class="form-control mr-6" placeholder="Search projects">
-                                         <span class="input-group-btn">
-                                            <a href="" class="mr-5  mt-1">
-                                            <button class="btn btn-success" type="button" title="Refresh page">
-                                               <span class=" fas fa-sync-alt"></span>
-                                            </button>
-                                         </span>
-                                         </a>
-                                   </div>
-                              </form>
-                           </div>
-                       </div>
-
                         <div class="card-body">
+                            <form action="" method="GET" role="search"> 
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="form-group">
+                                            {{-- <label for="search_keywords">Search</label> --}}
+                                            <input type="search" id="search_keywords" class="form-control" name="search_keywords">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            {{-- <label for="search_keywords">Search</label> --}}
+                                            <button class="btn btn-outline-primary"> Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <br /><hr />
                             <div class="table-responsive">
                                 <table class="table table-bordered small" width="100%" cellspacing="0">
                                     <thead>
