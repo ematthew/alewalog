@@ -156,8 +156,8 @@
                             
                         </div>
                         <div class="card-body">
-                            <div class="print-wrapper" style="margin-top: 50px;">
-                                <div class="watermarkedd" style="display: block;width: 100%;height: 100%;position: absolute;top: 500px;left: 25%;background-image: url({{ url('img/watermark.jpeg') }});background-size: 400px 400px;background-position: 30px 30px;background-repeat: no-repeat;opacity: 0.2;"></div>
+                            <div class="print-wrapper" style="margin-top: 0px;">
+                               {{--  <div class="watermarkedd" style="display: block;width: 100%;height: 100%;position: absolute;top: 500px;left: 25%;background-image: url({{ url('img/watermark.jpeg') }});background-size: 400px 400px;background-position: 30px 30px;background-repeat: no-repeat;opacity: 0.2;"></div> --}}
                                 
                                 <div class="row py-2">
                                     <div class="col-md-10 offset-1">
@@ -302,7 +302,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6" style="color:#000 !important;">
+                                    <div class="col-md-6" style="color:#000 !important;">
                                         <div class="">
                                           <strong> Your early compliance will be highly appreciated</strong>
                                         </div>
@@ -333,30 +333,35 @@
                                             <table style="color:#000 !important;">
                                                 <tr>
                                                     <td><b>Date of Dispatch:</b></td>
-                                                    <td><b>-------------------------------------------------</b></td>
+                                                    <td><b>--------------------------------------------------------</b></td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Name of Officer:</b></td>
-                                                    <td><b>-------------------------------------------------</b></td>    
+                                                    <td><b>--------------------------------------------------------</b></td>
+                                                        
                                                 </tr>
                                                 <tr>
                                                     <td><b>Mode of Dispatch:</b></td>
-                                                    <td><b>-------------------------------------------------</b></td>
+                                                    <td><b>--------------------------------------------------------</b></td>
+                                                    
                                                 </tr>
                                             </table>
                                             <br />
                                             <table style="color:#000 !important;">
                                                 <tr>
                                                     <td><b>Date of Dispatch:</b></td>
-                                                    <td><b>-------------------------------------------------</b></td>    
+                                                    <td><b>-------------------------------------------------------</b></td>
+                                                        
                                                 </tr>
                                                 <tr>
                                                     <td><b>Name of Officer:</b></td>
-                                                    <td><b>-------------------------------------------------</b></td>    
+                                                    <td><b>-------------------------------------------------------</b></td>
+                                                       
                                                 </tr>
                                                 <tr>
                                                     <td><b>Mode of Dispatch:</b></td>
-                                                    <td><b>-------------------------------------------------</b></td>                          
+                                                    <td><b>--------------------------------------------------------</b></td>
+                                                                             
                                                 </tr>
                                             </table>
                                         </div>
@@ -395,7 +400,6 @@
                 printBodyOptions:{
                     styleToAdd:'1px solid #000 !important;',
                     classNameToAdd : 'row-border',
-                    classNameToAdd : 'row-border'
                     
                 }
             });
