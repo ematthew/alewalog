@@ -1,12 +1,9 @@
 @extends('layouts.app')
 
-{{-- title section --}}
 @section('title')
     Home
 @endsection
 
-
-{{-- contents --}}
 @section('contents')
     <!-- Main Content -->
     <div id="content">
@@ -22,6 +19,24 @@
                             <h6 class="m-0 font-weight-bold text-primary">All Offices</h6>
                         </div>
                         <div class="card-body">
+                            <form action="" method="GET" role="search"> 
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="form-group">
+                                            {{-- <label for="search_keywords">Search</label> --}}
+                                            <input type="search" id="search_keywords" class="form-control" name="search_keywords">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            {{-- <label for="search_keywords">Search</label> --}}
+                                            <button class="btn btn-outline-primary"> Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <br /><hr />
                             <div class="table-responsive">
                                 <table class="table table-bordered small" width="100%" cellspacing="0">
                                     <thead>
