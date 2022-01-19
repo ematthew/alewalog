@@ -33,10 +33,11 @@ class OfficeController extends Controller
             ->orWhere('pid', 'LIKE', "%$search_keywords%")
             ->orderBy('pid', 'DESC')
             ->paginate(10);
+
         }else{
             $offices = Office::orderBy('pid', 'DESC')->paginate(10);
         }
-
+        
         return view('office.index', compact('offices'));
     }
 

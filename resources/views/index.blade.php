@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
-{{-- title section --}}
+
 @section('title')
     Home
 @endsection
 
 
-{{-- contents --}}
 @section('contents')
     <!-- Main Content -->
     <div id="content">
