@@ -26,7 +26,6 @@ class OfficeController extends Controller
     public function index(Request $request){
         // body
         if($request->has('search_keywords')){
-
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
             ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
@@ -34,11 +33,10 @@ class OfficeController extends Controller
             ->orWhere('pid', 'LIKE', "%$search_keywords%")
             ->orderBy('pid', 'DESC')
             ->paginate(10);
-
         }else{
             $offices = Office::orderBy('pid', 'DESC')->paginate(10);
         }
-        
+
         return view('office.index', compact('offices'));
     }
 
@@ -93,8 +91,12 @@ class OfficeController extends Controller
     | CREATE or STORE DATA 
     |-----------------------------------------
     */
-    public function addOne(Request $request){
+    public function previewAll(Request $request){
     	// body
+        $office_ids = json_decode($request->office_ids);
+
+        $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+        return view('office.preview', compact('offices'));
     }
     
     /*
