@@ -136,6 +136,7 @@ class OfficeController extends Controller
         $office->category           =$request->input('category');
         $office->group              =$request->input('group');
         $office->active             =$request->input('active');
+
         $office->save();
         return redirect()->route('office.index')->with('success','office information has been created Successfully');
     }
@@ -147,9 +148,7 @@ class OfficeController extends Controller
     */
     public function edit($id){
 
-        $office = Office::findOrFail($id);
-        $office = Office::all();
-        
+        $office = Office::findOrFail($id);        
         return view('office.edit',compact('office'));
     }
     /*
@@ -157,7 +156,7 @@ class OfficeController extends Controller
     | MODIFY or UPDATE DATA 
     |-----------------------------------------
     */
-    public function update(Request $request, $id){
+    public function update($id, Request $request){
 
         $office = Office::find($id);
         $office->pid                =$request->input('pid');
@@ -177,7 +176,8 @@ class OfficeController extends Controller
         $office->category           =$request->input('category');
         $office->group              =$request->input('group');
         $office->active             =$request->input('active');
-        $office->save();
+
+        $office->update();
         return redirect()->route('office.index')->with('success','office information has been created Successfully');
     }
     
@@ -190,7 +190,7 @@ class OfficeController extends Controller
 
         $office = Office::find($id);
         $office->delete();
-        return redirect('office.index')->with('success', 'office Record has been deleted successfully');
+        return view('office.index',compact('office'));
     }
     
 }

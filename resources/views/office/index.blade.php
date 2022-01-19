@@ -107,7 +107,7 @@
                                                     <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
-                                                    <a href="{{ url('/edit/'.$office->id) }}" class="btn btn-sm btn-warning"> Edit </a>
+                                                    <a href="{{ url('offices/edit/'.$office->id) }}" class="btn btn-sm btn-warning"> Edit </a>
                                                 </td>
                                             </tr>
 

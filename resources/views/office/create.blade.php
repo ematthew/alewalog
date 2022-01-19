@@ -8,6 +8,7 @@
 
 
 <form action="{{ url('/store') }}" method="post">
+  @csrf
   <fieldset >
     <legend>Create new Office Record</legend>
 
