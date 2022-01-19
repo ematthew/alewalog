@@ -156,8 +156,9 @@
                             
                         </div>
                         <div class="card-body">
+                            <div class="print-wrapper">
                             @foreach($offices as $key => $office)
-                                <div class="print-wrapper">
+                                
                                     
                                     <div class="row">
                                         <div class="col-md-10 offset-1">
@@ -359,8 +360,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                
                             @endforeach
+                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="row">
