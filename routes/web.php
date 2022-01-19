@@ -21,10 +21,13 @@ Route::get('/home', 		'HomeController@index')->name('index');
 Route::group(['prefix' => 'offices'], function() {
     Route::get('/', 			'OfficeController@index')->name('offices');
     Route::get('/view',         'OfficeController@view')->name('offices_show');
-    Route::post('/create', 		'OfficeController@addOne')->name('office_add');
-    Route::put('/update', 		'OfficeController@updateOne')->name('office_update');
+    Route::get('/create', 		'OfficeController@create')->name('create');
+    Route::post('/store',      'OfficeController@store')->name('store');
+    Route::post('/edit/{id}',   'OfficeController@edit')->name('edit');
+    Route::put('/update/{id}', 		'OfficeController@update')->name('update');
     Route::delete('/delete', 	'OfficeController@deleteOne')->name('office_delete');
     Route::get('/offices/createPDF',  'OfficeController@createPDF')->name('createPDF');
+    Route::get('/preview',      'OfficeController@previewAll')->name('office_preview');
     Route::get('/search', 'OfficeController@search')->name('search');
 });
 

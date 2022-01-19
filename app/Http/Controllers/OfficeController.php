@@ -26,7 +26,6 @@ class OfficeController extends Controller
     public function index(Request $request){
         // body
         if($request->has('search_keywords')){
-
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
             ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
@@ -93,8 +92,12 @@ class OfficeController extends Controller
     | CREATE or STORE DATA 
     |-----------------------------------------
     */
-    public function addOne(Request $request){
+    public function previewAll(Request $request){
     	// body
+        $office_ids = json_decode($request->office_ids);
+
+        $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+        return view('office.preview', compact('offices'));
     }
     
     /*
@@ -102,35 +105,80 @@ class OfficeController extends Controller
     | FETCH DATA 
     |-----------------------------------------
     */
-    public function fetchOne(Request $request){
-    	// body
+    public function create(){
+
+        return view('office.create');
+    }
+
+     /*
+    |-----------------------------------------
+    |  STORE DATA 
+    |-----------------------------------------
+    */
+
+    public function store(Request $request){
+
+        $office = new Office();
+        $office->pid                =$request->input('pid');
+        $office->occupant           =$request->input('occupant');
+        $office->prop_addr          =$request->input('prop_addr');
+        $office->street_name        =$request->input('street_name');
+        $office->asset_no           =$request->input('asset_no');
+        $office->cadastral_zone     =$request->input('cadastral_zone');
+        $office->prop_type          =$request->input('prop_type');
+        $office->prop_use           =$request->input('prop_use');
+        $office->rating_dist        =$request->input('rating_dist');
+        $office->annual_value       =$request->input('annual_value');
+        $office->rate_payable       =$request->input('rate_payable');
+        $office->arrears            =$request->input('arrears');
+        $office->penalty            =$request->input('penalty');
+        $office->grand_total        =$request->input('grand_total');
+        $office->category           =$request->input('category');
+        $office->group              =$request->input('group');
+        $office->active             =$request->input('active');
+        $office->save();
+        return redirect()->route('office.index')->with('success','office information has been created Successfully');
     }
     
     /*
     |-----------------------------------------
-    | FETCH ALL DATA 
+    | FETCH DATA 
     |-----------------------------------------
     */
-    public function fetchAll(Request $request){
-    	// body
+    public function edit($id){
+
+        $office = Office::findOrFail($id);
+        $office = Office::all();
+        
+        return view('office.edit',compact('office'));
     }
-    
     /*
     |-----------------------------------------
     | MODIFY or UPDATE DATA 
     |-----------------------------------------
     */
-    public function updateOne(Request $request){
-    	// body
-    }
-    
-    /*
-    |-----------------------------------------
-    | DELETE DATA
-    |-----------------------------------------
-    */
-    public function deleteOne(Request $request){
-    	// body
+    public function update(Request $request, $id){
+
+        $office = Office::find($id);
+        $office->pid                =$request->input('pid');
+        $office->occupant           =$request->input('occupant');
+        $office->prop_addr          =$request->input('prop_addr');
+        $office->street_name        =$request->input('street_name');
+        $office->asset_no           =$request->input('asset_no');
+        $office->cadastral_zone     =$request->input('cadastral_zone');
+        $office->prop_type          =$request->input('prop_type');
+        $office->prop_use           =$request->input('prop_use');
+        $office->rating_dist        =$request->input('rating_dist');
+        $office->annual_value       =$request->input('annual_value');
+        $office->rate_payable       =$request->input('rate_payable');
+        $office->arrears            =$request->input('arrears');
+        $office->penalty            =$request->input('penalty');
+        $office->grand_total        =$request->input('grand_total');
+        $office->category           =$request->input('category');
+        $office->group              =$request->input('group');
+        $office->active             =$request->input('active');
+        $office->save();
+        return redirect()->route('office.index')->with('success','office information has been created Successfully');
     }
     
     /*
@@ -138,9 +186,11 @@ class OfficeController extends Controller
     | DESTROY DATA
     |-----------------------------------------
     */
-    public function destroyOne(Request $request){
-    	// body
+    public function destroy($id){
+
+        $office = Office::find($id);
+        $office->delete();
+        return redirect('office.index')->with('success', 'office Record has been deleted successfully');
     }
-    
     
 }

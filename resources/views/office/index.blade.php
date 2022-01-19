@@ -1,12 +1,9 @@
 @extends('layouts.app')
 
-{{-- title section --}}
 @section('title')
     Home
 @endsection
 
-
-{{-- contents --}}
 @section('contents')
     <!-- Main Content -->
     <div id="content">
@@ -20,6 +17,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">All Offices</h6>
+                            <a class="btn btn-success" href="{{ url('offices/create') }}" title="add of office"> <i class="fas fa-plus-circle"></i>
+                       </a>
                         </div>
                         <div class="card-body">
                             <form action="" method="GET" role="search"> 
@@ -45,9 +44,13 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                <label for="check-all">
-                                                    <input type="checkbox" name="check-all" class="form-control"> All
-                                                </label>
+                                                {{-- <label for="check-all">
+                                                    <input type="checkbox" class="parent-checkbox" onclick="checkedAllBoxes()" name="check-all" class="form-control"> All
+                                                </label> --}}
+                                                <div class="checkbox check-info">
+                                                  <input type="checkbox" id="select-all" onchange="toggleAllCheckbox()" checked>
+                                                  <label for="select-all" class="text-white">All</label>
+                                                </div>
                                             </th>
                                             <th>PID</th>
                                             <th>OCCUPANT</th>
@@ -70,12 +73,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php $offices_box = [] @endphp
                                         @foreach($offices as $key => $office)
                                             <tr>
                                                 <td>
-                                                    <label for="check-{{ $office->pid }}">
-                                                        <input type="checkbox" name="check-{{ $office->pid }}" style="width: 15px;height: 15px;">
-                                                    </label>
+                                                    {{-- <label for="check-{{ $office->pid }}">
+                                                        <input type="checkbox" class="checkbox-options" name="check-{{ $office->pid }}" style="width: 15px;height: 15px;">
+                                                    </label> --}}
+
+                                                    <div class="checkbox check-info">
+                                                        <input type="checkbox" onchange="toggleCheckbox({{ $office->pid }}, {{ $office->id }})" class="checkbox-child" id="select-all-{{ $office->pid }}" checked>
+                                                        <label for="select-all-{{ $office->pid }}" class="text-white"></label>
+                                                    </div>
                                                 </td>
                                                 <td>{{ $office->pid }}</td>
                                                 <td>{{ $office->occupant }}</td>
@@ -98,8 +107,11 @@
                                                     <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
+                                                    <a href="{{ url('/edit/'.$office->id) }}" class="btn btn-sm btn-warning"> Edit </a>
                                                 </td>
                                             </tr>
+
+                                            @php array_push($offices_box, $office->id) @endphp
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -107,6 +119,13 @@
                                 <div class="row">
                                     <div class="col-md-12 paginate">
                                         {!! $offices->links() !!}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 paginate">
+                                        <a href="{{url('offices/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
+                                            <i class="fa fa-print"></i> Print All
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -123,5 +142,35 @@
 
 {{-- scripts --}}
 @section('scripts')
-    
+    <script type="text/javascript">
+        function toggleCheckbox(sn, customer_ref) {
+            if($(`#select-all-${sn}`).is(':checked') == true){
+                // console.log('isChecked');
+                all_customers_ref.push(customer_ref);
+                if(all_customers_ref.length == total_customers_items){
+                    $("#select-all").prop("checked", "checked");
+                }else{
+                   $("#select-all").removeAttr("checked"); // pop check all 
+                }
+            }else if($(`#select-all-${sn}`).is(':checked') !== true){
+                $("#select-all").removeAttr("checked"); // pop check all
+                for (var i = 0; i < all_customers_ref.length; i++) {
+                    if(all_customers_ref[i] == customer_ref){
+                        all_customers_ref.splice(i, 1);
+                    }
+                }
+            }
+        }
+
+        function toggleAllCheckbox() {
+            if($(`#select-all`).is(':checked') == true){
+                // console.log('isChecked');
+                fetchAllUnclassifiedCustomer()
+            }else if($(`#select-all`).is(':checked') !== true){
+                $(".checkbox-child").removeAttr("checked");
+                $("#select-all").removeAttr("checked");
+                all_customers_ref = [];
+            }
+        }
+    </script>
 @endsection
