@@ -1,102 +1,127 @@
-@extends('layouts.app') 
+@extends('layouts.app')
+
 
 @section('title')
     Home
 @endsection
 
+
 @section('contents')
+    <!-- Main Content -->
+    <div id="content">
 
+        @include('components.navigation')
 
-<form action="{{url('offices/update/'.$office->id)}}" method="post">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-  @csrf
-                
-      <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Pid Number</label>
-      <input type="text" value="{{ $office->pid }}" name="pid" class="form-control" placeholder="Pid Number">
+            @include('components.topcard')
+
+        <style>
+                .uper 
+            {
+                    margin-top: 40px;
+             }
+        </style>
+    <div class="card uper">
+        <div class="card-header">
+            Create new Office Record
+        </div>
+          <div class="card-header">
+            <a class="btn btn-primary" href="{{ url('offices') }}"> Back</a>
+        </div>
     </div>
+      <div class="card-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                     @endforeach
+                </ul>
+             </div><br />
+        @endif
 
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">The Occupant</label>
-      <input type="text" value="{{ $office->occupant }}" name="occupant" class="form-control" placeholder="The Occupant">
-    </div>
+         <form method="post" action="{{url('offices/update'.$office->id)}}" method="post">
+            <div class="form-group">
+                  @csrf
+                    @method('PATCH')
+                    <label for="name">Pid Number:</label>
+                    <input type="text" name="pid" class="form-control" value="{{ $office->pid }}" placeholder="Pid Number">
+            </div>
+                <div class="form-group">
+                    <label for="cases">The Occupant :</label>
+                    <input type="text" name="occupant" class="form-control" value="{{ $office->occupant }}" placeholder="The Occupant">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Property Address:</label>
+                    <input type="text" name="prop_addr" class="form-control" value="{{ $office->prop_addr }}" placeholder="Property Address">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Street Name:</label>
+                    <input type="text" name="street_name" class="form-control" value="{{ $office->street_name }}" placeholder="Street Name">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Asset Number:</label>
+                    <input type="text" name="asset_no" class="form-control" value="{{ $office->asset_no }}" placeholder="Asset Numbe">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Cadastral zone</label>
+                    <input type="text" name="cadastral_zone" class="form-control" value="{{ $office->cadastral_zone}}" placeholder="cadastral_zone">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Property Type</label>
+                    <input type="text" name="prop_type" class="form-control" value="{{ $office->prop_type}}" placeholder="Property Type">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Property Use</label>
+                    <input type="text" name="prop_use" class="form-control" value="{{ $office->prop_use}}" placeholder="Property Use">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Rating District</label>
+                    <input type="text" name="rating_dist" class="form-control" value="{{ $office->rating_dist}}" placeholder="Rating District">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Anual Value</label>
+                    <input type="text" name="annual_value" class="form-control" value="{{ $office->annual_value}}" placeholder="Anual Value">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Rate Payable</label>
+                    <input type="text" name="rate_payable" class="form-control" value="{{ $office->rate_payable}}" placeholder="Rate Payable">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Arrears</label>
+                    <input type="text" name="arrears" class="form-control" value="{{ $office->arrears}}" placeholder="Arrears">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Penalty</label>
+                    <input type="text" name="penalty" class="form-control" value="{{ $office->penalty}}" placeholder="Penalty">
+                </div>
+                 <div class="form-group">
+                    <label for="cases">Grand Total</label>
+                    <input type="text" name="grand_total" class="form-control" value="{{ $office->grand_total}}" placeholder="Grand Total">
+                </div>
+                 <div class="form-group">
+                    <label for="cases">Category</label>
+                    <input type="text" name="category" value="{{ $office->category}}" class="form-control" placeholder="Category">
+                </div>
+                 <div class="form-group">
+                    <label for="cases">Group</label>
+                    <input type="text" name="group" value="{{ $office->group}}" class="form-control" placeholder="Group">
+                </div>
+                 <div class="form-group">
+                    <label for="cases">Acive</label>
+                    <input type="text" name="active" value="{{ $office->active}}" class="form-control" placeholder="active">
+                </div>
+              <input type="submit" class="btn btn-info" value="update">
+              <input type="submit" class="btn btn-warning" value="Reset">
+            </form>
+     </div>
+ </div>
+    <!-- End of Main Content -->
+@endsection
 
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Property Address</label>
-      <input type="text" value="{{ $office->prop_addr }}" name="prop_addr" class="form-control" placeholder="Property Address">
-    </div>
-
-     <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Street Name</label>
-      <input type="text" value="{{ $office->street_name }}" name="street_name" class="form-control" placeholder="Street Name">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Asset Number</label>
-      <input type="text" value="{{ $office->asset_no }}" name="asset_no" class="form-control" placeholder="Asset Numbe">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Cadastral zone</label>
-      <input type="text" value="{{ $office->cadastral_zone }}" name="cadastral_zone" class="form-control" placeholder="cadastral_zone">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Property Type</label>
-      <input type="text" value="{{ $office->prop_type }}" name="prop_type" class="form-control" placeholder="Property Type">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Property Use</label>
-      <input type="text" value="{{ $office->prop_use}}" name="prop_use" class="form-control" placeholder="Property Use">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Rating District</label>
-      <input type="text" value="{{ $office->rating_dist}}" name="rating_dist" class="form-control" placeholder="Rating District">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Anual Value</label>
-      <input type="text" value="{{ $office->annual_value}}" name="annual_value" class="form-control" placeholder="Anual Value">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Rate Payable</label>
-      <input type="text" value="{{ $office->rate_payable}}" name="rate_payable" class="form-control" placeholder="Rate Payable">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Arrears</label>
-      <input type="text" value="{{ $office->arrears}}" name="arrears" class="form-control" placeholder="Arrears">
-    </div>
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Penalty</label>
-      <input type="text" value="{{ $office->penalty}}" name="penalty" class="form-control" placeholder="Penalty">
-    </div>
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Grand Total</label>
-      <input type="text" value="{{ $office->grand_total}}" name="grand_total" class="form-control" placeholder="Grand Total">
-    </div>
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Category</label>
-      <input type="text" value="{{ $office->category}}" name="category" class="form-control" placeholder="Category">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Group</label>
-      <input type="text" value="{{ $office->group}}" name="group" class="form-control" placeholder="Group">
-    </div>
-
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Acive</label>
-      <input type="text" value="{{ $office->active}}" name="active" class="form-control" placeholder="active">
-    </div>
-
-     <br>
-
-     <input type="submit" class="btn btn-info" value="update">
-     <input type="submit" class="btn btn-warning" value="Reset">
-    </form>
-
+{{-- scripts --}}
+@section('scripts')
+    
 @endsection

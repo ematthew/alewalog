@@ -40,24 +40,6 @@
             vertical-align: top;
             border-top: 1px solid #1b1c1d !important;
         }
-        .watermarked {
-        position: relative;
-       }
-
-      .watermarked:after {
-       content: "";
-       display: block;
-       width: 100%;
-       height: 100%;
-       position: absolute;
-       top: 0px;
-       left: 0px;
-       background-image: url({{ asset('img/logo.jpeg') }});
-       background-size: 100px 100px;
-       background-position: 30px 30px;
-       background-repeat: no-repeat;
-       opacity: 0.7;
-     }
 
         @media print {
             .print-wrapper {
@@ -103,29 +85,6 @@
                 border-top: 1px solid #1b1c1d !important;
             }
         }
-
-        /*.watermarked {
-          position: absolute;
-        }*/
-
-        .watermarkedd {
-          display: block;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 500px;
-          left: 25%;
-          background-image: url({{ url('img/watermark.jpeg') }});
-          background-size: 500px 500px;
-          background-position: 30px 30px;
-          background-repeat: no-repeat;
-          opacity: 0.2;
-        }
-
-        * {
-            -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge */
-            color-adjust: exact !important;                 /*Firefox*/
-        }
     </style>
 
     <!-- Main Content -->
@@ -142,9 +101,6 @@
                             
                         </div>
                         <div class="card-body">
-                            <div class="print-wrapper" style="margin-top: 0px;">
-                               {{--  <div class="watermarkedd" style="display: block;width: 100%;height: 100%;position: absolute;top: 500px;left: 25%;background-image: url({{ url('img/watermark.jpeg') }});background-size: 400px 400px;background-position: 30px 30px;background-repeat: no-repeat;opacity: 0.2;"></div> --}}
-                                
                             <div class="print-wrapper">
                                 <div class="row">
                                     <div class="col-md-10- offset-1">
@@ -205,8 +161,7 @@
                                         </div>
                                     </div>
                                 </div>
-            
-                                <div class="row py-2">
+                                <div class="row">
                                     <div class="col-md-4 offset-2" style="margin-top:60px;">
                                         <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <table class="table" style="color:#000 !important;">
@@ -261,8 +216,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row py-4">
+                                <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;">
                                           <b>
@@ -272,14 +226,13 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row py-4">
+                                <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <p>
                                                 <b>Payment Options:</b> <br >
                                                 <b>1. AMAC Bank Draft</b> <br />
-                                                <b>2. Internet Banking Transfer:<span class="text-danger" style="font-family: sans-serif;"> <strong><b>AMAC-ALEWA, FCMB Account. No. 8672253011</b></strong></span> </b> <br />
+                                                <b>2. Internet Banking Transfer:<span class="text-danger" style="font-family: sans-serif;"> <strong><b>Abuja Municipal Area Council, FCMB Account. No. 8672253011</b></strong></span> </b> <br />
                                                 <b>Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.</b>
 
 
@@ -287,8 +240,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row py-4">
+                                <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
                                             <b class="text-danger">NOTE</b>: <b>Ensure you collect Electronic and Treasury receipt(s) at the Annex Office Suite 306, 3rd Floor Kano House. Ralph Shodeinde Street, Central Business District, Abuja.</b>
@@ -297,7 +249,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6" style="color:#000 !important;">
+                                    <div class="col-6" style="color:#000 !important;">
                                         <div class="">
                                           <strong> Your early compliance will be highly appreciated</strong>
                                         </div>
@@ -327,18 +279,6 @@
                                         <div class="row-border px-4 py-2" style="border: 1px solid #000 !important;">
                                             <div class="text-center" style="color:#000 !important;"><p><strong>ACKNOWLEDGEMENT</strong></p></div>
                                             <table style="color:#000 !important;">
-                                                <tr>
-                                                    <td><b>Date of Dispatch:</b></td>
-                                                    <td><b>--------------------------------------------------------</b></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Name of Officer:</b></td>
-                                                    <td><b>--------------------------------------------------------</b></td>
-                                                        
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Mode of Dispatch:</b></td>
-                                                    <td><b>--------------------------------------------------------</b></td>
                                                   <tr>
                                                     <td><b>Name Of Officer:</b></td>
                                                     <td><b>-------------------------------------------------</b></td>
@@ -408,8 +348,7 @@
                 printMode:'popup',
                 printBodyOptions:{
                     styleToAdd:'1px solid #000 !important;',
-                    classNameToAdd : 'row-border',
-                    
+                    classNameToAdd : 'row-border'
                 }
             });
         }
