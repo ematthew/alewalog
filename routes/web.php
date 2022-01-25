@@ -24,7 +24,7 @@ Route::group(['prefix' => 'offices'], function() {
     Route::get('/create',       'OfficeController@create');
     Route::post('/store',      'OfficeController@store');
     Route::get('/edit/{id}',   'OfficeController@edit');
-    Route::post('/update/{id}',         'OfficeController@update')->name('update');
+    Route::post('/update/{id}',  'OfficeController@update')->name('update');
     Route::delete('/delete', 	'OfficeController@deleteOne')->name('office_delete');
     Route::get('/preview',      'OfficeController@previewAll')->name('office_preview');
     Route::get('/offices/createPDF',  'OfficeController@createPDF')->name('createPDF');

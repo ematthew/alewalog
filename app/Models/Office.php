@@ -23,6 +23,7 @@ class Office extends Model
         "rate_payable",
         "arrears",
         "penalty",
+        "paid_amount",
         "grand_total",
         "category",
         "group",

@@ -42,10 +42,9 @@
              </div><br />
         @endif
 
-         <form method="post" action="{{url('offices/update'.$office->id)}}" method="post">
+         <form action="{{url('offices/update/'.$office->id)}}" method="POST">
             <div class="form-group">
                   @csrf
-                    @method('PATCH')
                     <label for="name">Pid Number:</label>
                     <input type="text" name="pid" class="form-control" value="{{ $office->pid }}" placeholder="Pid Number">
             </div>
@@ -96,6 +95,10 @@
                 <div class="form-group">
                     <label for="cases">Penalty</label>
                     <input type="text" name="penalty" class="form-control" value="{{ $office->penalty}}" placeholder="Penalty">
+                </div>
+                <div class="form-group">
+                    <label for="cases">Paid Amount</label>
+                    <input type="text" name="paid_amount" class="form-control" value="{{ $office->paid_amount}}" placeholder="paid amount">
                 </div>
                  <div class="form-group">
                     <label for="cases">Grand Total</label>

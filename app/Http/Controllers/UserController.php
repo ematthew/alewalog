@@ -10,8 +10,9 @@ class UserController extends Controller
    public function index()
    {
       $users = User::all();
+      $totalRate = 100000;
 
-   	return view('users.index', compact('users'));
+   	return view('users.index', compact('users','totalRate'));
    }
 
    public function create()
@@ -25,8 +26,8 @@ class UserController extends Controller
         $users = new Office();
         $users->name                =$request->input('name');
         $users->email               =$request->input('email');
-        $users->password            =$request->input('password');
-        $users->password            =$request->input('password');            
+        $users->password            =$request->input('password'); 
+        $users->password            =$request->input('password');                     
         $users->save();
         return redirect()->route('users')->with('success','user information has been created Successfully');
    }
@@ -45,6 +46,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required',
+            'password' => 'required',
             'password' => 'required',
 
         ]);

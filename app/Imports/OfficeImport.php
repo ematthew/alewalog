@@ -31,7 +31,7 @@ class OfficeImport implements ToCollection
                         "prop_addr"     => $row[2],
                         "street_name"   => $row[3],
                         "asset_no"      => $row[4],
-                        "cadastral_zone" => $row[5],
+                        "cadastral_zone"=> $row[5],
                         "prop_type"     => $row[6],
                         "prop_use"      => $row[7],
                         "rating_dist"   => $row[8],
@@ -39,10 +39,11 @@ class OfficeImport implements ToCollection
                         "rate_payable"  => $row[10],
                         "arrears"       => $row[11],
                         "penalty"       => $row[12],
-                        "grand_total"   => $row[13],
-                        "category"      => $row[14],
-                        "group"         => $row[15],
-                        "active"        => $row[16],
+                        "paid_amount"   => $row[13],
+                        "grand_total"   => $row[14],
+                        "category"      => $row[15],
+                        "group"         => $row[16],
+                        "active"        => $row[17],
                     ]);
                 }
             }

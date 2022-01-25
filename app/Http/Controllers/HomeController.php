@@ -25,6 +25,11 @@ class HomeController extends Controller
     public function index(Request $request){
     	// body
         $offices = Office::orderBy('pid', 'DESC')->paginate(10);
-    	return view('index', compact('offices'));
+        $totalRate = Office::sum('rate_payable');
+        $totalgrand = Office::sum('grand_total');
+        $totalvalue = Office::sum('annual_value');
+    	return view('index', compact('offices', 'totalRate', 'totalvalue'));
     }
+
+
 }

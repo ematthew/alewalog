@@ -55,7 +55,11 @@
                 </div>
                 <div class="form-group">
                     <label for="cases">password:</label>
-                    <input type="text" class="form-control" name="email"/>
+                    <input type="text" class="form-control" name="password"/>
+                </div>
+                <div class="form-group">
+                    <label for="cases">comfirm password:</label>
+                    <input type="text" class="form-control" name="password"/>
                 </div>
               <button type="submit" class="btn btn-primary">Add Data</button>
             </form>

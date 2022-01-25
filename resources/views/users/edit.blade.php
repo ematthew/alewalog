@@ -54,7 +54,11 @@
                 </div>
                 <div class="form-group">
                     <label for="cases">password:</label>
-                    <input type="text" class="form-control" name="email" value="{{ $user->password }}"/>
+                    <input type="text" class="form-control" name="password"/>
+                </div>
+                <div class="form-group">
+                    <label for="cases">confirm password:</label>
+                    <input type="text" class="form-control" name="password"/>
                 </div>
               <button type="submit" class="btn btn-primary">Update Data</button>
             </form>

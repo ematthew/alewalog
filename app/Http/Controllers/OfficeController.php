@@ -117,6 +117,7 @@ class OfficeController extends Controller
         $office->rate_payable       =$request->input('rate_payable');
         $office->arrears            =$request->input('arrears');
         $office->penalty            =$request->input('penalty');
+        $office->paid_amount        =$request->input('paid_amount');
         $office->grand_total        =$request->input('grand_total');
         $office->category           =$request->input('category');
         $office->group              =$request->input('group');
@@ -158,13 +159,14 @@ class OfficeController extends Controller
         $office->rate_payable       =$request->rate_payable;
         $office->arrears            =$request->arrears;
         $office->penalty            =$request->penalty;
+        $office->paid_amount        =$request->paid_amount;
         $office->grand_total        =$request->grand_total;
         $office->category           =$request->category;
         $office->group              =$request->group;
         $office->active             =$request->active;
 
         $office->update();
-        return redirect()->route('office.index')->with('success','office information has been created Successfully');
+        return redirect()->route('offices')->with('success','office information has been created Successfully');
     }
     
     // /*

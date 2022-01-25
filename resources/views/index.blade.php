@@ -41,6 +41,7 @@
                                             <th>RATE PAYABLE</th>
                                             <th>ARREARS</th>
                                             <th>PENALTY</th>
+                                            <th>PAID AMOUNT</th>
                                             <th>GRAND TOTAL</th>
                                             <th>CATEGORY</th>
                                             <th>GROUP</th>
@@ -63,6 +64,7 @@
                                                 <td width="10%">{{ $office->rate_payable }}</td>
                                                 <td width="10%">{{ $office->arrears }}</td>
                                                 <td width="10%">{{ $office->penalty }}</td>
+                                                <td width="10%">{{ $office->paid_amount }}</td>
                                                 <td width="10%">{{ $office->grand_total }}</td>
                                                 <td width="10%">{{ $office->category }}</td>
                                                 <td width="10%">{{ $office->group }}</td>

@@ -9,4 +9,22 @@ if(!function_exists("totalOffice")){
 	}
 }
 
+if(!function_exists("totalRate")){
+	function totalRate(){
+		return Office::sum('rate_payable');	
+	}
+}
+
+if(!function_exists("totalgrand")){
+	function totalgrand(){
+		return Office::sum('grand_total');	
+	}
+}
+
+if(!function_exists("totalvalue")){
+	function totalvalue(){
+		return Office::sum('annual_value');	
+	}
+}
+
 ?>
