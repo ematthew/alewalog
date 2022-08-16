@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Office;
 
 class HomeController extends Controller
@@ -29,7 +30,16 @@ class HomeController extends Controller
         $totalgrand = Office::sum('grand_total');
         $totalvalue = Office::sum('annual_value');
     	return view('index', compact('offices', 'totalRate', 'totalvalue'));
+
+
     }
 
+    public function total()
+    { 
+        $totalgrand = DB::table('offices')->where('grand_total');
+        $payment = DB::table('offices')->Where('paid_amount');
+        $amount = $payment - $totalgrand;
+        
+    }
 
 }

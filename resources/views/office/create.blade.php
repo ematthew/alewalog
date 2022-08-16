@@ -42,10 +42,9 @@
              </div><br />
         @endif
 
-         <form method="post" action="{{ url('/store') }}">
+         <form method="POST" action="{{ url('offices/store') }}">
             <div class="form-group">
                   @csrf
-                 @method('post')
                     <label for="name">Pid Number:</label>
                     <input type="text" name="pid" class="form-control" placeholder="Pid Number">
             </div>
@@ -85,10 +84,10 @@
                     <label for="cases">Anual Value</label>
                     <input type="text" name="annual_value" class="form-control" placeholder="Anual Value">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="cases">Rate Payable</label>
                     <input type="text" name="rate_payable" class="form-control" placeholder="Rate Payable">
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="cases">Arrears</label>
                     <input type="text" name="arrears" class="form-control" placeholder="Arrears">
@@ -97,10 +96,10 @@
                     <label for="cases">Penalty</label>
                     <input type="text" name="penalty" class="form-control" placeholder="Penalty">
                 </div>
-                 <div class="form-group">
+                 <!-- <div class="form-group">
                     <label for="cases">Grand Total</label>
                     <input type="text" name="grand_total" class="form-control" placeholder="Grand Total">
-                </div>
+                </div> -->
                  <div class="form-group">
                     <label for="cases">Category</label>
                     <input type="text" name="category" class="form-control" placeholder="Category">

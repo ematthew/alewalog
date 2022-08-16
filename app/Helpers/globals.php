@@ -27,4 +27,10 @@ if(!function_exists("totalvalue")){
 	}
 }
 
+if(!function_exists("amount")){
+	function amount(){
+		return Office::sum('paid_amount');	
+	}
+}
+
 ?>

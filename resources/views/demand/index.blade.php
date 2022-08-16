@@ -22,45 +22,15 @@
                             <a class="btn btn-success" href="{{ url('offices/create') }}" title="add of office"> <i class="fas fa-plus-circle"></i> </a>
                         </div>
                         <div class="card-body">
-
-                           <!-- <div class="card">
-                                 <h2 class="text-4 mb-3" style="text-align: center;">SORT BY PID, ASSEST NUMBER AND STREET NAME </h2>
-                                <form method="get" id="sortSearch" action="{{url("/sortSearch")}}">
-                                        @csrf
-                                    <div class="form-row">
-                                    <div class="col-md-8 col-lg-3 offset-1 form-group">
-                                        <input name="pid" type="text" class="form-control" id="pid" required placeholder="pid">
-                                     </div>
-                                    <div class="col-md-8 col-lg-3 form-group">
-                                        <input name="asset_no" type="text" class="form-control" id="asset_no" required placeholder="asset_no">
-                                     </div>
-                                    <div class="col-md-8 col-lg-3 form-group">
-                                        <input name="street_name" id="street_name" type="text" class="form-control" required placeholder="street_name">
-                                    </div>
-
-                                    <div class="col-md-4 offset-3 form-group">
-                                        <button class="btn btn-primary btn-block" type="submit">Search</button>
-                                    </div>
-                                    </div>
-                                  </form>
-                                </div>
-                           </div>
- -->
-
-
-
-
                             <form action="" method="GET" role="search"> 
                                 <div class="row">
-                                     <div class="col-md-5 offset-3">
+                                    <div class="col-md-10">
                                         <div class="form-group">
                                             {{-- <label for="search_keywords">Search</label> --}}
-                                            <input type="search" id="search_keywords" class="form-control" name="search_keywords" placeholder="search_keywords">
+                                            <input type="search" id="search_keywords" class="form-control" name="search_keywords">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 offset-5">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             {{-- <label for="search_keywords">Search</label> --}}
                                             <button class="btn btn-outline-primary"> Search</button>
@@ -71,7 +41,7 @@
 
                             <br /><hr />
                             <div class="table-responsive">
-                                <table class="table table-bordered small" width="100%" id="office_table" cellspacing="0">
+                                <table class="table table-bordered small" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>
@@ -84,28 +54,25 @@
                                                 </div>
                                             </th>
                                             <th>PID</th>
-                                            <th>TOTAL PRINT </th>
-                                            <th>RESULT</th>
                                             <th>OCCUPANT</th>
                                             <th>PROP ADDR</th>
                                             <th>STREET NAME</th>
-                                            <th>ASSET NO </th>
+                                            <th>ASSET NO</th>
                                             <th>CADASTRAL ZONE</th>
-                                            <th>PROP TYPE  </th>
+                                            <th>PROP TYPE</th>
                                             <th>PROP USE</th>
                                             <th>RATING DIST</th>
-                                            <th>ANNUAL VALUE </th>
-                                            <th>RATE PAYABLE </th>
+                                            <th>ANNUAL VALUE</th>
+                                            <th>RATE PAYABLE</th>
                                             <th>ARREARS</th>
-                                            <th>PENALTY </th>
+                                            <th>PENALTY</th>
                                             <th>PAID AMOUNT</th>
                                             <th>GRAND TOTAL</th>
                                             <th>CATEGORY</th>
                                             <th>GROUP</th>
-                                            <th>ACTIVE   </th>
-                                            <th>ACTION </th>
-                                            
-                                            
+                                            <th>ACTIVE</th>
+                                            <th>ACTION</th>
+                                            <th>Total</th>
 
                                         </tr>
                                     </thead>
@@ -124,24 +91,6 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $office->pid }}</td>
-                                                <td>{{ $office->total_print }}</td>
-                                                <td>
-                                                    @if($office->paid_amount <= 0 )
-                                                      
-                                                          <a href="" class="text-danger">
-                                                               NOT PAID
-                                                          </a>
-                                                        
-                                                    
-                                                @else
-
-                                                    <a href="" class="text-success">
-                                                         PAID
-                                               
-                                                    </a>
-                                                @endif
-
-                                                </td>
                                                 <td>{{ $office->occupant }}</td>
                                                 <td>{{ $office->prop_addr }}</td>
                                                 <td>{{ $office->street_name }}</td>
@@ -158,14 +107,16 @@
                                                 <td>{{ $office->grand_total }}</td>
                                                 <td>{{ $office->category }}</td>
                                                 <td>{{ $office->group }}</td>
-                                                <td>{{ $office->active }}</td>                                             
+                                                <td>{{ $office->active }}</td>
+                                                
+
                                                 <td>
                                                     <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
                                                     <a href="{{ url('offices/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
                                                 </td>
-                                                
+                                                <td>{{ $total }}</td>
                                             </tr>
 
                                             @php array_push($offices_box, $office->id) @endphp
@@ -176,13 +127,12 @@
                                         @endforeach
 
                                         @php $total = $office->grand_total + $office->paid_amount ; @endphp
-
                                     </tbody>
                                 </table>
 
                                 <div class="row">
                                     <div class="col-md-12 paginate">
-                                        {!! $offices->withQueryString()->links() !!}
+                                        {!! $offices->links() !!}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -225,10 +175,6 @@
                 }
             }
         }
-
-        // $(document).ready(function() {
-        //     $("#office_table").DataTable();
-        // });
 
         function toggleAllCheckbox() {
             if($(`#select-all`).is(':checked') == true){

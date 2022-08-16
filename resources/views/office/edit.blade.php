@@ -84,10 +84,10 @@
                     <label for="cases">Anual Value</label>
                     <input type="text" name="annual_value" class="form-control" value="{{ $office->annual_value}}" placeholder="Anual Value">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="cases">Rate Payable</label>
                     <input type="text" name="rate_payable" class="form-control" value="{{ $office->rate_payable}}" placeholder="Rate Payable">
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="cases">Arrears</label>
                     <input type="text" name="arrears" class="form-control" value="{{ $office->arrears}}" placeholder="Arrears">
@@ -100,10 +100,10 @@
                     <label for="cases">Paid Amount</label>
                     <input type="text" name="paid_amount" class="form-control" value="{{ $office->paid_amount}}" placeholder="paid amount">
                 </div>
-                 <div class="form-group">
+                 <!-- <div class="form-group">
                     <label for="cases">Grand Total</label>
                     <input type="text" name="grand_total" class="form-control" value="{{ $office->grand_total}}" placeholder="Grand Total">
-                </div>
+                </div> -->
                  <div class="form-group">
                     <label for="cases">Category</label>
                     <input type="text" name="category" value="{{ $office->category}}" class="form-control" placeholder="Category">

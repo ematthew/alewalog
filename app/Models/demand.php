@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class Office extends Model
+class demand extends Model
 {
     use HasFactory;
+
+     use HasFactory;
     
     protected $fillable = [
         "pid",
@@ -40,8 +42,6 @@ class Office extends Model
 
     public function getTotalPrintAttribute(){
         // body
-        return TotalDemandPrint::where('office_id', $this->id)->count();
+        return TotalDemandPrint::where('demand_id', $this->id)->count();
     }
 }
-
-

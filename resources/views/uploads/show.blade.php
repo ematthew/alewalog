@@ -1,4 +1,4 @@
- @extends('layouts.app')
+ @extends('layouts.app') 
 
 @section('title')
     Home
@@ -24,11 +24,11 @@
             width: 50px;
         }
         .thr {
-            text-align: right;
+            text-align: right; 
             direction: rtl;
         }
         .thl {
-            text-align: left;
+            text-align: left; 
             direction: ltr;
         }
         .p{
@@ -98,7 +98,7 @@
                 <div class="col-12">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-
+                            
                         </div>
                         <div class="card-body">
                             <div class="print-wrapper">
@@ -112,12 +112,12 @@
                                             <div style="margin-left:100px;margin-right:100px;margin-top: 10px; color:#000 !important;">
                                                 <table class="table table-bordered" style="color:#000 !important;">
                                                     <tr>
-                                                        <th class="thr"style="font-family: sans-serif; font-size:24;"><strong style="font-family: sans-serif; font-size: 20px; color:red;">Tenement Rate Reminder Notice is hereby given to </strong></th>
+                                                        <th class="thr"style="font-family: sans-serif;"><strong>Demand Notice is hereby given to </strong></th>
                                                         <th class="thl" style="font-family: sans-serif;"><strong>{{ $office->occupant }}/{{ $office->pid }}</strong></th>
                                                     </tr>
                                                 </table>
                                             </div>
-
+                                        
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="pl-2">
@@ -152,36 +152,77 @@
                                                 </div>
                                                 <div class="col-md-4 pr-4">
                                                     <div class="text-center">
-                                                        <span>{!! QrCode::size(120)->generate(''.$office->asset_no  .', PID No is:' .$office->pid .', Grand Total: N'.(number_format($office->grand_total, 2)))!!}</span>
-                                                        <br> <br>
-                                                        <p class="text-danger" style="font-family: sans-serif;font-size:20px;"><b>PID-{{ $office->pid }}</b></p><p style="font-family: sans-serif;">{{ date("Y-m-d H:i ") }}</p>
+                                                        <span>{!! QrCode::size(120)->generate(''.$office->asset_no  .', PID No is:' .$office->pid .', Grand Total: N'.(number_format($office->grand_total, 2)))!!}</span> 
+                                                        <br>
+                                                        <p class="text-danger" style="font-family: sans-serif;font-size:20px;"><b>PID-{{ $office->pid }}<br> {{ date("Y-m-d H:i ") }}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-4 offset-2" style="margin-top:60px;">
+                                        <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
+                                            <table class="table" style="color:#000 !important;">
 
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
+                                                    <td style="font-family:sans-serif"><b>Bill Ref : </b> </td>
+                                                    <td style="color:blue;" style="font-family:sans-serif"><b>{{ date("Y /")  .$office->pid }}</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-family:sans-serif"><b>Agency Code:</b>  </td>
+                                                    <td style="color:blue;"style="font-family:sans-serif"><b>2000300</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-family:sans-serif"><b>Revenue Code :</b></td>
+                                                    <td style="color:blue;"style="font-family:sans-serif"><b>1002</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-family:sans-serif"><b> Rate Year: {{ date("Y") }}</b></td>
+                                                    <td style="color:blue;"style="font-family:sans-serif"><b>{{ date("Y ") }}</b></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p style="text-align: center; font-family: sans-serif; color: black;"><b>BILL INFORMATION</b></p>
+                                        <div class="row-border" style="color:#000 !important;border: 1px solid #000 !important;">
+                                            {{-- <div class="py-2 text-center mx-4">
+                                                
+                                            </div> --}}
+                                            <table class="table" style="color:#000 !important;">
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
+                                                    <td style="font-family:sans-serif"><b>Annual Value:</b> </td>
+                                                    <td style="color:blue;"style="font-family:sans-serif"><span>&#8358;</span><b>{{ number_format($office->annual_value, 2) }}</b></td>
+                                                </tr>
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
+                                                    <td style="font-family:sans-serif"><b>Rate Payable</b> </td>
+                                                    <td style="color:blue;"style="font-family:sans-serif"><span>&#8358;</span><b>{{ number_format($office->rate_payable, 2) }}</b></td>
+                                                </tr>
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
+                                                    <td style="font-family:sans-serif"><b>Arrears Year:</b> </td>
+                                                    <td style="color:blue;"style="font-family:sans-serif"><span>&#8358;</span><b>{{ number_format($office->arrears, 2) }}</b></td>
+                                                </tr style="border-bottom-style: 1px solid #000 !important;">
+                                                </tr>
+                                                    <td style="font-family:sans-serif"><b>Penalty (10%):</b> </td>
+                                                    <td style="color:blue;"style="font-family:sans-serif"><span>&#8358;</span><b>{{ number_format($office->penalty, 2) }}</b></td>
+                                                </tr>
+                                                <tr style="border-bottom-style: 1px solid #000 !important;">
+                                                    <td style="background-color:yellow; font-family:sans-serif;"><strong>GRAND TOTAL:</strong> </td>
+                                                    <td style="background-color:yellow; color: blue; font-family: sans-serif;"><span>&#8358;</span><b>{{ number_format($office->grand_total, 2) }}</b></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;font-family:sans-serif;font-size:18px; text-align:justify;">
-
+                                            
                                           <b>
-                                                   <b>{{ $office->occupant }}, </b> <br> <b>{{ $office->prop_addr }},</b> <br>
-                                                   <br> <b>The Management of Abuja Municipal Area Council; Tenement Rate &  Valuation Department wishes to remind you on the pending demand on Tenement Rate & Valuation levy/fees due to Abuja municipal Area Council.</b> <br>
-                                                   <b>This is inspite of having allowed you ample of time to pay the fees/levy of the sum</b> <span ><strong class="text-danger"><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}, <br></b></strong></b></span> <br> <b style="color:#000; font-family:sans-serif;font-size:18px; text-align:justify;">
-
-                                                    You are therefore required to settle the bill/levy within One Week from the date of this notice, otherwise Abuja Municipal Area council, Tenement Rate & Valuation Authority may have no choice other than to enforce full payment of the bill/levy in accordance with the provision of section 7 (4th schedule) of the 1999 constitutions of the Federal Republic of Nigeria, Federal Capital Territory Act cap  503, LFN 2004 (Vol.3) as amended:  Taxes and levies (approved list of collection) Act 2015 (as amended) and AMAC Tenement Rent bye-laws of 2012.
-
-                                                    </b> <br>
-
-                                                    <b> <br>
-                                                        <span class="text-danger">NOTE:</span> we forwarded your bill for the year 2022, totaling <span ><strong class="text-danger"><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong> in respect of the landed property(ies) you are occupying in Abuja Municipal Area Council as per detail above.  </b></span>
-
-
-                                                    {{-- </b>
-                                                    In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span ><strong class="text-danger"><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> <b>in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above.</b> --}}
-
+                                                    In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year 2022, totaling  <span ><strong class="text-danger"><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> <b>in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above.</b>
+                                                
 
                                             </b>
                                         </div>
@@ -189,32 +230,31 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important;font-family:sans-serif;font-size:18px;">
-                                            <div class="row">
-                                                <div class="col-md-10">
+                                        <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important; justify-content: 10px;">
+                                        <div class="row">
+                                                    <div class="col-md-10">
                                                         <p class="" style="font-family:sans-serif;font-size: 18px;">
                                                         <b>Payment Options:</b> <br >
                                                         <b>1. AMAC Bank Draft</b> <br />
                                                        <b>2. Internet Banking Transfer:<span class="text-danger" style="font-family: sans-serif;"> <strong><b>Abuja Municipal Area Council, FCMB Account. No. 8672253011</b></strong></span> </b> <br />
-                                                       <b>3. Pay by Scanning QRCode on the right hand</b>
+                                                        <b>3. Pay by Scanning QRCode on the right hand</b>
                                                           <b> (Locate QR Payment on your mobile Banking App, (Choose NIBSS) and Scan QRCode to Pay) </b> <br>
                                                        <b>4.</b> <strong class="text-danger"style="font-family: sans-serif;">To avoid doubts, write your PID as Payment Reference for bank branch and Transfers.</strong> <br>
                                                         <b>Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.</b>
-                                                </div>
 
-                                                        <div class="col-md-2">
+                                                    </div>
+
+                                                    <div class="col-md-2">
                                                             <div class="text-center">
-
-                                                            <p><img src="{{asset('/img/QR.jpeg')}}" width="160px" ></p>
+                                                                   
+                                                            <p><img src="{{asset('/img/QR.jpeg')}}" width="160px" ></p> 
+                                                            </div>
                                                         </div>
-                                            </div>
-
+                                                </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
-                            </p>
-                        </div>
-
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row-border px-4 py-2" style="color:#000 !important;border: 1px solid #000 !important;">
@@ -229,23 +269,27 @@
                                           <strong style="font-family: sans-serif;"> Your early compliance will be highly appreciated</strong>
                                         </div>
                                         <div class="">
-                                            <div class="row" style="">
-
+                                            <div class="row" style="margin-top:60px;">
                                                <div class="col-md-6" style="color:#000 !important;">
-                                                    <p><img src="{{asset('/img/do.png')}}" width="168px" {{-- height="200px;" --}}></p>
-
+                                                <!-- <br><p style="margin-top:90px"></p> -->
+                                                    <p><img src="/img/htr.png" width="168px"></p> <br />
+                                                    <!-- <b style="font-family: sans-serif;">ANNA IBRAHIM<br> -->
                                                     <b style="font-family: sans-serif;">
-                                                        DIRECTOR OF OPERATIONS
-                                                    </b>
-
+                                                        HEAD OF TENEMENT RATE <br />
+                                                   For Honourable Chairman <br />
+                                                   Abuja Municipal Area Council</b>
                                                </div>
-                                               <div class="col-md-6" style="color:#000 !important;margin-bottom:5px;">
-                                                    <p><img src="{{asset('/img/htr-min.png')}}" width="168px" height="260px"></p>
+                                               <div class="col-md-6" style="color:#000 !important;">
 
+                                                <!-- <br><p style="margin-top:60px"></p> -->
+                                                    <p><img src="{{asset('/img/doo.jpeg')}}" width="168px"></p> 
+                                                    <br />
+                                                    <!-- <b style="font-family: sans-serif;">PAUL ABU<br> -->
                                                     <b style="font-family: sans-serif;">
-                                                    HEAD OF ENFORCEMENT<br />
-                                                    AND REVENUE RECOVERY
-                                                   </b>
+                                                        DIRECTOR OF OPERATIONS <br />
+                                                    For Honourable Chairman <br />
+                                                    Abuja Municipal Area Council</b>
+
                                                </div>
                                             </div>
                                         </div>
@@ -261,12 +305,12 @@
                                                 <tr>
                                                     <td><b style="font-family: sans-serif;">Date:</b></td>
                                                     <td><b>---------------------------------------------</b></td>
-
+                                                        
                                                 </tr>
                                                 <tr>
                                                     <td><b style="font-family: sans-serif;">Signature:</b></td>
                                                     <td><b>---------------------------------------------</b></td>
-
+                                                    
                                                 </tr>
                                             </table>
                                             <br />
@@ -282,12 +326,12 @@
                                                     <td><b style="font-family: sans-serif;">Name Of Officer:</b></td>
 
                                                     <td><b>---------------------------------------------</b></td>
-
+                                                        
                                                 </tr>
                                                 <tr>
                                                     <td><b style="font-family: sans-serif;">Mode of Dispatch</b></td>
                                                     <td><b>---------------------------------------------</b></td>
-
+                                                    
                                                 </tr>
                                             </table>
                                             <br />
@@ -308,9 +352,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>     
     </div>
-
+    <!-- End of Main Content -->
 
 @endsection
 
@@ -330,6 +374,6 @@
             });
 
         }
-
+        
     </script>
-@endsection
+@endsection 

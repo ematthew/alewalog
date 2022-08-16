@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Office;
+use App\Models\TotalDemandPrint;
 use PDF;
 
 class OfficeController extends Controller
@@ -33,10 +34,10 @@ class OfficeController extends Controller
             ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
             ->orWhere('pid', 'LIKE', "%$search_keywords%")
             ->orderBy('pid', 'DESC')
-            ->paginate(50);
+            ->paginate(20);
 
         }else{
-            $offices = Office::orderBy('pid', 'DESC')->paginate(20);
+            $offices = Office::sortable('pid', 'DESC')->paginate(20);
         }
         
         return view('office.index', compact('offices'));
@@ -100,6 +101,7 @@ class OfficeController extends Controller
         $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
         return view('office.preview', compact('offices'));
     }
+
     
     public function store(Request $request){
 
@@ -114,17 +116,17 @@ class OfficeController extends Controller
         $office->prop_use           =$request->input('prop_use');
         $office->rating_dist        =$request->input('rating_dist');
         $office->annual_value       =$request->input('annual_value');
-        $office->rate_payable       =$request->input('rate_payable');
+        $office->rate_payable       =0.04 * $office->annual_value;
         $office->arrears            =$request->input('arrears');
         $office->penalty            =$request->input('penalty');
         $office->paid_amount        =$request->input('paid_amount');
-        $office->grand_total        =$request->input('grand_total');
+        $office->grand_total        = $office->rate_payable + $office->arrears + $office->penalty;
         $office->category           =$request->input('category');
         $office->group              =$request->input('group');
         $office->active             =$request->input('active');
 
         $office->save();
-        return redirect()->route('office')->with('success','office information has been created Successfully');
+        return redirect()->route('offices')->with('success','office information has been created Successfully');
     }
     
     
@@ -145,7 +147,13 @@ class OfficeController extends Controller
     
     public function update($id, Request $request){
 
+        
+
         $office = Office::find($id);
+
+
+
+
         $office->pid                =$request->pid;
         $office->occupant           =$request->occupant;
         $office->prop_addr          =$request->prop_addr;
@@ -156,16 +164,17 @@ class OfficeController extends Controller
         $office->prop_use           =$request->prop_use;
         $office->rating_dist        =$request->rating_dist;
         $office->annual_value       =$request->annual_value;
-        $office->rate_payable       =$request->rate_payable;
+        $office->rate_payable       = 0.04 * $office->annual_value;
         $office->arrears            =$request->arrears;
         $office->penalty            =$request->penalty;
         $office->paid_amount        =$request->paid_amount;
-        $office->grand_total        =$request->grand_total;
+        $office->grand_total        =$office->rate_payable + $office->arrears + $office->penalty - $office->paid_amount ;
         $office->category           =$request->category;
         $office->group              =$request->group;
         $office->active             =$request->active;
 
         $office->update();
+
         return redirect()->route('offices')->with('success','office information has been created Successfully');
     }
     
@@ -181,6 +190,39 @@ class OfficeController extends Controller
         $office->delete();
         return view('office.index',compact('office'));
     }
+
+    public function saveTotalPrint(Request $request )
+    {
+
+        $total_demand_print = new TotalDemandPrint();
+        $total_demand_print->addOne($request);
+    }
+
+    public function sortSearch(Request $request)
+    {
+            
+
+        $sortSearch =  Office::where('pid', 'like', '%' . $request->pid . '%')
+        ->where('asset_no', 'like', '%' . $request->asset_no . '%')
+        ->where('street_name', 'like', '%' . $request->street_name . '%')
+        ->get();
+
+
+    //     if($request->has('sortSearch')){
+
+    //         $sortSearch = $request->sortSearch;
+    //         $offices = Office::where('pid', 'like', '%' . $request->pid . '%')
+    //                ->where('asset_no', 'like', '%' . $request->asset_no . '%')
+    //                ->where('street_name', 'like', '%' . $request->street_name . '%')
+    //                ->orderBy('pid', 'DESC')
+    //                ->paginate(10);
+
+    // }else{
+    //     $offices = Office::orderBy('pid', 'DESC')->paginate(20);
+
+    //     }return view('office.index', compact('offices'));
+    }
+
     
     
 }

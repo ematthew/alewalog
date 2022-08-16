@@ -40,7 +40,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
-                <div class="sidebar-brand-text mx-3">Alewa Admin <sup>v.1</sup></div>
+                <div class="sidebar-brand-text mx-3">Tenement Rate $ Valuation <sup>v.1</sup></div>
             </a>
 
             <!-- Divider -->

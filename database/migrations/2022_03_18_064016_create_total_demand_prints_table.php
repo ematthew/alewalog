@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPaidAmountOfficesTable extends Migration
+class CreateTotalDemandPrintsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class AddPaidAmountOfficesTable extends Migration
      */
     public function up()
     {
-        Schema::table('offices', function (Blueprint $table) {
-            $table->integer('paid_amount')->nullable()->after('grand_total');
+        Schema::create('total_demand_prints', function (Blueprint $table) {
+            $table->id();
+            $table->integer('office_id');
+            $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -26,8 +27,6 @@ class AddPaidAmountOfficesTable extends Migration
      */
     public function down()
     {
-        Schema::table('offices', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('total_demand_prints');
     }
 }
