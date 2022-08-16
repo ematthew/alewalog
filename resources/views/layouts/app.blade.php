@@ -74,6 +74,12 @@
                         <a class="collapse-item" href="{{url('offices')}}">Office(s)</a>
                     </div>
                 </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Demand Data:</h6>
+                        <a class="collapse-item" href="{{ Route('demand') }}">Demands</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->

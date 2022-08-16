@@ -124,7 +124,7 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $office->pid }}</td>
-                                                <td>{{ $office->total_print }}</td>
+                                                {{-- <td>{{ $office->total_print }}</td> --}}
                                                 <td>
                                                     @if($office->paid_amount <= 0 )
                                                       

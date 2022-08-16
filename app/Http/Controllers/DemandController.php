@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Demand;
 use App\Models\TotalDemandPrint;
 use PDF;
+use App\Models\Office;
 
 use Illuminate\Http\Request;
 
@@ -37,10 +38,10 @@ class DemandController extends Controller
             ->paginate(10);
 
         }else{
-            $demands = Demand::sortable('pid', 'DESC')->paginate(20);
+            $demands = Office::sortable('pid', 'DESC')->paginate(20);
         }
         
-        return view('Demand.index', compact('demands'));
+        return view('demand.index', compact('demands'));
     }
 
     /*

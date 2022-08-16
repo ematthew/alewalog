@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemandController;
 
 
 
@@ -28,6 +29,9 @@ Route::group(['prefix' => 'offices'], function() {
     Route::delete('/delete', 	'OfficeController@deleteOne')->name('office_delete');
     Route::get('/preview',      'OfficeController@previewAll')->name('office_preview');
     Route::get('/offices/createPDF',  'OfficeController@createPDF')->name('createPDF');
+});
+Route::group(['prefix' => 'demands'], function() {
+    Route::get('/',[DemandController::class, 'index'])->name('demand');
 });
 
 
