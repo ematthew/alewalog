@@ -19,7 +19,7 @@ class DemandController extends Controller
         // body
         $this->middleware('auth');
     }
-    
+
     /*
     |-----------------------------------------
     | SHOW VIEW INDEX
@@ -27,6 +27,8 @@ class DemandController extends Controller
     */
     public function index(Request $request){
         // body
+        $grandTotal = 1000;
+
         if($request->has('search_keywords')){
 
             $search_keywords = $request->search_keywords;
@@ -38,9 +40,11 @@ class DemandController extends Controller
             ->paginate(10);
 
         }else{
-            $demands = Office::sortable('pid', 'DESC')->paginate(20);
+            $demands = Office::where('grand_total', '>=',$grandTotal)
+            ->sortable('pid', 'DESC')
+            ->paginate(20);
         }
-        
+
         return view('demand.index', compact('demands'));
     }
 
@@ -56,7 +60,7 @@ class DemandController extends Controller
     }
 
      // Generate PDF
-    public function createPDF() 
+    public function createPDF()
     {
       // retreive all records from db
       $demand = Demand::all();
@@ -82,7 +86,7 @@ class DemandController extends Controller
         return view('demands.preview', compact('demands'));
     }
 
-    
+
     public function store(Request $request){
 
         $demand = new Demand();
@@ -108,26 +112,26 @@ class DemandController extends Controller
         $demand->save();
         return redirect()->route('demands')->with('success','demand information has been created Successfully');
     }
-    
-    
+
+
     // |-----------------------------------------
-    // | FETCH DATA 
+    // | FETCH DATA
     // |-----------------------------------------
-    
+
     public function edit($id)
     {
 
-        $demand = Demand::findOrFail($id);        
+        $demand = Demand::findOrFail($id);
         return view('demand.edit',compact('demand'));
     }
-    
+
     // |-----------------------------------------
-    // | MODIFY or UPDATE DATA 
+    // | MODIFY or UPDATE DATA
     // |-----------------------------------------
-    
+
     public function update($id, Request $request){
 
-        
+
 
         $demand = Demand::find($id);
 
@@ -157,12 +161,12 @@ class DemandController extends Controller
 
         return redirect()->route('demands')->with('success','office information has been created Successfully');
     }
-    
+
     // /*
     // |-----------------------------------------
     // | DESTROY DATA
     // |-----------------------------------------
-    
+
     public function destroy($id)
     {
 
@@ -180,7 +184,7 @@ class DemandController extends Controller
 
     public function sortSearch(Request $request)
     {
-            
+
 
         // $sortSearch =  Office::where('pid', 'like', '%' . $request->pid . '%')
         // ->where('asset_no', 'like', '%' . $request->asset_no . '%')

@@ -46,7 +46,7 @@
 
 
 
-                            <form action="" method="GET" role="search"> 
+                            <form action="" method="GET" role="search">
                                 <div class="row">
                                      <div class="col-md-5 offset-3">
                                         <div class="form-group">
@@ -100,8 +100,8 @@
                                             <th>GROUP</th>
                                             <th>ACTIVE   </th>
                                             <th>ACTION </th>
-                                            
-                                            
+
+
 
                                         </tr>
                                     </thead>
@@ -117,19 +117,20 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $demand->pid }}</td>
+                                                <td>{{ $demand->occupant }}</td>
                                                 <td>
                                                     @if($demand->paid_amount <= 0 )
-                                                      
+
                                                           <a href="" class="text-danger">
                                                                NOT PAID
                                                           </a>
-                                                        
-                                                    
+
+
                                                 @else
 
                                                     <a href="" class="text-success">
                                                          PAID
-                                               
+
                                                     </a>
                                                 @endif
 
@@ -150,21 +151,21 @@
                                                 <td>{{ $demand->grand_total }}</td>
                                                 <td>{{ $demand->category }}</td>
                                                 <td>{{ $demand->group }}</td>
-                                                <td>{{ $demand->active }}</td>                                             
+                                                <td>{{ $demand->active }}</td>
                                                 <td>
                                                     <a href="{{url('offices/view')}}?pid={{ $demand->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
                                                     <a href="{{ url('offices/edit/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
                                                 </td>
-                                                
+
                                             </tr>
 
                                             @php array_push($demands_box, $demand->id) @endphp
 
 
 
-                                            
+
                                         @endforeach
 
                                         @php $total = $demand->grand_total + $demand->paid_amount ; @endphp
@@ -206,7 +207,7 @@
                 if(all_customers_ref.length == total_customers_items){
                     $("#select-all").prop("checked", "checked");
                 }else{
-                   $("#select-all").removeAttr("checked"); // pop check all 
+                   $("#select-all").removeAttr("checked"); // pop check all
                 }
             }else if($(`#select-all-${sn}`).is(':checked') !== true){
                 $("#select-all").removeAttr("checked"); // pop check all

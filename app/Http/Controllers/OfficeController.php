@@ -18,7 +18,7 @@ class OfficeController extends Controller
     	// body
     	$this->middleware('auth');
     }
-    
+
     /*
     |-----------------------------------------
     | SHOW VIEW INDEX
@@ -26,6 +26,7 @@ class OfficeController extends Controller
     */
     public function index(Request $request){
         // body
+        $grandTotal = 1000;
         if($request->has('search_keywords')){
 
             $search_keywords = $request->search_keywords;
@@ -37,9 +38,9 @@ class OfficeController extends Controller
             ->paginate(20);
 
         }else{
-            $offices = Office::sortable('pid', 'DESC')->paginate(20);
+            $offices = Office::where('grand_total', '<',$grandTotal)->sortable('pid', 'DESC')->paginate(20);
         }
-        
+
         return view('office.index', compact('offices'));
     }
 
@@ -71,12 +72,12 @@ class OfficeController extends Controller
             ->orWhere('prop_addr', 'LIKE', "%{$prop_addr}%");
             });
         }
-        
+
         return view('office.index', compact('office'));
     }
 
      // Generate PDF
-    public function createPDF() 
+    public function createPDF()
     {
       // retreive all records from db
       $office = Office::all();
@@ -102,7 +103,7 @@ class OfficeController extends Controller
         return view('office.preview', compact('offices'));
     }
 
-    
+
     public function store(Request $request){
 
         $office = new Office();
@@ -128,26 +129,26 @@ class OfficeController extends Controller
         $office->save();
         return redirect()->route('offices')->with('success','office information has been created Successfully');
     }
-    
-    
+
+
     // |-----------------------------------------
-    // | FETCH DATA 
+    // | FETCH DATA
     // |-----------------------------------------
-    
+
     public function edit($id)
     {
 
-        $office = Office::findOrFail($id);        
+        $office = Office::findOrFail($id);
         return view('office.edit',compact('office'));
     }
-    
+
     // |-----------------------------------------
-    // | MODIFY or UPDATE DATA 
+    // | MODIFY or UPDATE DATA
     // |-----------------------------------------
-    
+
     public function update($id, Request $request){
 
-        
+
 
         $office = Office::find($id);
 
@@ -177,12 +178,12 @@ class OfficeController extends Controller
 
         return redirect()->route('offices')->with('success','office information has been created Successfully');
     }
-    
+
     // /*
     // |-----------------------------------------
     // | DESTROY DATA
     // |-----------------------------------------
-    
+
     public function destroy($id)
     {
 
@@ -200,7 +201,7 @@ class OfficeController extends Controller
 
     public function sortSearch(Request $request)
     {
-            
+
 
         $sortSearch =  Office::where('pid', 'like', '%' . $request->pid . '%')
         ->where('asset_no', 'like', '%' . $request->asset_no . '%')
@@ -223,6 +224,6 @@ class OfficeController extends Controller
     //     }return view('office.index', compact('offices'));
     }
 
-    
-    
+
+
 }
