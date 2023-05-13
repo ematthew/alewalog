@@ -94,8 +94,8 @@
                                             <th>RATE PAYABLE </th>
                                             <th>ARREARS</th>
                                             <th>PENALTY </th>
-                                            <th>PAID AMOUNT</th>
                                             <th>GRAND TOTAL</th>
+                                            <th>PAID AMOUNT</th>
                                             <th>CATEGORY</th>
                                             <th>GROUP</th>
                                             <th>ACTIVE   </th>
@@ -147,8 +147,8 @@
                                                 <td>{{ $demand->rate_payable }}</td>
                                                 <td>{{ $demand->arrears }}</td>
                                                 <td>{{ $demand->penalty }}</td>
-                                                <td>{{ $demand->paid_amount }}</td>
                                                 <td>{{ $demand->grand_total }}</td>
+                                                <td>{{ $demand->paid_amount }}</td>
                                                 <td>{{ $demand->category }}</td>
                                                 <td>{{ $demand->group }}</td>
                                                 <td>{{ $demand->active }}</td>

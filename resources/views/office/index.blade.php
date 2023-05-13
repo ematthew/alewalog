@@ -50,7 +50,7 @@
 
 
 
-                            <form action="" method="GET" role="search">
+                            <form action="" method="GET" role="search"> 
                                 <div class="row">
                                      <div class="col-md-5 offset-3">
                                         <div class="form-group">
@@ -85,7 +85,6 @@
                                             </th>
                                             <th>PID</th>
                                             <th>TOTAL PRINT </th>
-                                            <th>RESULT</th>
                                             <th>OCCUPANT</th>
                                             <th>PROP ADDR</th>
                                             <th>STREET NAME</th>
@@ -104,8 +103,7 @@
                                             <th>GROUP</th>
                                             <th>ACTIVE   </th>
                                             <th>ACTION </th>
-
-
+                                            
 
                                         </tr>
                                     </thead>
@@ -124,25 +122,7 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $office->pid }}</td>
-                                                <td>{{ $office->occupant }}</td>
-                                                {{-- <td>{{ $office->total_print }}</td> --}}
-                                                <td>
-                                                    @if($office->paid_amount <= 0 )
-
-                                                          <a href="" class="text-danger">
-                                                               NOT PAID
-                                                          </a>
-
-
-                                                @else
-
-                                                    <a href="" class="text-success">
-                                                         PAID
-
-                                                    </a>
-                                                @endif
-
-                                                </td>
+                                                <td>{{ $office->total_print }}</td>
                                                 <td>{{ $office->occupant }}</td>
                                                 <td>{{ $office->prop_addr }}</td>
                                                 <td>{{ $office->street_name }}</td>
@@ -160,20 +140,22 @@
                                                 <td>{{ $office->category }}</td>
                                                 <td>{{ $office->group }}</td>
                                                 <td>{{ $office->active }}</td>
+                                                
+
                                                 <td>
                                                     <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
                                                     <a href="{{ url('offices/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
                                                 </td>
-
+                                                
                                             </tr>
 
                                             @php array_push($offices_box, $office->id) @endphp
 
 
 
-
+                                            
                                         @endforeach
 
                                         @php $total = $office->grand_total + $office->paid_amount ; @endphp
@@ -215,7 +197,7 @@
                 if(all_customers_ref.length == total_customers_items){
                     $("#select-all").prop("checked", "checked");
                 }else{
-                   $("#select-all").removeAttr("checked"); // pop check all
+                   $("#select-all").removeAttr("checked"); // pop check all 
                 }
             }else if($(`#select-all-${sn}`).is(':checked') !== true){
                 $("#select-all").removeAttr("checked"); // pop check all
