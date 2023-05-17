@@ -7,6 +7,7 @@ use PDF;
 use App\Models\Office;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DemandController extends Controller
 {
@@ -120,9 +121,12 @@ class DemandController extends Controller
 
     public function edit($id)
     {
-
-        $demand = Demand::findOrFail($id);
-        return view('demand.edit',compact('demand'));
+        if (Auth::user()->user_type == 'super') {
+            $demand = Demand::findOrFail($id);
+            return view('demand.edit',compact('demand'));
+        } else {
+            return redirect()->back(); 
+        }
     }
 
     // |-----------------------------------------
@@ -131,9 +135,8 @@ class DemandController extends Controller
 
     public function update($id, Request $request){
 
-
-
-        $demand = Demand::find($id);
+        if (Auth::user()->user_type == 'super') {
+            $demand = Demand::find($id);
 
 
 
@@ -160,6 +163,9 @@ class DemandController extends Controller
         $demand->update();
 
         return redirect()->route('demands')->with('success','office information has been created Successfully');
+        } else {
+            return redirect()->back(); 
+        }
     }
 
     // /*
@@ -169,10 +175,13 @@ class DemandController extends Controller
 
     public function destroy($id)
     {
-
-        $demand = Demand::find($id);
-        $demand->delete();
-        return view('demand.index',compact('demand'));
+        if (Auth::user()->user_type == 'super') {
+            $demand = Demand::find($id);
+            $demand->delete();
+            return view('demand.index',compact('demand'));
+        } else {
+            return redirect()->back(); 
+        }
     }
 
     public function saveTotalPrint(Request $request )

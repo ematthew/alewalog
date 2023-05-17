@@ -25,6 +25,18 @@ class HomeController extends Controller
     */
     public function index(Request $request){
     	// body
+        // dd(\Auth::user()->user_type == 'super');
+        // if (\Auth::user()->user_type == 'super') {
+        //     # code...
+        //     $offices = Office::orderBy('pid', 'DESC')->paginate(10);
+        //     $totalRate = Office::sum('rate_payable');
+        //     $totalgrand = Office::sum('grand_total');
+        //     $totalvalue = Office::sum('annual_value');
+        //     return view('index', compact('offices', 'totalRate', 'totalvalue'));
+        // }else {
+        //     // dd('you are not permited to view this page');
+        //     return 'you are not permited to view this page';
+        // }
         $offices = Office::orderBy('pid', 'DESC')->paginate(10);
         $totalRate = Office::sum('rate_payable');
         $totalgrand = Office::sum('grand_total');
