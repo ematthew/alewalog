@@ -71,3 +71,13 @@ Route::group(['prefix' => 'uploads'], function() {
 |--------------------------------------------------------------------------
 */
 Route::get('/generate-qrcode', [QrCodeController::class, 'index']);
+
+// Route::get('payment/edit/{id}',   'SubscriptionController@show');
+Route::post('payment/pay',         'SubscriptionController@store')->name('paid');
+Route::get('payment/show',         'SubscriptionController@show')->name('show');
+Route::get('payment',         'SubscriptionController@index')->name('payment');
+Route::get('payment/pay/{id}',   'SubscriptionController@getPaymentInfo');
+Route::get('/successful',      'SubscriptionController@successful')->name('successful');
+
+
+

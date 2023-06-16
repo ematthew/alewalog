@@ -80,6 +80,12 @@
                         <a class="collapse-item" href="{{ Route('demand') }}">Demands</a>
                     </div>
                 </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Payment Data:</h6>
+                        <a class="collapse-item" href="{{ Route('payment') }}">Payment</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->

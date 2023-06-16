@@ -52,7 +52,8 @@
                                                     <a href="#"><i class="fa fa-stop"></i>Locked</a>
                                                     <a href="#"><i class="fa fa-trash"></i>Delete</a>
                                                 </form> 
-                                                </td>                                             
+                                                </td> 
+                                                <td width="10%">{{ $users->user_type }}</td>                                             
                                             </tr>
 
                                                 
