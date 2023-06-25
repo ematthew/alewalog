@@ -78,6 +78,7 @@ Route::get('payment/show',         'SubscriptionController@show')->name('show');
 Route::get('payment',         'SubscriptionController@index')->name('payment');
 Route::get('payment/pay/{id}',   'SubscriptionController@getPaymentInfo');
 Route::get('/successful',      'SubscriptionController@successful')->name('successful');
+Route::get('/receipt/{id}',      'SubscriptionController@receipt')->name('receipt');
 
 
 

@@ -84,9 +84,9 @@
                                             <th>RESULT</th>
                                             <th>OCCUPANT</th>
                                             <th>PROP ADDR</th>
-                                            <th>STREET NAME</th>
+                                            <!-- <th>STREET NAME</th> -->
                                             <th>ASSET NO </th>
-                                            <th>CADASTRAL ZONE</th>
+                                            <!-- <th>CADASTRAL ZONE</th> -->
                                             <th>PROP TYPE  </th>
                                             <th>PROP USE</th>
                                             <th>RATING DIST</th>
@@ -96,9 +96,9 @@
                                             <th>PENALTY </th>
                                             <th>GRAND TOTAL</th>
                                             <th>PAID AMOUNT</th>
-                                            <th>CATEGORY</th>
+                                            <!-- <th>CATEGORY</th>
                                             <th>GROUP</th>
-                                            <th>ACTIVE   </th>
+                                            <th>ACTIVE   </th> -->
                                             <th>ACTION </th>
 
 
@@ -137,9 +137,9 @@
                                                 </td>
                                                 <td>{{ $demand->occupant }}</td>
                                                 <td>{{ $demand->prop_addr }}</td>
-                                                <td>{{ $demand->street_name }}</td>
+                                                <!-- <td>{{ $demand->street_name }}</td> -->
                                                 <td>{{ $demand->asset_no }}</td>
-                                                <td>{{ $demand->cadastral_zone }}</td>
+                                                <!-- <td>{{ $demand->cadastral_zone }}</td> -->
                                                 <td>{{ $demand->prop_type }}</td>
                                                 <td>{{ $demand->prop_use }}</td>
                                                 <td>{{ $demand->rating_dist }}</td>
@@ -149,12 +149,13 @@
                                                 <td>{{ $demand->penalty }}</td>
                                                 <td>{{ $demand->grand_total }}</td>
                                                 <td>{{ $demand->paid_amount }}</td>
-                                                <td>{{ $demand->category }}</td>
+                                                <!-- <td>{{ $demand->category }}</td>
                                                 <td>{{ $demand->group }}</td>
-                                                <td>{{ $demand->active }}</td>
+                                                <td>{{ $demand->active }}</td> -->
                                                 <td>
                                                     <!-- <a href="{{ url('payment/show') }}?office_id={{ $demand->pid }}" class=""><i class="fa fa-edit"></i> Pay </a> -->
-                                                    <a href="{{ url('payment/pay/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Make Payment </a>
+                                                    <!-- <a href="{{ url('payment/pay/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Make Payment </a> -->
+                                                    <a href="{{ url('receipt/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Print Receipt </a>
 
                                                 </td>
 

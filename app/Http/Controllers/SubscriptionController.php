@@ -21,25 +21,27 @@ class SubscriptionController extends Controller
      */
     public function index(Request $request)
     {
-        $grandTotal = 1000;
-
-        if($request->has('search_keywords')){
-
-            $search_keywords = $request->search_keywords;
-            $demands = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
-            ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
-            ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
-            ->orWhere('pid', 'LIKE', "%$search_keywords%")
-            ->orderBy('pid', 'DESC')
-            ->paginate(10);
-
-        }else{
-            $demands = Office::where('grand_total', '>=',$grandTotal)
-            ->sortable('pid', 'DESC')
-            ->paginate(20);
-        }
-
+        $demands = subscription::get();
         return view('subscribe.index', compact('demands'));
+
+
+        // if($request->has('search_keywords')){
+
+        //     $search_keywords = $request->search_keywords;
+        //     $demands = subscription::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+        //     ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+        //     ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+        //     ->orWhere('pid', 'LIKE', "%$search_keywords%")
+        //     ->orderBy('pid', 'DESC')
+        //     ->paginate(10);
+
+        // }else{
+        //     $demands = Office::where('grand_total', '>=',$grandTotal)
+        //     ->sortable('pid', 'DESC')
+        //     ->paginate(20);
+        // }
+
+        // return view('subscribe.index', compact('demands'));
     }
 
 
@@ -93,7 +95,7 @@ class SubscriptionController extends Controller
         $demand->paid_amount = $sub->paid_amount;
         $demand->grand_total = $demand->grand_total-$sub->paid_amount;
         $demand->save();
-        return redirect()->route('successful');
+        return redirect()->route('payment');
     }
 
 
@@ -141,5 +143,15 @@ class SubscriptionController extends Controller
     public function successful(){
         return view('subscribe.success');
         
+    }
+    public function receipt ($id){
+        if (Auth::user()->user_type == 'super') {
+            $receipt = subscription::findOrFail($id);
+            return view('receipt.view', compact('receipt'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back(); 
+        }
+        // return view ('receipt.view');
     }
 }
