@@ -14,6 +14,17 @@ use Illuminate\Support\Str;
 
 class SubscriptionController extends Controller
 {
+     /*
+    |-----------------------------------------
+    | AUTHENTICATION
+    |-----------------------------------------
+    */
+    public function __construct(){
+        // body
+        $this->middleware('auth');
+        $this->middleware('auth.menu')->only('index');
+    }
+    
     /**
      * Display a listing of the resource.
      *
