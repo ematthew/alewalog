@@ -15,8 +15,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            @include('components.topcard')
-
             <div class="row">
                 <div class="col-xl-12 col-md-12 mb-4">
                     <div class="card shadow mb-4">

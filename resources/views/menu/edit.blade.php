@@ -15,6 +15,8 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+            @include('components.topcard')
+
         <style>
                 .uper 
             {

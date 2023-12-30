@@ -77,13 +77,13 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Demand Data:</h6>
-                        <a class="collapse-item" href="{{ Route('demand') }}">Demands</a>
+                        <a class="collapse-item" href="{{ Route('demands.index') }}">Demands</a>
                     </div>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Payment Data:</h6>
-                        <a class="collapse-item" href="{{ Route('payment') }}">Payment</a>
+                        <a class="collapse-item" href="{{ Route('payment.index') }}">Payment</a>
                     </div>
                 </div>
             </li>
@@ -108,6 +108,20 @@
                 <a class="nav-link" href="{{url('users')}}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Users</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('roles')}}">
+                    <i class="fas fa-fw fa-key"></i>
+                    <span>Roles & Permission</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('menus')}}">
+                    <i class="fas fa-fw fa-lock"></i>
+                    <span>Menu Access</span></a>
             </li>
         </ul>
         <!-- End of Sidebar -->
