@@ -32,14 +32,24 @@
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Route</th>
+                                            <th>Roles</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($menus as $menu)
                                             <tr>
-                                                <td width="10%">{{ $menu->id }}</td>
-                                                <td width="10%">{{ $menu->name }}</td>                                       
-                                                <td width="10%">{{ $menu->route }}</td>                                       
+                                                <td>{{ $menu->id }}</td>
+                                                <td>{{ $menu->name }}</td>                                       
+                                                <td>{{ $menu->route }}</td>    
+                                                <td>
+                                                    @foreach($menu->menuRoles as $key => $menuRole)
+
+                                                        <i class="fa fa-key"></i> {{ $menuRole->role->name }}
+                                                        <hr />
+                                                    @endforeach
+                                                </td>    
+                                                <td><a class="px-2" href="{{ url('menus/roles/'.$menu->id) }}"><i class="fa fa-key"></i>Assign Role</a></td>                                   
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -7,6 +7,9 @@ use App\Http\Requests\UpdateMenuRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\Role;
+use App\Models\MenuRole;
+use Auth, DB;
 
 class MenuController extends Controller
 {
@@ -17,7 +20,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
+        $menus = Menu::with('menuRoles')->get();
         return view('menu.index', compact('menus'));
     }
 
@@ -46,11 +49,17 @@ class MenuController extends Controller
 
     public function addOne(Request $request)
     {
-        dd($request->all());
         $menu = new Menu();
         $menu->name = $request->name;
-        $menu->route = $request->route;
+        $menu->route = $request->menu_route;
         $menu->save();
+
+        $data = [
+            "status" => "success",
+            "message" => "Menu created"
+        ];
+
+        return redirect()->back()->with($data);
     }
 
     /**
@@ -62,6 +71,21 @@ class MenuController extends Controller
     public function show(Menu $menu)
     {
         //
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Menu  $menu
+     * @return \Illuminate\Http\Response
+     */
+    public function role(Menu $menu, $id)
+    {
+        $menu = Menu::find($id);
+
+        $roles = Role::all();
+        return view('menu.role', compact('roles', 'menu'));
     }
 
     /**
@@ -96,5 +120,27 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         //
+    }
+
+    public function assignRole(Request $request)
+    {
+        if (Auth::user()->user_type == 'super') {
+
+            // clean default role
+            DB::statement("delete from menu_roles where menu_id = {$request->menu_id}");
+
+            foreach ($request->roles as $key => $value) {
+                # code...
+                $menu_role = new MenuRole();
+                $menu_role->role_id = $value;
+                $menu_role->menu_id = $request->menu_id;
+                $menu_role->save();
+            }
+
+            return redirect('/menus')->with('success', 'Menu Data is successfully updated');
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back(); 
+        }
     }
 }

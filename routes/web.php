@@ -45,15 +45,15 @@ Route::post('save/print/ids', 'OfficeController@saveTotalPrint');
 | User Controller
 |--------------------------------------------------------------------------
 */
-// Route::group(['prefix' => 'users'], function() {
-//     Route::get('/', 			'UserController@index')->name('users');
-//     Route::post('/create', 		'UserController@create');
-//     Route::get('/edit/{id}',    'UserController@edit');
-//     Route::put('/update', 		'UserController@update');
-//     Route::delete('/delete', 	'UserController@deleteOne')->name('user_delete');
-// });
-
-Route::resource('users', UserController::class);
+Route::group(['prefix' => 'users'], function() {
+    Route::get('/', 			'UserController@index')->name('users.index');
+    Route::post('/create', 		'UserController@create');
+    Route::get('/edit/{id}',    'UserController@edit');
+    Route::get('/roles/{id}',   'UserController@role');
+    Route::put('/update',       'UserController@update');
+    Route::post('/assign/{id}',  'UserController@assignRole');
+    Route::delete('/delete', 	'UserController@deleteOne')->name('user_delete');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ Route::resource('users', UserController::class);
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'uploads'], function () {
-    Route::get('/',             'UploadController@index')->name('upload');
+    Route::get('/',             'UploadController@index')->name('uploads.index');
     Route::post('/',             'UploadController@upload')->name('upload_file');
 });
 
@@ -93,9 +93,11 @@ Route::group(['prefix' => 'menus'], function () {
     Route::get('',              'MenuController@index');
     Route::post('update',       'MenuController@update');
     Route::post('add',          'MenuController@addOne');
+    Route::get('/roles/{id}',   'MenuController@role');
     Route::get('create',        'MenuController@create');
     Route::get('fetch',         'MenuController@fetchOne');
     Route::get('all',           'MenuController@fetchAll');
+    Route::post('/assign/{id}', 'MenuController@assignRole');
 });
 
 

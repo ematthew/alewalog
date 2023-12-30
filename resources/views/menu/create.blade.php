@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <label for="cases">Route</label>
-                    <select class="form-control">
+                    <select class="form-control" name="menu_route">
                         @foreach($routes as $key => $route)
                             @if(str_contains($route->getName(), '.index'))
                                 <option value="{{ $route->uri() }}"> {{ $route->getName() }} </option>
