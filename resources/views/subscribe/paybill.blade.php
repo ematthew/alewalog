@@ -41,7 +41,7 @@ Home
         </div><br />
         @endif
 
-        <form action="{{route('paid')}}" method="POST">
+        <form action="{{ url('payment/pay')}}" method="POST">
             <div class="form-group">
                 @csrf
                 <label for="name">Pid Number:</label>

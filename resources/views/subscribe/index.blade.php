@@ -107,6 +107,7 @@
                                     </thead>
                                     <tbody>
                                         @php $demands_box = [] @endphp
+                                        @php $total = 0 @endphp
                                         @foreach($demands as $key => $demand)
                                             <tr>
                                                 <td>
@@ -161,14 +162,11 @@
 
                                             </tr>
 
-                                            @php array_push($demands_box, $demand->id) @endphp
-
-
-
+                                            @php $total = $total + $demand->grand_total + $demand->paid_amount ; @endphp
 
                                         @endforeach
 
-                                        @php $total = $demand->grand_total + $demand->paid_amount ; @endphp
+                                        
 
                                     </tbody>
                                 </table>

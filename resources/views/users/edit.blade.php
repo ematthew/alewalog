@@ -39,10 +39,9 @@
              </div><br />
         @endif
 
-         <form method="post" action="{{ url('users/update/'.$user->id ) }}">
+         <form method="POST" action="{{ url('users/update/'.$user->id ) }}">
             <div class="form-group">
                   @csrf
-                 @method('PATCH')
                     <label for="name">User Name:</label>
                     <input type="text" class="form-control" name="name" value="{{ $user->name }}"/>
             </div>

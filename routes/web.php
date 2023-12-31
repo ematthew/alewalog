@@ -47,10 +47,11 @@ Route::post('save/print/ids', 'OfficeController@saveTotalPrint');
 */
 Route::group(['prefix' => 'users'], function() {
     Route::get('/', 			'UserController@index')->name('users.index');
-    Route::post('/create', 		'UserController@create');
+    Route::get('/create', 		'UserController@create');
+    Route::post('/store',       'UserController@store');
     Route::get('/edit/{id}',    'UserController@edit');
     Route::get('/roles/{id}',   'UserController@role');
-    Route::put('/update',       'UserController@update');
+    Route::post('/update/{id}',       'UserController@update');
     Route::post('/assign/{id}',  'UserController@assignRole');
     Route::delete('/delete', 	'UserController@deleteOne')->name('user_delete');
 });

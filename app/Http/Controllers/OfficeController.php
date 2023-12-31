@@ -146,7 +146,7 @@ class OfficeController extends Controller
         $office->active             = $request->input('active');
 
         $office->save();
-        return redirect()->route('offices')->with('success', 'office information has been created Successfully');
+        return redirect('offices')->with('success', 'office information has been created Successfully');
     }
 
 
@@ -196,7 +196,7 @@ class OfficeController extends Controller
 
             $office->update();
 
-            return redirect()->route('offices')->with('success', 'office information has been created Successfully');
+            return redirect('offices')->with('success', 'office information has been created Successfully');
         } else {
             // return 'you are not allow to view this page';
             return redirect()->back(); 

@@ -26,7 +26,7 @@
             Create User Table
         </div>
           <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('users') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('users') }}"> Back</a>
         </div>
     </div>
       <div class="card-body">
@@ -40,10 +40,9 @@
              </div><br />
         @endif
 
-         <form method="get" action="{{ route('users.create') }}">
+         <form method="post" action="{{ url('users/store') }}">
             <div class="form-group">
                   @csrf
-                 @method('get')
                     <label for="name">User Name:</label>
                     <input type="text" class="form-control" name="name"/>
             </div>

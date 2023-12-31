@@ -106,7 +106,7 @@ class SubscriptionController extends Controller
         $demand->paid_amount = $sub->paid_amount;
         $demand->grand_total = $demand->grand_total-$sub->paid_amount;
         $demand->save();
-        return redirect()->route('payment');
+        return redirect('payment');
     }
 
 

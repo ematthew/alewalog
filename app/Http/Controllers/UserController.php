@@ -38,13 +38,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         if (Auth::user()->user_type == 'super') {
-            $users = new Office();
+            $users = new User();
             $users->name                = $request->input('name');
             $users->email               = $request->input('email');
-            $users->password            = $request->input('password');
-            $users->password            = $request->input('password');
+            $users->password            = bcrypt($request->input('password'));
             $users->save();
-            return redirect()->route('users')->with('success', 'user information has been created Successfully');
+            return redirect()->back()->with('success', 'user information has been created Successfully');
         } else {
             // return 'you are not allow to view this page';
             return redirect()->back(); 
@@ -76,18 +75,15 @@ class UserController extends Controller
         }
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         if (Auth::user()->user_type == 'super') {
-            $validatedData = $request->validate([
-                'name' => 'required|max:255',
-                'email' => 'required',
-                'password' => 'required',
-                'password' => 'required',
 
-            ]);
-
-            User::whereId($id)->update($validatedData);
+            $users = User::find($id);
+            $users->name                = $request->input('name');
+            $users->email               = $request->input('email');
+            $users->password            = bcrypt($request->input('password'));
+            $users->update();
 
             return redirect('/users')->with('success', 'User Data is successfully updated');
         } else {
