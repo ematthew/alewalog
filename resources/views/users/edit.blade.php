@@ -15,8 +15,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            @include('components.topcard')
-
         <style>
                 .uper 
             {
@@ -28,7 +26,7 @@
             Edit User Table
         </div>
          <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('users') }}"> Back</a>
         </div>
       <div class="card-body">
         @if ($errors->any())
@@ -41,7 +39,7 @@
              </div><br />
         @endif
 
-         <form method="post" action="{{ route('users.update', $user->id ) }}">
+         <form method="post" action="{{ url('users/update/'.$user->id ) }}">
             <div class="form-group">
                   @csrf
                  @method('PATCH')

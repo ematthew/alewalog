@@ -26,7 +26,7 @@
             Create User Table
         </div>
           <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('users') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('roles') }}"> Back</a>
         </div>
     </div>
       <div class="card-body">
@@ -40,27 +40,15 @@
              </div><br />
         @endif
 
-         <form method="get" action="{{ route('users.create') }}">
+        <form method="post" action="{{ url('roles/add') }}">
+            @csrf
+
             <div class="form-group">
-                  @csrf
-                 @method('get')
-                    <label for="name">User Name:</label>
-                    <input type="text" class="form-control" name="name"/>
+                <label for="name">Role Name:</label>
+                <input type="text" class="form-control" name="name"/>
             </div>
-                <div class="form-group">
-                    <label for="cases">Email :</label>
-                    <input type="text" class="form-control" name="email"/>
-                </div>
-                <div class="form-group">
-                    <label for="cases">password:</label>
-                    <input type="text" class="form-control" name="password"/>
-                </div>
-                <div class="form-group">
-                    <label for="cases">comfirm password:</label>
-                    <input type="text" class="form-control" name="password"/>
-                </div>
-              <button type="submit" class="btn btn-primary">Add Data</button>
-            </form>
+          <button type="submit" class="btn btn-primary">Add Role</button>
+        </form>
      </div>
  </div>
     <!-- End of Main Content -->

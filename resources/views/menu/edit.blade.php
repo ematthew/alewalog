@@ -15,6 +15,8 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+            @include('components.topcard')
+
         <style>
                 .uper 
             {
@@ -23,12 +25,11 @@
         </style>
     <div class="card uper">
         <div class="card-header">
-            Create User Table
+            Edit User Table
         </div>
-          <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('users') }}"> Back</a>
+         <div class="card-header">
+            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
         </div>
-    </div>
       <div class="card-body">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -40,26 +41,26 @@
              </div><br />
         @endif
 
-         <form method="get" action="{{ route('users.create') }}">
+         <form method="post" action="{{ route('users.update', $user->id ) }}">
             <div class="form-group">
                   @csrf
-                 @method('get')
+                 @method('PATCH')
                     <label for="name">User Name:</label>
-                    <input type="text" class="form-control" name="name"/>
+                    <input type="text" class="form-control" name="name" value="{{ $user->name }}"/>
             </div>
                 <div class="form-group">
                     <label for="cases">Email :</label>
-                    <input type="text" class="form-control" name="email"/>
+                    <input type="text" class="form-control" name="email" value="{{ $user->email }}"/>
                 </div>
                 <div class="form-group">
                     <label for="cases">password:</label>
                     <input type="text" class="form-control" name="password"/>
                 </div>
                 <div class="form-group">
-                    <label for="cases">comfirm password:</label>
+                    <label for="cases">confirm password:</label>
                     <input type="text" class="form-control" name="password"/>
                 </div>
-              <button type="submit" class="btn btn-primary">Add Data</button>
+              <button type="submit" class="btn btn-primary">Update Data</button>
             </form>
      </div>
  </div>

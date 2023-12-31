@@ -68,24 +68,32 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>All Data</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Data:</h6>
-                        <a class="collapse-item" href="{{url('offices')}}">Office(s)</a>
+                @if(checkIfHasMenuAccess("offices", auth()->user()->id))
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Data:</h6>
+                            <a class="collapse-item" href="{{url('offices')}}">Office(s)</a>
+                        </div>
                     </div>
-                </div>
+                @endif
+                
+                @if(checkIfHasMenuAccess("demands", auth()->user()->id))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Demand Data:</h6>
-                        <a class="collapse-item" href="{{ Route('demand') }}">Demands</a>
+                        <a class="collapse-item" href="{{ Route('demands.index') }}">Demands</a>
                     </div>
                 </div>
+                @endif
+
+                @if(checkIfHasMenuAccess("payment", auth()->user()->id))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Payment Data:</h6>
-                        <a class="collapse-item" href="{{ Route('payment') }}">Payment</a>
+                        <a class="collapse-item" href="{{ Route('payment.index') }}">Payment</a>
                     </div>
                 </div>
+                @endif
             </li>
 
             <!-- Divider -->
@@ -96,12 +104,18 @@
                 Addons
             </div>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('uploads')}}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Upload Data</span></a>
-            </li>
+            
+            @if(checkIfHasMenuAccess("uploads", auth()->user()->id))
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('uploads')}}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Upload Data</span></a>
+                </li>
+            @endif
+
+
+            @if(auth()->user()->user_type == 'super')
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
@@ -109,6 +123,22 @@
                     <i class="fas fa-fw fa-users"></i>
                     <span>Users</span></a>
             </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('roles')}}">
+                    <i class="fas fa-fw fa-key"></i>
+                    <span>Roles & Permission</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('menus')}}">
+                    <i class="fas fa-fw fa-lock"></i>
+                    <span>Menu Access</span></a>
+            </li>
+
+            @endif
         </ul>
         <!-- End of Sidebar -->
         @endif

@@ -19,6 +19,7 @@ class DemandController extends Controller
     public function __construct(){
         // body
         $this->middleware('auth');
+        $this->middleware('auth.menu')->only('index');
     }
 
     /*

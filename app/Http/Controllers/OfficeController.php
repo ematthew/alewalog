@@ -21,6 +21,7 @@ class OfficeController extends Controller
     {
         // body
         $this->middleware('auth');
+        $this->middleware('auth.menu')->only('index');
     }
 
     /*
