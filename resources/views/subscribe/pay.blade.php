@@ -32,7 +32,7 @@
         </div>
     </div>
       <div class="card-body">
-        @if ($errors->any())
+        @if($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -42,7 +42,7 @@
              </div><br />
         @endif
 
-         <form action="{{url(''payment/pay/'.$office->id)}}" method="POST">
+         <form action="{{url('payment/pay/'.$office->id)}}" method="POST">
             <div class="form-group">
                   @csrf
                     <label for="name">Pid Number:</label>
