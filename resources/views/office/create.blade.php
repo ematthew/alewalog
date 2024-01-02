@@ -46,7 +46,7 @@
             <div class="form-group">
                   @csrf
                     <label for="name">Pid Number:</label>
-                    <input type="text" name="pid" class="form-control" placeholder="Pid Number">
+                    <input type="text" name="pid" class="form-control" value="{{ rand(111111,999999) }}" placeholder="Pid Number">
             </div>
                 <div class="form-group">
                     <label for="cases">The Occupant :</label>

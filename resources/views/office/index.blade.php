@@ -154,11 +154,11 @@
                                             @php array_push($offices_box, $office->id) @endphp
 
 
-
+                                            @php $total = $total + (int)$office->grand_total + (int)$office->paid_amount; @endphp
                                             
                                         @endforeach
 
-                                        @php $total = $office->grand_total + $office->paid_amount ; @endphp
+                                        
 
                                     </tbody>
                                 </table>
