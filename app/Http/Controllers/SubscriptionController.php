@@ -131,7 +131,7 @@ class SubscriptionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatesubscriptionRequest  $request
+     * @pa`am  \App\Http\Requests\UpdatesubscriptionRequest  $request
      * @param  \App\Models\subscription  $subscription
      * @return \Illuminate\Http\Response
      */

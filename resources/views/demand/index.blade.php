@@ -169,12 +169,13 @@ Home
 
                                     @php array_push($demands_box, $demand->id) @endphp
 
+                                    @php $total = $demand->grand_total + $demand->paid_amount ; @endphp
+
 
 
 
                                     @endforeach
 
-                                    @php $total = $demand->grand_total + $demand->paid_amount ; @endphp
 
                                 </tbody>
                             </table>

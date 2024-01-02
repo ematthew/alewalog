@@ -79,7 +79,7 @@
                                                     <input type="checkbox" class="parent-checkbox" onclick="checkedAllBoxes()" name="check-all" class="form-control"> All
                                                 </label> --}}
                                                 <div class="checkbox check-info">
-                                                  <input type="checkbox" id="select-all" onchange="toggleAllCheckbox()" checked>
+                                                  <input type="checkbox" id="select-all" onchange="toggleAllCheckbox()">
                                                   <label for="select-all" class="text-white">All</label>
                                                 </div>
                                             </th>
@@ -103,8 +103,6 @@
                                             <th>GROUP</th>
                                             <th>ACTIVE   </th>
                                             <th>ACTION </th>
-                                            
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -117,8 +115,8 @@
                                                     </label> --}}
 
                                                     <div class="checkbox check-info">
-                                                        <input type="checkbox" onchange="toggleCheckbox({{ $office->pid }}, {{ $office->id }})" class="checkbox-child" id="select-all-{{ $office->pid }}" checked>
-                                                        <label for="select-all-{{ $office->pid }}" class="text-white"></label>
+                                                        <input type="checkbox" onchange="toggleCheckbox('{{ $office->pid }}', {{ $office->id }})" class="checkbox-child" id="select-all-{{ $office->id }}">
+                                                        <label for="select-all-{{ $office->id }}" class="text-white"></label>
                                                     </div>
                                                 </td>
                                                 <td>{{ $office->pid }}</td>
@@ -154,6 +152,7 @@
                                             @php array_push($offices_box, $office->id) @endphp
 
 
+
                                             @php $total = $total + (int)$office->grand_total + (int)$office->paid_amount; @endphp
                                             
                                         @endforeach
@@ -169,7 +168,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 paginate">
+                                    <div class="col-md-12 paginate" id="print-button-dym">
                                         <a href="{{url('offices/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
                                             <i class="fa fa-print"></i> Print All
                                         </a>
@@ -190,37 +189,48 @@
 {{-- scripts --}}
 @section('scripts')
     <script type="text/javascript">
-        function toggleCheckbox(sn, customer_ref) {
-            if($(`#select-all-${sn}`).is(':checked') == true){
-                // console.log('isChecked');
-                all_customers_ref.push(customer_ref);
-                if(all_customers_ref.length == total_customers_items){
-                    $("#select-all").prop("checked", "checked");
-                }else{
-                   $("#select-all").removeAttr("checked"); // pop check all 
-                }
-            }else if($(`#select-all-${sn}`).is(':checked') !== true){
-                $("#select-all").removeAttr("checked"); // pop check all
-                for (var i = 0; i < all_customers_ref.length; i++) {
-                    if(all_customers_ref[i] == customer_ref){
-                        all_customers_ref.splice(i, 1);
+
+        var all_customer_ids = [];
+
+        function toggleCheckbox(pid, customer_id) {
+            if($(`#select-all-${customer_id}`).is(':checked')){
+                all_customer_ids.push(customer_id);
+                replacePrintButton();
+            }
+
+            if($(`#select-all-${customer_id}`).is(':checked') == false){
+                for (var i = 0; i < all_customer_ids.length; i++) {
+                    if(all_customer_ids[i] == customer_id){
+                        all_customer_ids.splice(i, 1);
                     }
                 }
             }
         }
 
-        // $(document).ready(function() {
-        //     $("#office_table").DataTable();
-        // });
-
         function toggleAllCheckbox() {
             if($(`#select-all`).is(':checked') == true){
-                // console.log('isChecked');
-                fetchAllUnclassifiedCustomer()
-            }else if($(`#select-all`).is(':checked') !== true){
+                $('.checkbox-child').prop('checked',true);
+                all_customer_ids = [];
+            }else if($(`#select-all`).is(':checked') == false){
                 $(".checkbox-child").removeAttr("checked");
                 $("#select-all").removeAttr("checked");
-                all_customers_ref = [];
+            }
+        }
+
+
+        function replacePrintButton(){
+            if(all_customer_ids.length > 0 && $(`#select-all`).is(':checked') == false){
+                $("#print-button-dym").html(`
+                    <a href="{{url('offices/preview')}}?office_ids=[${all_customer_ids}]" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
+                        <i class="fa fa-print"></i> Print All
+                    </a>
+                `);
+            }else{
+                $("#print-button-dym").html(`
+                    <a href="{{url('offices/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
+                        <i class="fa fa-print"></i> Print All
+                    </a>
+                `);
             }
         }
     </script>
