@@ -104,6 +104,15 @@
                 </div>
                 @endif
 
+                @if(checkIfHasMenuAccess("consolidated", auth()->user()->id))
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Consolidated Data:</h6>
+                        <a class="collapse-item" href="{{ Route('consolidated.index') }}">Consolidated</a>
+                    </div>
+                </div>
+                @endif
+
                 @if(checkIfHasMenuAccess("payment", auth()->user()->id))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">

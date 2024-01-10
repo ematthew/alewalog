@@ -34,6 +34,7 @@ Route::group(['prefix' => 'offices'], function () {
 
 Route::get('reminder/',             'OfficeController@paidIndex')->name('reminder.index');
 Route::get('complete/',             'OfficeController@completeIndex')->name('complete.index');
+Route::get('consolidated/',             'OfficeController@consolidatedIndex')->name('consolidated.index');
 
 
 Route::group(['prefix' => 'demands'], function () {
