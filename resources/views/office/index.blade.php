@@ -150,9 +150,14 @@
                                             </tr>
 
                                             @php array_push($offices_box, $office->id) @endphp
-                                            @php $total = $total + $office->grand_total + $office->paid_amount; @endphp
 
+
+
+                                            @php $total = $total + (int)$office->grand_total + (int)$office->paid_amount; @endphp
+                                            
                                         @endforeach
+
+                                        
 
                                     </tbody>
                                 </table>
