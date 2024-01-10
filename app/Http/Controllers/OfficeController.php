@@ -8,6 +8,7 @@ use App\Models\TotalDemandPrint;
 use Illuminate\Support\Facades\Redirect;
 use PDF;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 
 class OfficeController extends Controller
@@ -51,6 +52,77 @@ class OfficeController extends Controller
 
     /*
     |-----------------------------------------
+    | SHOW VIEW PAID INDEX
+    |-----------------------------------------
+    */
+
+    public function paidIndex(Request $request)
+    {
+        $paid_amount = 0;
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+
+            $offices = Office::where('paid_amount', '>=', $paid_amount)->where('grand_total', '!=', $paid_amount)->sortable('pid', 'DESC')->paginate(20);
+        }
+
+        return view('paid_users.index', compact('offices'));
+    }
+
+
+    /*
+    |-----------------------------------------
+    | SHOW VIEW Complete INDEX
+    |-----------------------------------------
+    */
+
+    public function completeIndex(Request $request)
+    {
+        $paid_amount = 0;
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+            // $offices = DB::table('offices')->where(`paid_amount`, `=`, `grand_total`)->paginate(20);
+
+
+            $offices = Office::whereRaw('paid_amount = rate_payable + arrears + penalty')->sortable('pid', 'DESC')->paginate(20);
+            // $offices = Office::where('paid_amount', '>=', $paid_amount)->where('grand_total', '=', $paid_amount)->sortable('pid', 'DESC')->paginate(20);
+
+        }
+
+        return view('complete.index', compact('offices'));
+    }
+
+
+    public function completeReceipt($id)
+    {
+        if (Auth::user()->user_type == 'super') {
+            $receipt = Office::findOrFail($id);
+            return view('receipt.view', compact('receipt'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back();
+        }
+        // return view ('receipt.view');
+    }
+
+
+    /*
+    |-----------------------------------------
     | SHOW VIEW INDEX
     |-----------------------------------------
     */
@@ -61,7 +133,7 @@ class OfficeController extends Controller
             $office = Office::where('pid', $request->pid)->first();
             return view('office.show', compact('office'));
         } else {
-            $msg= 'you are not allow to view this page';
+            $msg = 'you are not allow to view this page';
             return Redirect::back()->with($msg);
         }
     }
@@ -117,7 +189,7 @@ class OfficeController extends Controller
             return view('office.preview', compact('offices'));
         } else {
             // return 'you are not allow to view this page';
-            return redirect()->back(); 
+            return redirect()->back();
         }
     }
 
@@ -161,7 +233,7 @@ class OfficeController extends Controller
             return view('office.edit', compact('office'));
         } else {
             // return 'you are not allow to view this page';
-            return redirect()->back(); 
+            return redirect()->back();
         }
     }
 
@@ -199,7 +271,7 @@ class OfficeController extends Controller
             return redirect('offices')->with('success', 'office information has been created Successfully');
         } else {
             // return 'you are not allow to view this page';
-            return redirect()->back(); 
+            return redirect()->back();
         }
     }
 
@@ -216,7 +288,7 @@ class OfficeController extends Controller
             return view('office.index', compact('office'));
         } else {
             // return 'you are not allow to perform this action';
-            return redirect()->back(); 
+            return redirect()->back();
         }
     }
 
@@ -228,7 +300,7 @@ class OfficeController extends Controller
             $total_demand_print->addOne($request);
         } else {
             // return 'you are not allow to perform this action';
-            return redirect()->back(); 
+            return redirect()->back();
         }
     }
 
