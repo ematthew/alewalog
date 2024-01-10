@@ -86,6 +86,24 @@
                 </div>
                 @endif
 
+                @if(checkIfHasMenuAccess("reminder", auth()->user()->id))
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Reminder Data:</h6>
+                        <a class="collapse-item" href="{{ Route('reminder.index') }}">Reminder</a>
+                    </div>
+                </div>
+                @endif
+
+                @if(checkIfHasMenuAccess("complete", auth()->user()->id))
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Complete Data:</h6>
+                        <a class="collapse-item" href="{{ Route('complete.index') }}">Full Payment</a>
+                    </div>
+                </div>
+                @endif
+
                 @if(checkIfHasMenuAccess("payment", auth()->user()->id))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">

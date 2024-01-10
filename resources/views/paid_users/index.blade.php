@@ -85,6 +85,7 @@
                                             </th>
                                             <th>PID</th>
                                             <th>TOTAL PRINT </th>
+                                            <th>RESULT</th>
                                             <th>OCCUPANT</th>
                                             <th>PROP ADDR</th>
                                             <th>STREET NAME</th>
@@ -120,6 +121,20 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $office->pid }}</td>
+                                                <td>
+                                                    @if($office->paid_amount <= 0 ) <a href="" class="text-danger">
+                                                        NOT PAID
+                                                        </a>
+        
+        
+                                                        @else
+        
+                                                        <a href="" class="text-success">
+                                                            PAID
+        
+                                                        </a>
+                                                        @endif
+                                                </td>
                                                 <td>{{ $office->total_print }}</td>
                                                 <td>{{ $office->occupant }}</td>
                                                 <td>{{ $office->prop_addr }}</td>

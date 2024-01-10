@@ -85,6 +85,7 @@
                                             </th>
                                             <th>PID</th>
                                             <th>TOTAL PRINT </th>
+                                            <th>RESULT</th>
                                             <th>OCCUPANT</th>
                                             <th>PROP ADDR</th>
                                             <th>STREET NAME</th>
@@ -120,7 +121,22 @@
                                                     </div>
                                                 </td>
                                                 <td>{{ $office->pid }}</td>
+
                                                 <td>{{ $office->total_print }}</td>
+                                                <td>
+                                                    @if($office->paid_amount <= 0 ) <a href="" class="text-danger">
+                                                        NOT PAID
+                                                        </a>
+        
+        
+                                                        @else
+        
+                                                        <a href="" class="text-success">
+                                                            PAID
+        
+                                                        </a>
+                                                        @endif
+                                                </td>
                                                 <td>{{ $office->occupant }}</td>
                                                 <td>{{ $office->prop_addr }}</td>
                                                 <td>{{ $office->street_name }}</td>
@@ -141,10 +157,8 @@
                                                 
 
                                                 <td>
-                                                    <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
-                                                        <i class="fa fa-print"></i> Print
-                                                    </a>
-                                                    <a href="{{ url('offices/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
+                                                    <a href="{{ url('complete/receipt/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Print Receipt </a>
+                                                    {{-- <a href="{{ url('receipt/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Print Receipt </a> --}}
                                                 </td>
                                                 
                                             </tr>

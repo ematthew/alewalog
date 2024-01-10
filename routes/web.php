@@ -32,6 +32,10 @@ Route::group(['prefix' => 'offices'], function () {
     Route::get('/offices/createPDF',  'OfficeController@createPDF')->name('createPDF');
 });
 
+Route::get('reminder/',             'OfficeController@paidIndex')->name('reminder.index');
+Route::get('complete/',             'OfficeController@completeIndex')->name('complete.index');
+
+
 Route::group(['prefix' => 'demands'], function () {
     Route::get('/', [DemandController::class, 'index'])->name('demands.index');
 });
@@ -45,15 +49,15 @@ Route::post('save/print/ids', 'OfficeController@saveTotalPrint');
 | User Controller
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'users'], function() {
-    Route::get('/', 			'UserController@index')->name('users.index');
-    Route::get('/create', 		'UserController@create');
+Route::group(['prefix' => 'users'], function () {
+    Route::get('/',             'UserController@index')->name('users.index');
+    Route::get('/create',         'UserController@create');
     Route::post('/store',       'UserController@store');
     Route::get('/edit/{id}',    'UserController@edit');
     Route::get('/roles/{id}',   'UserController@role');
     Route::post('/update/{id}',       'UserController@update');
     Route::post('/assign/{id}',  'UserController@assignRole');
-    Route::delete('/delete', 	'UserController@deleteOne')->name('user_delete');
+    Route::delete('/delete',     'UserController@deleteOne')->name('user_delete');
 });
 
 /*
@@ -83,6 +87,9 @@ Route::group(['prefix' => 'payment'], function () {
 
 Route::get('/successful',      'SubscriptionController@successful')->name('successful');
 Route::get('/receipt/{id}',      'SubscriptionController@receipt')->name('receipt');
+Route::get('/complete/receipt/{id}',      'OfficeController@completeReceipt');
+
+
 
 
 /*
