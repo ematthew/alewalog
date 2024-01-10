@@ -328,4 +328,30 @@ class OfficeController extends Controller
 
         //     }return view('office.index', compact('offices'));
     }
+
+    /*
+    |-----------------------------------------
+    | SHOW VIEW Consolidated INDEX
+    |-----------------------------------------
+    */
+
+    public function consolidatedIndex(Request $request)
+    {
+        $paid_amount = 0;
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+
+            $offices = Office::where('prop_type', '=', 'CONSOLIDATED')->sortable('pid', 'DESC')->paginate(20);
+        }
+
+        return view('consolidated.index', compact('offices'));
+    }
 }
