@@ -33,9 +33,22 @@ Route::group(['prefix' => 'offices'], function () {
 });
 
 Route::get('reminder/',             'OfficeController@paidIndex')->name('reminder.index');
+Route::get('reminder/view',         'OfficeController@showReminder')->name('reminder_show');
 Route::get('complete/',             'OfficeController@completeIndex')->name('complete.index');
 Route::get('consolidated/',             'OfficeController@consolidatedIndex')->name('consolidated.index');
+Route::get('reminder/preview',      'OfficeController@previewReminderAll')->name('reminder_preview');
 
+Route::group(['prefix' => 'appo/demands'], function () {
+    Route::get('/', [DemandController::class, 'appoIndex'])->name('demands.index');
+    Route::get('/view', [DemandController::class, 'appoView'])->name('appo_show');
+    Route::get('/preview',    [DemandController::class, 'appoPreviewAll'])->name('office_preview');
+});
+
+Route::group(['prefix' => 'nyanya/demands'], function () {
+    Route::get('/', [DemandController::class, 'nyanyaIndex'])->name('demands.index');
+    Route::get('/view', [DemandController::class, 'nyanyaView'])->name('appo_show');
+    Route::get('/preview',    [DemandController::class, 'nyanyaPreviewAll'])->name('office_preview');
+});
 
 Route::group(['prefix' => 'demands'], function () {
     Route::get('/', [DemandController::class, 'index'])->name('demands.index');

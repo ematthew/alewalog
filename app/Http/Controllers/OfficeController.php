@@ -76,6 +76,17 @@ class OfficeController extends Controller
         return view('paid_users.index', compact('offices'));
     }
 
+    public function showReminder(Request $request)
+    {
+        if (Auth::user()->user_type == 'super') {
+            $office = Office::where('pid', $request->pid)->first();
+            return view('paid_users.show', compact('office'));
+        } else {
+            $msg = 'you are not allow to view this page';
+            return Redirect::back()->with($msg);
+        }
+    }
+
 
     /*
     |-----------------------------------------
@@ -193,6 +204,20 @@ class OfficeController extends Controller
         }
     }
 
+    public function previewReminderAll(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office_ids = json_decode($request->office_ids);
+
+            $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+            return view('paid_users.preview', compact('offices'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back();
+        }
+    }
+
 
     public function store(Request $request)
     {
@@ -210,7 +235,7 @@ class OfficeController extends Controller
         $office->annual_value       = $request->input('annual_value');
         $office->rate_payable       = 0.04 * $office->annual_value;
         $office->arrears            = $request->input('arrears');
-        $office->penalty            = $request->input('penalty');
+        $office->penalty            = 0.10 * $office->arrears;
         $office->paid_amount        = $request->input('paid_amount');
         $office->grand_total        = $office->rate_payable + $office->arrears + $office->penalty;
         $office->category           = $request->input('category');
@@ -259,7 +284,7 @@ class OfficeController extends Controller
             $office->annual_value       = $request->annual_value;
             $office->rate_payable       = 0.04 * $office->annual_value;
             $office->arrears            = $request->arrears;
-            $office->penalty            = $request->penalty;
+            $office->penalty            = 0.10 * $office->arrears;
             $office->paid_amount        = $request->paid_amount;
             $office->grand_total        = $office->rate_payable + $office->arrears + $office->penalty - $office->paid_amount;
             $office->category           = $request->category;

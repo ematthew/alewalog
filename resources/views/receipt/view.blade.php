@@ -119,71 +119,90 @@
                                    </div>
                                     <div class="col-md-12">
                                         <br>
-                                        <div style="text-align: center; color:green; font-family: tahoma;">
-                                             <h1>Payment Reciept</h1>
+                                        <div style="text-align: center; color:green; font-family: tahoma; ">
+                                             <h1><u>PAYMENT RECEIPT </u></h1>
                                         </div>
+                                        <br>
                                         <table>
-                            <tr>
-                                    <td style="color:black;font-family: sans-serif;"><b>PID :</b></td>
-                                    <td style="color:blue"><b>{{ $receipt->pid }}</b></td>
+                                <tr>
+                                    <td style="color:black; font-family: sans-serif; font-family: tahoma; font-size:20px;"><b> OCCUPANT :</b></td>
+                                    <td style="color:blue; font-family: tahoma;font-size:20px;"><b>{{ $receipt->occupant }}</b></td>
                                 </tr>
                                 <tr>
-                                    <td style="color: black; font-family: sans-serif;"><b>Ref Code :</b></td>
-                                    <td style="color: blue"><b>{{ $receipt->ref_code }}</b></td>
+                                    <td style="color:black;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>PID :</b></td>
+                                    <td style="color:blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->pid }}</b></td>
                                 </tr>
                                 <tr>
-                                    <td style="color:black; font-family: sans-serif;"><b>Assesment No :</b></td>
-                                    <td style="color:blue;"><b>{{ $receipt->asset_no }}</b></td>
+                                    <td style="color:black; font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>ASSESMENT CODE :</b></td>
+                                    <td style="color:blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->asset_no }}</b></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="color: black; font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>REF CODE :</b></td>
+                                    <td style="color: blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->ref_code }}</b></td>
                                 </tr>
                                 <tr>
-                                    <td style="color:black; font-family: sans-serif;"><b>Property Address :</b></td>
-                                    <td style="color:blue;"><b>{{ $receipt->prop_addr }}</b></td>
-                                </tr>
+                                    <td style="color:black; font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>PROPERTY ADDRESS :</b></td>
+                                    <td style="color:blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->prop_addr }}</b></td>
+                                </tr> 
                                 <tr>
-                                    <td style="color:black; font-family: sans-serif;"><b>Occupant :</b></td>
-                                    <td style="color:blue;"><b>{{ $receipt->occupant }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:black;font-family: sans-serif;"><b>Use of Property :</b></td>
-                                    <td style="color:blue;"><b>{{ $receipt->prop_type }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:black;font-family: sans-serif;"><b>Rating District :</b></td>
-                                    <td style="color:blue"><b>{{ $receipt->rating_dist }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:green;font-family: sans-serif;"><b>Paid Amount :</b></td>
-                                    <td style="color:blue"><b>{{ $receipt->paid_amount }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:red;font-family: sans-serif;"><b>ARREARS :</b></td>
-                                    <td style="color:blue"><b>{{ $receipt->arrears }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:red;font-family: sans-serif;"><b>Balance :</b></td>
-                                    <td style="color:blue"><b>{{ $receipt->balance }}</b></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:black;font-family: sans-serif;"><b>Paid Date/Time :</b></td>
-                                    <td style="color:blue"><b>{{ $receipt->created_at }}</b></td>
-                                </tr>
+                                    <td style="color:black;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>PAID DATE/TIME :</b></td>
+                                    <td style="color:blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->created_at }}</b></td>
+                                </tr>   
+                           
                             </table>
+                            <br> 
+
+                           <div>
+                                <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black;"> Dear Sir/MA,</p> <br>
+                           </div>
+
+                           <div class="row">
+                               <div class="col-md-11">
+                                    <p style="sans-serif; font-family: tahoma;font-weight: bold; color:black; text-align: center; font-size:28px;"><u> RE: ACKNOWLEDGEMENT OF PAYMENT FOR 2024 TENEMENT RATE DEMAND NOTICE</u></p>
+                               </div>
+                           </div>
+                           <br>
+
+                            <div class="row">
+                               <div class="col-md-11">
+                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black; text-align: center;"> We write to acknowledge your payment in the sum of <b>₦ {{ number_format($receipt->paid_amount ) }} </b>, <b>{{ $amount }} </b>,  for your 2024 Tenement Rate Demand Notice Bill.</p>
+
+                               </div>
+                           </div> <br>   
+
+
+                           <div class="row">
+                               <div class="col-md-11">
+                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black; text-align: center;"> Please consider this as an official receipt/ acknowledgement of your payment, for the said year as the said payment has been captured.</p>
+                               </div>
+                           </div> <br>
+
+                           <div class="row">
+                               <div class="col-md-10">
+                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black; ">   Remain assured of our warmest regards.             </p>
+                               </div>
+                           </div>
+
+                           
+
+                           <br><br><br><br><br>
 
 
                             <div class="row" style="margin-top:60PX;">
                                 <div class="col-md-6" style="color:black;font-family: sans-serif; font-weight: bold;">
-                                  <p>
+                                  <p style="font-family:tahoma;font-size:23px;font-weight:bold;">
                                       -------------------------------------- <br>
                                       AUTHORISED SIGNATORY
                                   </p>   
                                 </div>
                                 <div class="col-md-6" style="color:black;font-family: sans-serif; font-weight: bold;">
-                                    <p>
-                                       ------------------------------- <br>
+                                    <p style="margin-left:200px;font-family:tahoma;font-size:23px;font-weight:bold;">
+                                       ------------------------ <br>
                                        OCCUPIER SIGNED</p>
                                 </div>
                                 
-                            </div>
+                            </div> 
                                         <div class="row-border" style="color:#000 !important; border: 1px solid #000 !important;">
                                             
                                         <p style="color:green; font-family: tahoma; font-size: 20px; font-weight: bold; text-align: center;">DATE OF PAYMENT {{ $receipt->created_at }}</p>
@@ -215,6 +234,7 @@
             </div>
         </div>     
     </div>
+</div>
     <!-- End of Main Content -->
 
 @endsection

@@ -100,6 +100,7 @@
                                             <th>GROUP</th>
                                             <th>ACTIVE   </th> -->
                                             <th>ACTION </th>
+                                            <th>DATE </th>
 
 
 
@@ -156,7 +157,7 @@
                                                 <td>
                                                     <!-- <a href="{{ url('payment/show') }}?office_id={{ $demand->pid }}" class=""><i class="fa fa-edit"></i> Pay </a> -->
                                                     <!-- <a href="{{ url('payment/pay/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Make Payment </a> -->
-                                                    <a href="{{ url('receipt/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Print Receipt </a>
+                                                    <a href="{{ url('receipt/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Print Receipt </a> <td><I class="fa fa-time" style="color:orangered;">{{ $demand->updated_at  }}</I></td>
 
                                                 </td>
 
@@ -170,6 +171,12 @@
 
                                     </tbody>
                                 </table>
+
+                                <div class="row">
+                                <div class="col-md-12 paginate">
+                                    {!! $demands->withQueryString()->links() !!}
+                                </div>
+                            </div>
 
                             </div>
                         </div>

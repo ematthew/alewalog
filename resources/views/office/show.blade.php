@@ -106,13 +106,13 @@
                                    <div class="col-md-2">
                                        <img src="{{asset('/img/logo.jpeg')}}" width="160px" >
                                    </div>
-                                    <div class="col-md-8">
-                                       <h1 style="font-family: tahoma; color: green;font-size:40px; font-weight: bold; text-align: center;">ABUJA MUNICIPAL AREA COUNCIL</h1>
-                                       <h2 style="font-family: tahoma; color:red;font-size:30px; text-align: center; font-weight:bold;">TENEMENT RATE & VALUATION OFFICE</h2>
-                                       <h3 style="font-family: tahoma; color:black;font-size:18px; text-align: center; font-weight:bold;">Secretariat: No 1 Olusegun Obasanjo Way, Area 10 Garki - Abuja</h3>
-                                        <h4 style="font-family: tahoma; color:black;font-size:18px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 301, 3rd Floor Kano House, Ralph Shodeinde Street, </h4>
-                                        <h5 style="font-family: tahoma; color:black;font-size:18px; text-align: center; font-weight:bold;">Central Business District,Abuja.FCT </h5>
-                                        <h6 style="font-family: tahoma; color:black;font-size:18px; text-align: center; font-weight:bold;">Tel:+2349085191698,+2348064677456,+2348096773456  </h6>
+                                      <div class="col-md-8">
+                                       <h1 style="font-family: tahoma; color: green;font-size:30px; font-weight: bold; text-align: center;">ABUJA MUNICIPAL AREA COUNCIL</h1>
+                                       <h2 style="font-family: tahoma; color:red;font-size:25px; text-align: center; font-weight:bold;">TENEMENT RATE & VALUATION OFFICE</h2>
+                                       <h3 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Secretariat: No 1 Olusegun Obasanjo Way, Area 10 Garki - Abuja</h3>
+                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 301, 3rd Floor Kano House, Ralph Shodeinde Street, </h4>
+                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Central Business District,Abuja.FCT </h5>
+                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2349085191698,+2348064677456,+2348096773456  </h6>
                                    </div>
                                     <div class="col-md-2">
                                        <img src="{{asset('/img/Coat.svg.png')}}" width="160px" >
@@ -247,7 +247,7 @@
                                                         <p class="" style="font-family:sans-serif;font-size: 18px;">
                                                         <b>Payment Options:</b> <br >
                                                         <b>1. AMAC Bank Draft</b> <br />
-                                                       <b>2. Internet Banking Transfer:<span class="text-danger" style="font-family: sans-serif;"> <strong><b><span style="font-family:tahoma;font-size: 25px;">Abuja Municipal Area Council, FCMB Account. No. 8672253011</span></b></strong></span> </b> <br />
+                                                       <b>2. Internet Banking Transfer:<span class="text-danger" style="font-family: sans-serif;"> <strong><b><span style="font-family:tahoma;font-size: 18px;">Abuja Municipal Area Council, FCMB Account. No. 8672253011</span></b></strong></span> </b> <br />
                                                         <b>3. Pay by Scanning QRCode on the right hand</b>
                                                           <b> (Locate QR Payment on your mobile Banking App, (Choose NIBSS) and Scan QRCode to Pay) </b> <br>
                                                        <b>4.</b> <strong class="text-danger"style="font-family: sans-serif;">To avoid doubts, write your PID as Payment Reference for bank branch and Transfers.</strong> <br>
@@ -255,6 +255,7 @@
                                                          <b>Payment should be made in full withing 14 days Via Certified/bank draft (s) in favour of Abuja Municipal Area Council, </b>
 
                                                     </div>
+
 
                                                     <div class="col-md-2">
                                                             <div class="text-center">
@@ -321,6 +322,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td><b style="font-family: tahoma; font-size:18px;">Signature:</b></td>
+                                                    <td><b>---------------------------------------------</b></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><b style="font-family:tahoma; font-size:18px;">Phone Number:</b></td>
                                                     <td><b>---------------------------------------------</b></td>
                                                     
                                                 </tr>

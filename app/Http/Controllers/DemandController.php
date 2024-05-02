@@ -9,6 +9,7 @@ use App\Models\Office;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class DemandController extends Controller
 {
@@ -50,6 +51,115 @@ class DemandController extends Controller
         }
 
         return view('demand.index', compact('demands'));
+    }
+
+    public function appoIndex(Request $request)
+    {
+        // body
+        $grandTotal = 1000;
+
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $demands = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+            $demands = Office::where('grand_total', '>=', $grandTotal)
+                ->sortable('pid', 'DESC')
+                ->paginate(20);
+        }
+
+        return view('appo.index', compact('demands'));
+    }
+
+    /*
+    |-----------------------------------------
+    | SHOW VIEW INDEX
+    |-----------------------------------------
+    */
+    public function appoView(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office = Office::where('pid', $request->pid)->first();
+            return view('appo.show', compact('office'));
+        } else {
+            $msg = 'you are not allow to view this page';
+            return Redirect::back()->with($msg);
+        }
+    }
+
+    public function appoPreviewAll(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office_ids = json_decode($request->office_ids);
+
+            $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+            return view('appo.preview', compact('offices'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back();
+        }
+    }
+
+    public function nyanyaIndex(Request $request)
+    {
+        // body
+        $grandTotal = 1000;
+
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $demands = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+            $demands = Office::where('grand_total', '>=', $grandTotal)
+                ->sortable('pid', 'DESC')
+                ->paginate(20);
+        }
+
+        return view('nyanya.index', compact('demands'));
+    }
+
+
+    /*
+    |-----------------------------------------
+    | SHOW VIEW INDEX
+    |-----------------------------------------
+    */
+    public function nyanyaView(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office = Office::where('pid', $request->pid)->first();
+            return view('appo.show', compact('office'));
+        } else {
+            $msg = 'you are not allow to view this page';
+            return Redirect::back()->with($msg);
+        }
+    }
+
+    public function nyanyaPreviewAll(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office_ids = json_decode($request->office_ids);
+
+            $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+            return view('nyanya.preview', compact('offices'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back();
+        }
     }
 
     /*
@@ -109,7 +219,7 @@ class DemandController extends Controller
         $demand->annual_value       = $request->input('annual_value');
         $demand->rate_payable       = 0.04 * $demand->annual_value;
         $demand->arrears            = $request->input('arrears');
-        $demand->penalty            = $request->input('penalty');
+        $demand->penalty            = 0.10 * $office->arrears;
         $demand->paid_amount        = $request->input('paid_amount');
         $demand->grand_total        = $demand->rate_payable + $demand->arrears + $demand->penalty;
         $demand->category           = $request->input('category');
@@ -160,7 +270,7 @@ class DemandController extends Controller
             $demand->annual_value       = $request->annual_value;
             $demand->rate_payable       = 0.04 * $demand->annual_value;
             $demand->arrears            = $request->arrears;
-            $demand->penalty            = $request->penalty;
+            $demand->penalty            = 0.10 * $office->arrears;
             $demand->paid_amount        = $request->paid_amount;
             $demand->grand_total        = $demand->rate_payable + $demand->arrears + $demand->penalty - $demand->paid_amount;
             $demand->category           = $request->category;
