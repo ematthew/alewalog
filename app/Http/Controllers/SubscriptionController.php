@@ -174,7 +174,7 @@ class SubscriptionController extends Controller
             $receipt = subscription::findOrFail($id);
             // return $receipt->paid_amount;
 
-            $amount = SpellNumber::value($receipt->paid_amount)->toLetters();
+            $amount = SpellNumber::value($receipt->paid_amount)->toLetters() . ' Naira';
             return view('receipt.view', compact('receipt', 'amount'));
         } else {
             // return 'you are not allow to view this page';
