@@ -206,6 +206,7 @@
                                         <div class="row-border" style="color:#000 !important; border: 1px solid #000 !important;">
                                             
                                         <p style="color:green; font-family: tahoma; font-size: 20px; font-weight: bold; text-align: center;">DATE OF PAYMENT {{ $receipt->created_at }}</p>
+                                        <p style="color:green; font-family: tahoma; font-size: 20px; font-weight: bold; text-align: center;">DURATION {{ $receipt->duration }}</p>
                                             
                                         </div>
                                     </div>

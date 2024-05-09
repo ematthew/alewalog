@@ -76,6 +76,69 @@ class OfficeController extends Controller
         return view('paid_users.index', compact('offices'));
     }
 
+    public function appoPaidIndex(Request $request)
+    {
+        $paid_amount = 0;
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+
+            $offices = Office::where('paid_amount', '>=', $paid_amount)->where('grand_total', '!=', $paid_amount)->sortable('pid', 'DESC')->paginate(20);
+        }
+
+        return view('appo_reminder.index', compact('offices'));
+    }
+
+
+    public function nyanyaPaidIndex(Request $request)
+    {
+        $paid_amount = 0;
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+
+            $offices = Office::where('paid_amount', '>=', $paid_amount)->where('grand_total', '!=', $paid_amount)->sortable('pid', 'DESC')->paginate(20);
+        }
+
+        return view('nyanya_reminder.index', compact('offices'));
+    }
+    public function appoShowReminder(Request $request)
+    {
+        if (Auth::user()->user_type == 'super') {
+            $office = Office::where('pid', $request->pid)->first();
+            return view('appo_paid_users.show', compact('office'));
+        } else {
+            $msg = 'you are not allow to view this page';
+            return Redirect::back()->with($msg);
+        }
+    }
+
+    public function nyanyaShowReminder(Request $request)
+    {
+        if (Auth::user()->user_type == 'super') {
+            $office = Office::where('pid', $request->pid)->first();
+            return view('nyanya_paid_users.show', compact('office'));
+        } else {
+            $msg = 'you are not allow to view this page';
+            return Redirect::back()->with($msg);
+        }
+    }
+    
+
     public function showReminder(Request $request)
     {
         if (Auth::user()->user_type == 'super') {

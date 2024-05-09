@@ -38,6 +38,19 @@ Route::get('complete/',             'OfficeController@completeIndex')->name('com
 Route::get('consolidated/',             'OfficeController@consolidatedIndex')->name('consolidated.index');
 Route::get('reminder/preview',      'OfficeController@previewReminderAll')->name('reminder_preview');
 
+Route::get('appo/reminder/',             'OfficeController@appoPaidIndex')->name('appo_reminder.index');
+Route::get('appo/reminder/view',         'OfficeController@showReminder')->name('appo_reminder_show');
+Route::get('appo/complete/',             'OfficeController@completeIndex')->name('appo_complete.index');
+Route::get('appo/consolidated/',             'OfficeController@consolidatedIndex')->name('appo_consolidated.index');
+Route::get('appo/reminder/preview',      'OfficeController@previewReminderAll')->name('appo_reminder_preview');
+
+
+Route::get('nyanya/reminder/',             'OfficeController@nyanyaPaidIndex')->name('nyanya_reminder.index');
+Route::get('nyanya/reminder/view',         'OfficeController@showReminder')->name('nyanya_reminder_show');
+Route::get('nyanya/complete/',             'OfficeController@completeIndex')->name('nyanya_complete.index');
+Route::get('nyanya/consolidated/',             'OfficeController@consolidatedIndex')->name('nyanya_consolidated.index');
+Route::get('nyanya/reminder/preview',      'OfficeController@previewReminderAll')->name('nyanya_reminder_preview');
+
 Route::group(['prefix' => 'appo/demands'], function () {
     Route::get('/', [DemandController::class, 'appoIndex'])->name('demands.index');
     Route::get('/view', [DemandController::class, 'appoView'])->name('appo_show');

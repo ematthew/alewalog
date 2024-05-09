@@ -87,7 +87,8 @@ class SubscriptionController extends Controller
      */
     public function store(StoresubscriptionRequest $request)
     {
-        // return "hello";
+        // return $request->duration;
+        // die;
         $user_name = Auth::user()->name;
         // return $user_name;
         $sub = new subscription();
@@ -107,6 +108,7 @@ class SubscriptionController extends Controller
         $sub->paid_amount        = $request->paid_amount;
         $sub->ref_code           = rand(100, 999) . Str::random(5);
         $sub->balance            = $request->grand_total - $request->paid_amount;
+        $sub->duration            = $request->duration;
         if ($sub->paid_amount > $sub->grand_total) {
             # code...
             return 'payment amount should not be greater than grand total';

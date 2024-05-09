@@ -110,7 +110,15 @@ Home
             <div class="form-group">
                     <label for="cases">Payment Amount</label>
                     <input type="text" name="paid_amount" class="form-control" value="{{ $office->paid_amount}}" placeholder="paid amount">
-                </div>
+            </div>
+            <div class="form-group">
+                    <label for="year">Select a year range:</label>
+                    <input type="text" id="year" name="duration" min="2022" max="2023" step="1" class="form-control" placeholder="2021 - 2022">
+                    <!-- <label for="datepicker">Select a year range:</label>
+                    <input type="text" id="datepicker" name="datepicker"> -->
+
+
+            </div>
             <input type="submit" class="btn btn-info" value="Pay">
             <!-- <input type="submit" class="btn btn-warning" value="cancel"> -->
         </form>
@@ -121,5 +129,15 @@ Home
 
 {{-- scripts --}}
 @section('scripts')
+<script>
+  $(function() {
+    $("#datepicker").datepicker({
+      changeYear: true,
+      yearRange: "2022:2023",
+      dateFormat: "yy"
+    });
+  });
+</script>
+
 
 @endsection
