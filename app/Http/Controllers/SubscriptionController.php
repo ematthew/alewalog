@@ -175,8 +175,12 @@ class SubscriptionController extends Controller
         if (Auth::user()->user_type == 'super') {
             $receipt = subscription::findOrFail($id);
             // return $receipt->paid_amount;
-
-            $amount = SpellNumber::value($receipt->paid_amount)->toLetters() . ' Naira';
+            $amount = SpellNumber::value($receipt->paid_amount)
+            ->locale('en')
+            ->currency('Naira')
+            ->fraction('Kobo')
+            ->toMoney();
+            // $amount = SpellNumber::value($receipt->paid_amount)->toLetters() . ' Naira';
             return view('receipt.view', compact('receipt', 'amount'));
         } else {
             // return 'you are not allow to view this page';
