@@ -96,6 +96,20 @@ class OfficeController extends Controller
         return view('appo_reminder.index', compact('offices'));
     }
 
+    public function nyanyaPreviewAll(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office_ids = json_decode($request->office_ids);
+
+            $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+            return view('nyanya_reminder.preview', compact('offices'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back();
+        }
+    }
+
 
     public function nyanyaPaidIndex(Request $request)
     {
@@ -275,6 +289,18 @@ class OfficeController extends Controller
 
             $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
             return view('paid_users.preview', compact('offices'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back();
+        }
+    }
+
+    public function appoPreviewReminderAll(Request $request){
+        if (Auth::user()->user_type == 'super') {
+            $office_ids = json_decode($request->office_ids);
+
+            $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+            return view('appo_paid_users.preview', compact('offices'));
         } else {
             // return 'you are not allow to view this page';
             return redirect()->back();

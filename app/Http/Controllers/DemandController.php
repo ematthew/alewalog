@@ -141,7 +141,7 @@ class DemandController extends Controller
         // body
         if (Auth::user()->user_type == 'super') {
             $office = Office::where('pid', $request->pid)->first();
-            return view('appo.show', compact('office'));
+            return view('nyanya.show', compact('office'));
         } else {
             $msg = 'you are not allow to view this page';
             return Redirect::back()->with($msg);

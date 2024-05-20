@@ -181,7 +181,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 paginate" id="print-button-dym">
-                                        <a href="{{url('reminder/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
+                                        <a href="{{url('nyanya/reminder/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
                                             <i class="fa fa-print"></i> Print All
                                         </a>
                                     </div>

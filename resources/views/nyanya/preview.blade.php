@@ -169,7 +169,7 @@
                                        <h2 style="font-family: tahoma; color:red;font-size:25px; text-align: center; font-weight:bold;">TENEMENT RATE & VALUATION OFFICE</h2>
                                        <h3 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Secretariat: No 1 Olusegun Obasanjo Way, Area 10 Garki - Abuja</h3>
                                         <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: 34, First Plaza Karu-Jikwoye Road, Nyanya Abuja FCT Abuja, </h4>
-                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Central Business District,Abuja.FCT </h5>
+                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Nyanya Abuja FCT Abuja,Abuja.FCT </h5>
                                         <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2348070878411,+2349085191698 </h6>
                                    </div>
                                     <div class="col-md-2">
