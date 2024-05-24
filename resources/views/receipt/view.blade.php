@@ -166,7 +166,7 @@
 
                             <div class="row">
                                <div class="col-md-11">
-                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black; text-align: center;"> We write to acknowledge your payment in the sum of <b>₦ {{ number_format($receipt->paid_amount ) }} </b>, <b>{{ $amount }} </b>,  for your 2024 Tenement Rate Demand Notice Bill.</p>
+                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black; text-align: center; text-transform: capitalize;"> We write to acknowledge your payment in the sum of <b>₦ {{ number_format($receipt->paid_amount ) }} </b>, <b>{{ $amount }} Only </b>,  for your  {{ $receipt->duration }} Tenement Rate Demand Notice Bill.</p>
 
                                </div>
                            </div> <br>   
@@ -174,13 +174,13 @@
 
                            <div class="row">
                                <div class="col-md-11">
-                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black; text-align: center;"> Please consider this as an official receipt/ acknowledgement of your payment, for the said year as the said payment has been captured.</p>
+                                    <p style="font-family:tahoma;font-size:22px;font-weight: bold; color:black; text-align: center; text-transform: capitalize;"> Please consider this as an official receipt/ acknowledgement of your payment, for the Above Stated year as the payment has been captured.</p>
                                </div>
                            </div> <br>
 
                            <div class="row">
                                <div class="col-md-10">
-                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black; ">   Remain assured of our warmest regards.             </p>
+                                    <p style="font-family:tahoma;font-size:23px;font-weight: bold; color:black;text-transform: capitalize; ">   Remain assured of our warmest regards.             </p>
                                </div>
                            </div>
 
@@ -190,23 +190,32 @@
 
 
                             <div class="row" style="margin-top:60PX;">
-                                <div class="col-md-6" style="color:black;font-family: sans-serif; font-weight: bold;">
+                                <div class="col-md-3" style="color:black;font-family: sans-serif; font-weight: bold;">
                                   <p style="font-family:tahoma;font-size:23px;font-weight:bold;">
-                                      -------------------------------------- <br>
+                                      ------------------------- <br>
                                       AUTHORISED SIGNATORY
                                   </p>   
                                 </div>
-                                <div class="col-md-6" style="color:black;font-family: sans-serif; font-weight: bold;">
-                                    <p style="margin-left:200px;font-family:tahoma;font-size:23px;font-weight:bold;">
-                                       ------------------------ <br>
-                                       OCCUPIER SIGNED</p>
+
+                                <div class="col-md-3" style="color:black;font-family: sans-serif; font-weight: bold;">
+                                  <p style="margin-left:45px;font-family:tahoma;font-size:23px;font-weight:bold;">
+
+                                      ------------------ <br>
+                                      COMFIRMATORY SIGNATURE
+                                  </p>   
+                                </div>
+
+                                <div class="col-md-3" style="color:black;font-family: sans-serif; font-weight: bold;">
+                                    <p style="margin-left:88px;font-family:tahoma;font-size:23px;font-weight:bold;">
+                                       ----------------- <br>
+                                       OCCUPIER SIGNATURE</p>
                                 </div>
                                 
                             </div> 
                                         <div class="row-border" style="color:#000 !important; border: 1px solid #000 !important;">
                                             
                                         <p style="color:green; font-family: tahoma; font-size: 20px; font-weight: bold; text-align: center;">DATE OF PAYMENT {{ $receipt->created_at }}</p>
-                                        <p style="color:green; font-family: tahoma; font-size: 20px; font-weight: bold; text-align: center;">DURATION {{ $receipt->duration }}</p>
+                                        <p style="color:green; font-family: tahoma; font-size: 20px; font-weight: bold; text-align: center;">TENEMENT RATE {{ $receipt->duration }} YEARLY PAYMENT</p>
                                             
                                         </div>
                                     </div>
