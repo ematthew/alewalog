@@ -112,6 +112,14 @@ Home
                     <input type="text" name="paid_amount" class="form-control" value="{{ $office->paid_amount}}" placeholder="paid amount">
             </div>
             <div class="form-group">
+                    <label for="cases">Default</label>
+                    <input type="text" name="default" class="form-control" value="" placeholder="amount">
+            </div>
+            <div class="form-group">
+                    <label for="cases">Waiver</label>
+                    <input type="text" name="waiver" class="form-control" value="" placeholder="amount">
+            </div>
+            <div class="form-group">
                     <label for="year">Select a year range:</label>
                     <input type="text" id="year" name="duration" min="2022" max="2023" step="1" class="form-control" placeholder="2021 - 2022">
                     <!-- <label for="datepicker">Select a year range:</label>

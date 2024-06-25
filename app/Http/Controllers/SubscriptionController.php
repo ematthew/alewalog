@@ -107,19 +107,27 @@ class SubscriptionController extends Controller
         $sub->grand_total        = $request->grand_total;
         $sub->paid_amount        = $request->paid_amount;
         $sub->ref_code           = rand(100, 999) . Str::random(5);
+        if($request->waiver != null && $request->default != null){
+            $sub->balance  = ($request->grand_total + $request->default) - $request->waiver - $request->paid_amount;
+        }elseif ($request->waiver != null) {
+            $sub->balance  = ($request->grand_total - $request->waiver) - $request->paid_amount;
+        }elseif ( $request->default != null ) {
+            $sub->balance  = ($request->grand_total + $request->default) - $request->paid_amount;
+        }
+        $sub->default            = $request->default;
+        $sub->waiver             = $request->waiver;
         $sub->balance            = $request->grand_total - $request->paid_amount;
         $sub->duration            = $request->duration;
         if ($sub->paid_amount > $sub->grand_total) {
-            # code...
+
             return 'payment amount should not be greater than grand total';
         }
-        // return $sub;
 
         $sub->save();
 
         $demand = Office::where('pid', $sub->pid)->first();
         $demand->paid_amount = $sub->paid_amount;
-        $demand->grand_total = $demand->grand_total - $sub->paid_amount;
+        $demand->grand_total = $demand->grand_total + $sub->default - $sub->waiver - $sub->paid_amount;
         $demand->save();
         return redirect('payment');
     }
