@@ -145,6 +145,10 @@
                                     <td style="color:black; font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>PROPERTY ADDRESS :</b></td>
                                     <td style="color:blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->prop_addr }}</b></td>
                                 </tr> 
+                                 <tr>
+                                    <td style="color:black; font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>CADASTRAL ZONE :</b></td>
+                                    <td style="color:blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->rating_dist}}</b></td>
+                                </tr> 
                                 <tr>
                                     <td style="color:black;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>PAID DATE/TIME :</b></td>
                                     <td style="color:blue;font-family: sans-serif; font-family: tahoma;font-size:20px;"><b>{{ $receipt->created_at }}</b></td>
@@ -190,27 +194,29 @@
 
 
                             <div class="row" style="margin-top:60PX;">
-                                <div class="col-md-3" style="color:black;font-family: sans-serif; font-weight: bold;">
+                                <div class="col-md-4" style="color:black;font-family: sans-serif; font-weight: bold;">
                                   <p style="font-family:tahoma;font-size:23px;font-weight:bold;">
-                                      ------------------------- <br>
+                                      ------------------------------- <br>
                                       AUTHORISED SIGNATORY
                                   </p>   
                                 </div>
 
-                                <div class="col-md-3" style="color:black;font-family: sans-serif; font-weight: bold;">
+                                <div class="col-md-4" style="color:black;font-family: sans-serif; font-weight: bold;">
                                   <p style="margin-left:45px;font-family:tahoma;font-size:23px;font-weight:bold;">
 
-                                      ------------------ <br>
+                                      ------------------------------ <br>
                                       COMFIRMATORY SIGNATURE
                                   </p>   
                                 </div>
 
-                                <div class="col-md-3" style="color:black;font-family: sans-serif; font-weight: bold;">
+                                <div class="col-md-4" style="color:black;font-family: sans-serif; font-weight: bold;">
                                     <p style="margin-left:88px;font-family:tahoma;font-size:23px;font-weight:bold;">
-                                       ----------------- <br>
+                                       --------------------------- <br>
                                        OCCUPIER SIGNATURE</p>
+
+                                       <br> <br> <br> <br> <br>
                                 </div>
-                                
+
                             </div> 
                                         <div class="row-border" style="color:#000 !important; border: 1px solid #000 !important;">
                                             
