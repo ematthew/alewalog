@@ -468,4 +468,46 @@ class OfficeController extends Controller
 
         return view('consolidated.index', compact('offices'));
     }
+
+    /*
+    |-----------------------------------------
+    | GWARINPA INDEX
+    |-----------------------------------------
+    */
+    public function gwarinpaIndex(Request $request)
+    {
+        $paid_amount = 0;
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $offices = Office::where('cadastral_zone', "GWARINPA")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+
+            $offices = Office::where('paid_amount', '>=', $paid_amount)
+            ->where('cadastral_zone', "GWARINPA")
+            ->where('grand_total', '!=', $paid_amount)
+            ->sortable('pid', 'DESC')->paginate(20);
+        }
+
+        return view('gwarinpa.index', compact('offices'));
+    }
+
+    public function gwarinpaPreviewAll(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office_ids = json_decode($request->office_ids);
+
+            $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+            return view('gwarinpa.preview', compact('offices'));
+        } else {
+            // return 'you are not allow to view this page';
+            return redirect()->back();
+        }
+    }
 }

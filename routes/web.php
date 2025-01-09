@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandController;
-
-
+use App\Http\Controllers\OfficeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -178,4 +177,15 @@ Route::group(['prefix' => 'menu-roles'], function () {
     Route::post('add',          'MenuRoleController@addOne');
     Route::get('fetch',         'MenuRoleController@fetchOne');
     Route::get('all',           'MenuRoleController@fetchAll');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Office Controller Gwarinpa
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'gwarinpa'], function () {
+    Route::get('/', [OfficeController::class, 'gwarinpaIndex'])->name('gwarinpa.index');
+    Route::get('/preview', [OfficeController::class, 'gwarinpaPreviewAll'])->name('gwarinpa.previewAll');
 });
