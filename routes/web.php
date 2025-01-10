@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\JabiController;
 use App\Http\Controllers\LifeCampController;
 use App\Http\Controllers\OfficeController;
@@ -231,4 +232,13 @@ Route::group(['prefix' => 'jabi'], function () {
 Route::group(['prefix' => 'utako'], function () {
     Route::get('/', [UtakoController::class, 'index'])->name('utako.index');
     Route::get('/preview', [UtakoController::class, 'previewAll'])->name('utako.previewAll');
+});
+/*
+|--------------------------------------------------------------------------
+| Office Controller Utako
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'hotel'], function () {
+    Route::get('/', [HotelController::class, 'index'])->name('utako.index');
+    Route::get('/preview', [HotelController::class, 'previewAll'])->name('utako.previewAll');
 });
