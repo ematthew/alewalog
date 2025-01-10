@@ -239,6 +239,6 @@ Route::group(['prefix' => 'utako'], function () {
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'hotel'], function () {
-    Route::get('/', [HotelController::class, 'index'])->name('utako.index');
-    Route::get('/preview', [HotelController::class, 'previewAll'])->name('utako.previewAll');
+    Route::get('/', [HotelController::class, 'index'])->name('hotel.index');
+    Route::get('/preview', [HotelController::class, 'previewAll'])->name('hotel.previewAll');
 });
