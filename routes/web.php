@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandController;
+use App\Http\Controllers\JabiController;
+use App\Http\Controllers\LifeCampController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\UtakoController;
+use App\Http\Controllers\WuyeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -188,4 +192,43 @@ Route::group(['prefix' => 'menu-roles'], function () {
 Route::group(['prefix' => 'gwarinpa'], function () {
     Route::get('/', [OfficeController::class, 'gwarinpaIndex'])->name('gwarinpa.index');
     Route::get('/preview', [OfficeController::class, 'gwarinpaPreviewAll'])->name('gwarinpa.previewAll');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Office Controller Wuye
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'wuye'], function () {
+    Route::get('/', [WuyeController::class, 'index'])->name('wuye.index');
+    Route::get('/preview', [WuyeController::class, 'previewAll'])->name('wuye.previewAll');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Office Controller Life Camp
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'life-camp'], function () {
+    Route::get('/', [LifeCampController::class, 'index'])->name('life-camp.index');
+    Route::get('/preview', [LifeCampController::class, 'previewAll'])->name('life-camp.previewAll');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Office Controller Jabi
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'jabi'], function () {
+    Route::get('/', [JabiController::class, 'index'])->name('jabi.index');
+    Route::get('/preview', [JabiController::class, 'previewAll'])->name('jabi.previewAll');
+});
+/*
+|--------------------------------------------------------------------------
+| Office Controller Utako
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'utako'], function () {
+    Route::get('/', [UtakoController::class, 'index'])->name('utako.index');
+    Route::get('/preview', [UtakoController::class, 'previewAll'])->name('utako.previewAll');
 });

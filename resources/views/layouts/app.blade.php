@@ -89,6 +89,30 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('wuye')}}">Wuye</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('life-camp')}}">Life-Camp</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('jabi')}}">Jabi</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('utako')}}">Utako</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
                         <a class="collapse-item" href="{{url('appo/demands')}}">Apo(s)-Demand</a>
                     </div>
                 </div>
