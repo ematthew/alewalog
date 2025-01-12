@@ -192,7 +192,7 @@ Route::group(['prefix' => 'menu-roles'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Office Controller Gwarinpa
+| Gwarinpa Controller 
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'gwarinpa'], function () {
@@ -202,7 +202,7 @@ Route::group(['prefix' => 'gwarinpa'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Office Controller Wuye
+| Wuye Controller 
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'wuye'], function () {
@@ -212,7 +212,7 @@ Route::group(['prefix' => 'wuye'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Office Controller Life Camp
+| Life Camp Controller 
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'life-camp'], function () {
@@ -222,7 +222,7 @@ Route::group(['prefix' => 'life-camp'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Office Controller Jabi
+| Jabi Controller 
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'jabi'], function () {
@@ -231,7 +231,7 @@ Route::group(['prefix' => 'jabi'], function () {
 });
 /*
 |--------------------------------------------------------------------------
-| Office Controller Utako
+| Utako Controller 
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'utako'], function () {
@@ -240,7 +240,7 @@ Route::group(['prefix' => 'utako'], function () {
 });
 /*
 |--------------------------------------------------------------------------
-| Office Controller Utako
+| Hotel Controller
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'hotel'], function () {
@@ -248,6 +248,12 @@ Route::group(['prefix' => 'hotel'], function () {
     Route::get('/preview', [HotelController::class, 'previewAll'])->name('hotel.previewAll');
 });
 
+
+/*
+|--------------------------------------------------------------------------
+| Nasarawa Controller
+|--------------------------------------------------------------------------
+*/
 Route::group(['prefix' => 'nasarawa'], function () {
     Route::get('/',             [NasarawaController::class, 'index'])->name('nasarawa.index');
     Route::get('/view',         [NasarawaController::class, 'view'])->name('nasarawa_show');

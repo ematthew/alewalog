@@ -481,6 +481,7 @@ class OfficeController extends Controller
 
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', "GWARINPA")
+                ->orWhere('cadastral_zone', "KARASANA")
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
                 ->orWhere('pid', 'LIKE', "%$search_keywords%")
@@ -490,6 +491,7 @@ class OfficeController extends Controller
 
             $offices = Office::where('paid_amount', '>=', $paid_amount)
             ->where('cadastral_zone', "GWARINPA")
+            ->orWhere('cadastral_zone', "KARASANA")
             ->where('grand_total', '!=', $paid_amount)
             ->sortable('pid', 'DESC')->paginate(20);
         }
