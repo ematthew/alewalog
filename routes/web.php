@@ -5,7 +5,9 @@ use App\Http\Controllers\DemandController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\JabiController;
 use App\Http\Controllers\LifeCampController;
+use App\Http\Controllers\NasarawaController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UtakoController;
 use App\Http\Controllers\WuyeController;
 
@@ -99,6 +101,9 @@ Route::group(['prefix' => 'users'], function () {
 Route::group(['prefix' => 'uploads'], function () {
     Route::get('/',             'UploadController@index')->name('uploads.index');
     Route::post('/',             'UploadController@upload')->name('upload_file');
+    Route::post('/nasarawa', [UploadController::class, 'nasarawaUpload']);
+    Route::get('/nasarawa', [UploadController::class, 'nasarawaIndex'])->name('nasarawa_file_upload.index');
+
 });
 
 /*
@@ -241,4 +246,16 @@ Route::group(['prefix' => 'utako'], function () {
 Route::group(['prefix' => 'hotel'], function () {
     Route::get('/', [HotelController::class, 'index'])->name('hotel.index');
     Route::get('/preview', [HotelController::class, 'previewAll'])->name('hotel.previewAll');
+});
+
+Route::group(['prefix' => 'nasarawa'], function () {
+    Route::get('/',             [NasarawaController::class, 'index'])->name('nasarawa.index');
+    Route::get('/view',         [NasarawaController::class, 'view'])->name('nasarawa_show');
+    Route::get('/create',       [NasarawaController::class, 'create']);
+    Route::post('/store',      [NasarawaController::class, 'store']);
+    Route::get('/edit/{id}',   [NasarawaController::class, 'edit']);
+    Route::post('/update/{id}',         [NasarawaController::class, 'update'])->name('nasarawa.update');
+    // Route::delete('/delete',     'OfficeController@deleteOne')->name('office_delete');
+    Route::get('/preview',      [NasarawaController::class, 'previewAll'])->name('nasarawa_preview');
+    // Route::get('/offices/createPDF',  'OfficeController@createPDF')->name('createPDF');
 });

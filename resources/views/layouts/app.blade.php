@@ -188,6 +188,20 @@
                 </div>
                 @endif
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Nasarawa</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('nasarawa')}}">Nas Offices</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -204,6 +218,15 @@
                     <a class="nav-link" href="{{url('uploads')}}">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Upload Data</span></a>
+                </li>
+            @endif
+
+            @if(checkIfHasMenuAccess("uploads", auth()->user()->id))
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('uploads/nasarawa')}}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Upload Nasarawa Data</span></a>
                 </li>
             @endif
 
