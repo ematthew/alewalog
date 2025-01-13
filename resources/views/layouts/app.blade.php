@@ -119,6 +119,18 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('lokogoma')}}">Lokogoma</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('gudu')}}">Gudu</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
                         <a class="collapse-item" href="{{url('appo/demands')}}">Apo(s)-Demand</a>
                     </div>
                 </div>

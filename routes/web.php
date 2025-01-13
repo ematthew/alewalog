@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\LokogomaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandController;
+use App\Http\Controllers\GuduController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\JabiController;
 use App\Http\Controllers\LifeCampController;
@@ -264,4 +266,25 @@ Route::group(['prefix' => 'nasarawa'], function () {
     // Route::delete('/delete',     'OfficeController@deleteOne')->name('office_delete');
     Route::get('/preview',      [NasarawaController::class, 'previewAll'])->name('nasarawa_preview');
     // Route::get('/offices/createPDF',  'OfficeController@createPDF')->name('createPDF');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Lokogoma Controller 
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'lokogoma'], function () {
+    Route::get('/', [LokogomaController::class, 'index'])->name('lokogoma.index');
+    Route::get('/preview', [LokogomaController::class, 'previewAll'])->name('lokogoma.previewAll');
+});
+
+/*
+|--------------------------------------------------------------------------
+| GUDU Controller 
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'gudu'], function () {
+    Route::get('/', [GuduController::class, 'index'])->name('gudu.index');
+    Route::get('/preview', [GuduController::class, 'previewAll'])->name('gudu.previewAll');
 });
