@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ApoNewController;
+use App\Http\Controllers\AppoNewController;
 use App\Http\Controllers\LokogomaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandController;
@@ -287,4 +289,15 @@ Route::group(['prefix' => 'lokogoma'], function () {
 Route::group(['prefix' => 'gudu'], function () {
     Route::get('/', [GuduController::class, 'index'])->name('gudu.index');
     Route::get('/preview', [GuduController::class, 'previewAll'])->name('gudu.previewAll');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Appo New Controller 
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'apo-new'], function () {
+    Route::get('/', [ApoNewController::class, 'index'])->name('apo_new.index');
+    Route::get('/preview', [ApoNewController::class, 'previewAll'])->name('apo_new.previewAll');
 });
