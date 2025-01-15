@@ -45,4 +45,22 @@ class JabiController extends Controller
             return redirect()->back();
         }
     }
+
+
+    /*
+    |-----------------------------------------
+    | SHOW VIEW INDEX
+    |-----------------------------------------
+    */
+    public function view(Request $request)
+    {
+        // body
+        if (Auth::user()->user_type == 'super') {
+            $office = Office::where('pid', $request->pid)->first();
+            return view('jabi.show', compact('office'));
+        } else {
+            $msg = 'you are not allow to view this page';
+            return Redirect::back()->with($msg);
+        }
+    }
 }

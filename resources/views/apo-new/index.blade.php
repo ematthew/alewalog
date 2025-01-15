@@ -141,7 +141,7 @@
                                                 
 
                                                 <td>
-                                                    <a href="{{url('nasarawa/view')}}?pid={{ $office->pid }}" class="">
+                                                    <a href="{{url('apo-new/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
                                                     <a href="{{ url('nasarawa/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
@@ -221,13 +221,13 @@
         function replacePrintButton(){
             if(all_customer_ids.length > 0 && $(`#select-all`).is(':checked') == false){
                 $("#print-button-dym").html(`
-                    <a href="{{url('offices/preview')}}?office_ids=[${all_customer_ids}]" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
+                    <a href="{{url('apo-new/preview')}}?office_ids=[${all_customer_ids}]" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
                         <i class="fa fa-print"></i> Print All
                     </a>
                 `);
             }else{
                 $("#print-button-dym").html(`
-                    <a href="{{url('offices/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
+                    <a href="{{url('apo-new/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
                         <i class="fa fa-print"></i> Print All
                     </a>
                 `);

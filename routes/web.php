@@ -232,6 +232,7 @@ Route::group(['prefix' => 'life-camp'], function () {
 Route::group(['prefix' => 'jabi'], function () {
     Route::get('/', [JabiController::class, 'index'])->name('jabi.index');
     Route::get('/preview', [JabiController::class, 'previewAll'])->name('jabi.previewAll');
+    Route::get('/view', [JabiController::class, 'view'])->name('jabi.view');
 });
 /*
 |--------------------------------------------------------------------------
@@ -300,4 +301,6 @@ Route::group(['prefix' => 'gudu'], function () {
 Route::group(['prefix' => 'apo-new'], function () {
     Route::get('/', [ApoNewController::class, 'index'])->name('apo_new.index');
     Route::get('/preview', [ApoNewController::class, 'previewAll'])->name('apo_new.previewAll');
+    Route::get('/view', [ApoNewController::class, 'view'])->name('appo_new.view');
+
 });
