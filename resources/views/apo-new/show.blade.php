@@ -110,9 +110,9 @@
                                        <h1 style="font-family: tahoma; color: green;font-size:30px; font-weight: bold; text-align: center;">ABUJA MUNICIPAL AREA COUNCIL</h1>
                                        <h2 style="font-family: tahoma; color:red;font-size:25px; text-align: center; font-weight:bold;">TENEMENT RATE & VALUATION OFFICE</h2>
                                        <h3 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Secretariat: No 1 Olusegun Obasanjo Way, Area 10 Garki - Abuja</h3>
-                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 301, 3rd Floor Kano House, Ralph Shodeinde Street, </h4>
-                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Central Business District,Abuja.FCT </h5>
-                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2349085191698,+2348064677456,+2348096773456  </h6>
+                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Block C first floor, fish Market, Apo resettlements.</h4>
+                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Apo District, FCT Abuja. </h5>
+                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2347067287994,+2347031674928 </h6>
                                    </div>
                                     <div class="col-md-2">
                                        <img src="{{asset('/img/Coat.svg.png')}}" width="160px" >
