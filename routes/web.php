@@ -302,5 +302,6 @@ Route::group(['prefix' => 'apo-new'], function () {
     Route::get('/', [ApoNewController::class, 'index'])->name('apo_new.index');
     Route::get('/preview', [ApoNewController::class, 'previewAll'])->name('apo_new.previewAll');
     Route::get('/view', [ApoNewController::class, 'view'])->name('appo_new.view');
+    Route::get('/edit/{id}', [ApoNewController::class, 'edit'])->name('appo_new.view');
 
 });

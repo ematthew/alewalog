@@ -144,7 +144,7 @@
                                                     <a href="{{url('apo-new/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
-                                                    <a href="{{ url('nasarawa/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
+                                                    <a href="{{ url('apo-new/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
                                                 </td>
                                                 
                                             </tr>
@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 paginate" id="print-button-dym">
-                                        <a href="{{url('appo-new/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
+                                        <a href="{{url('apo-new/preview')}}?office_ids={{ json_encode($offices_box) }}" onclick="previewPrintAll()" class="btn btn-primary col-md-12">
                                             <i class="fa fa-print"></i> Print All
                                         </a>
                                     </div>

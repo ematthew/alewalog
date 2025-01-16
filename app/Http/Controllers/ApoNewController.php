@@ -61,5 +61,19 @@ class ApoNewController extends Controller
         }
     }
 
+        // |-----------------------------------------
+    // | FETCH DATA
+    // |-----------------------------------------
+
+    public function edit($id)
+    {
+        if (Auth::user()->user_type == 'super') {
+            $office = Office::findOrFail($id);
+            return view('apo-new.edit', compact('office'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
     
 }
