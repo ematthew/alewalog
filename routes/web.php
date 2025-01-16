@@ -8,6 +8,7 @@ use App\Http\Controllers\DemandController;
 use App\Http\Controllers\GuduController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\JabiController;
+use App\Http\Controllers\JahiController;
 use App\Http\Controllers\LifeCampController;
 use App\Http\Controllers\NasarawaController;
 use App\Http\Controllers\OfficeController;
@@ -304,4 +305,15 @@ Route::group(['prefix' => 'apo-new'], function () {
     Route::get('/view', [ApoNewController::class, 'view'])->name('appo_new.view');
     Route::get('/edit/{id}', [ApoNewController::class, 'edit'])->name('appo_new.view');
 
+});
+/*
+|--------------------------------------------------------------------------
+| Appo New Controller 
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'jahi'], function () {
+    Route::get('/', [JahiController::class, 'index'])->name('jahi.index');
+    Route::get('/preview', [JahiController::class, 'previewAll'])->name('jahi.previewAll');
+    Route::get('/view', [JahiController::class, 'view'])->name('jahi.view');
+    Route::get('/edit/{id}', [JahiController::class, 'edit'])->name('jahi.view');
 });
