@@ -47,7 +47,7 @@ class NasarawaController extends Controller
 
     
     // |-----------------------------------------
-    // | EDIT DATA
+    // | EDIT DATA 
     // |-----------------------------------------
 
     public function edit($id)
