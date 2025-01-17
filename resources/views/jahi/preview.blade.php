@@ -168,12 +168,12 @@
                                        <h1 style="font-family: tahoma; color: green;font-size:30px; font-weight: bold; text-align: center;">ABUJA MUNICIPAL AREA COUNCIL</h1>
                                        <h2 style="font-family: tahoma; color:red;font-size:25px; text-align: center; font-weight:bold;">TENEMENT RATE & VALUATION OFFICE</h2>
                                        <h3 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Secretariat: No 1 Olusegun Obasanjo Way, Area 10 Garki - Abuja</h3>
-                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 301, 3rd Floor Kano House, Ralph Shodeinde Street, </h4>
-                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Central Business District,Abuja.FCT </h5>
-                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2349085191698,+2348064677456,+2348096773456  </h6>
+                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suit B3a, 3rd floor, plot 267, Kado Mall cadestal Zone B9. </h4>
+                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Kado District FCT Abuja</h5>
+                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2347067287994,+2349035395263  </h6>
                                    </div>
                                     <div class="col-md-2">
-                                       <img src="{{asset('/img/Coat.svg.png')}}" width="160px" >
+                                       <img src="{{asset('/img/Coat.svg.png')}}" width="160px">
                                    </div>
                                         <div class="col-md-12">
                                             <br />

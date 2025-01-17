@@ -113,7 +113,7 @@
                                                 <table class="table table-bordered" style="color:#000 !important;">
                                                     <tr>
                                                         <th class="thr"style="font-family: sans-serif;"><strong>Demand Notice is hereby given to </strong></th>
-                                                        <th class="thl" style="font-family: sans-serif;"><strong>{{ $office->occupant }}/{{ $office->pid }}</strong></th>
+                                                        <th class="thl" style="font-family: sans-serif;"><strong>{{ $office->occupant}}/{{ $office->pid }}</strong></th>
                                                     </tr>
                                                 </table>
                                             </div>
