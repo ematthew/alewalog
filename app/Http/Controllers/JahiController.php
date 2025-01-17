@@ -17,6 +17,7 @@ class JahiController extends Controller
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', "JAHI")
                 ->orWhere('rating_dist', "mabushi")
+                ->orWhere('rating_dist', "kado")
                 ->orWhere('rating_dist', "katampe")
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
@@ -27,6 +28,7 @@ class JahiController extends Controller
 
             $offices = Office::where('paid_amount', '>=', $paid_amount)
             ->where('cadastral_zone', "JAHI")
+             ->orWhere('rating_dist', "kado")
             ->orWhere('rating_dist', "mabushi")
             ->orWhere('rating_dist', "katampe")
             ->where('grand_total', '!=', $paid_amount)

@@ -13,10 +13,11 @@ class LifeCampController extends Controller
         if ($request->has('search_keywords')) {
 
             $search_keywords = $request->search_keywords;
-            $offices = Office::where('cadastral_zone', "LIFE CAMP")
-                ->orWhere('cadastral_zone', "mbora")
+            $offices = Office::where('cadastral_zone', "mbora")
                 ->orWhere('cadastral_zone', "idu")
+                ->orWhere('cadastral_zone', "IDU INDUSTRAL")
                 ->orWhere('cadastral_zone', "idu industrial")
+                ->orWhere('cadastral_zone', "kafe")
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
                 ->orWhere('pid', 'LIKE', "%$search_keywords%")
@@ -25,10 +26,11 @@ class LifeCampController extends Controller
         } else {
 
             $offices = Office::where('paid_amount', '>=', $paid_amount)
-            ->where('cadastral_zone', "LIFE CAMP")
-            ->orWhere('cadastral_zone', "mbora")
+            ->where('cadastral_zone', "mbora")
             ->orWhere('cadastral_zone', "idu")
+            ->orWhere('cadastral_zone', "IDU INDUSTRAL")
             ->orWhere('cadastral_zone', "idu industrial")
+            ->orWhere('cadastral_zone', "kafe")
             ->where('grand_total', '!=', $paid_amount)
             ->sortable('pid', 'DESC')->paginate(20);
         }

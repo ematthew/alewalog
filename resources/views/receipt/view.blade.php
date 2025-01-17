@@ -163,7 +163,7 @@
 
                            <div class="row">
                                <div class="col-md-11">
-                                    <p style="sans-serif; font-family: tahoma;font-weight: bold; color:black; text-align: center; font-size:28px;"><u> RE: ACKNOWLEDGEMENT OF PAYMENT FOR 2024 TENEMENT RATE DEMAND NOTICE</u></p>
+                                    <p style="sans-serif; font-family: tahoma;font-weight: bold; color:black; text-align: center; font-size:28px;"><u> RE: ACKNOWLEDGEMENT OF PAYMENT FOR {{ $receipt->duration }} TENEMENT RATE DEMAND NOTICE</u></p>
                                </div>
                            </div>
                            <br>

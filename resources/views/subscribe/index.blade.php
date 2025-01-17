@@ -95,6 +95,7 @@
                                             <th>ARREARS</th>
                                             <th>PENALTY </th>
                                             <th>GRAND TOTAL</th>
+                                            <th>WAIVER</th>
                                             <th>PAID AMOUNT</th>
                                             <!-- <th>CATEGORY</th>
                                             <th>GROUP</th>
@@ -150,6 +151,7 @@
                                                 <td>{{ $demand->arrears }}</td>
                                                 <td>{{ $demand->penalty }}</td>
                                                 <td>{{ $demand->grand_total }}</td>
+                                                <td>{{ $demand->waiver }}</td>
                                                 <td>{{ $demand->paid_amount }}</td>
                                                 <!-- <td>{{ $demand->category }}</td>
                                                 <td>{{ $demand->group }}</td>
