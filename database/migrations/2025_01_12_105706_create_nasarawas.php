@@ -14,7 +14,7 @@ class CreateNasarawas extends Migration
     public function up()
     {
         Schema::create('nasarawas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('pid')->nullable();
             $table->string('occupant')->nullable();
             $table->string('prop_addr')->nullable();

@@ -32,14 +32,14 @@ class NasarawaController extends Controller
         if ($request->has('search_keywords')) {
 
             $search_keywords = $request->search_keywords;
-            $offices = Office::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+            $offices = Nasarawa::where('cadastral_zone', 'LIKE', "%$search_keywords%")
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
                 ->orWhere('pid', 'LIKE', "%$search_keywords%")
                 ->orderBy('pid', 'DESC')
                 ->paginate(20);
         } else {
-            $offices = Office::where('grand_total', '<', $grandTotal)->sortable('pid', 'DESC')->paginate(20);
+            $offices = Nasarawa::where('grand_total', '<', $grandTotal)->sortable('pid', 'DESC')->paginate(20);
         }
 
         return view('nasarawa.index', compact('offices'));
@@ -53,7 +53,7 @@ class NasarawaController extends Controller
     public function edit($id)
     {
         if (Auth::user()->user_type == 'super') {
-            $office = Office::findOrFail($id);
+            $office = Nasarawa::findOrFail($id);
             return view('nasarawa.edit', compact('office'));
         } else {
             return redirect()->back();
@@ -102,7 +102,7 @@ class NasarawaController extends Controller
 
 
         if (Auth::user()->user_type == 'super') {
-            $office = Office::find($id);
+            $office = Nasarawa::find($id);
             $office->pid                = $request->pid;
             $office->occupant           = $request->occupant;
             $office->prop_addr          = $request->prop_addr;
@@ -140,7 +140,7 @@ class NasarawaController extends Controller
     {
         // body
         if (Auth::user()->user_type == 'super') {
-            $office = Office::where('pid', $request->pid)->first();
+            $office = Nasarawa::where('pid', $request->pid)->first();
             return view('office.show', compact('office'));
         } else {
             $msg = 'you are not allow to view this page';
@@ -154,7 +154,7 @@ class NasarawaController extends Controller
         if (Auth::user()->user_type == 'super') {
             $office_ids = json_decode($request->office_ids);
 
-            $offices = Office::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
+            $offices = Nasarawa::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
             return view('office.preview', compact('offices'));
         } else {
             // return 'you are not allow to view this page';
