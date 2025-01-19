@@ -6,6 +6,7 @@ use App\Models\Nasarawa;
 use App\Models\Office;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class NasarawaController extends Controller
 {
@@ -39,7 +40,7 @@ class NasarawaController extends Controller
                 ->orderBy('pid', 'DESC')
                 ->paginate(20);
         } else {
-            $offices = Nasarawa::where('grand_total', '<', $grandTotal)->sortable('pid', 'DESC')->paginate(20);
+            $offices = Nasarawa::sortable('pid', 'DESC')->paginate(20);
         }
 
         return view('nasarawa.index', compact('offices'));
@@ -141,7 +142,7 @@ class NasarawaController extends Controller
         // body
         if (Auth::user()->user_type == 'super') {
             $office = Nasarawa::where('pid', $request->pid)->first();
-            return view('office.show', compact('office'));
+            return view('nasarawa.show', compact('office'));
         } else {
             $msg = 'you are not allow to view this page';
             return Redirect::back()->with($msg);
@@ -155,7 +156,7 @@ class NasarawaController extends Controller
             $office_ids = json_decode($request->office_ids);
 
             $offices = Nasarawa::whereIn('id', $office_ids)->orderBy('pid', 'DESC')->get();
-            return view('office.preview', compact('offices'));
+            return view('nasarawa.preview', compact('offices'));
         } else {
             // return 'you are not allow to view this page';
             return redirect()->back();
