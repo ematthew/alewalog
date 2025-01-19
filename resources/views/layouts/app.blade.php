@@ -225,6 +225,26 @@
                         <a class="collapse-item" href="{{url('nasarawa')}}">Nas Offices</a>
                     </div>
                 </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Demand Data:</h6>
+                    <a class="collapse-item" href="{{ Route('nas_demands.index') }}">Demands</a>
+                    </div>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Reminder Data:</h6>
+                    <a class="collapse-item" href="{{ Route('nas_reminder.index') }}">Reminder</a>
+                    </div>
+                </div>
+                <!-- @if(checkIfHasMenuAccess("nas_demands", auth()->user()->id)) -->
+                <!-- <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Nas Demand Data:</h6>
+                        <a class="collapse-item" href="{{ Route('nas_demands.index') }}">Demands</a>
+                    </div>
+                </div> -->
+                <!-- @endif -->
             </li>
 
             <!-- Divider -->

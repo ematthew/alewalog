@@ -317,3 +317,24 @@ Route::group(['prefix' => 'jahi'], function () {
     Route::get('/view', [JahiController::class, 'view'])->name('jahi.view');
     Route::get('/edit/{id}', [JahiController::class, 'edit'])->name('jahi.view');
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Nas Demand Controller
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'nasarawa/demands'], function () {
+    Route::get('/', [NasarawaController::class, 'nasDemand'])->name('nas_demands.index');
+    Route::get('/view', [NasarawaController::class, 'nasDemand'])->name('nas_demands.show');
+});
+/*
+|--------------------------------------------------------------------------
+| Nas Reminder Controller
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'nasarawa/reminder'], function () {
+    Route::get('/', [NasarawaController::class, 'paidIndex'])->name('nas_reminder.index');
+    Route::get('/view', [NasarawaController::class, 'showReminder'])->name('nas_reminder.show');
+});
+

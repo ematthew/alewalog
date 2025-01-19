@@ -162,4 +162,65 @@ class NasarawaController extends Controller
         }
     }
 
+
+    public function nasDemand(Request $request)
+    {
+        // body
+        $grandTotal = 1000;
+
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $demands = Nasarawa::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+            $demands = Nasarawa::where('grand_total', '>=', $grandTotal)
+                ->sortable('pid', 'DESC')
+                ->paginate(20);
+        }
+
+        return view('nasarawa_demand.index', compact('demands'));
+    }
+
+        /*
+    |-----------------------------------------
+    | SHOW VIEW PAID INDEX
+    |-----------------------------------------
+    */
+
+    public function paidIndex(Request $request)
+    {
+        $paid_amount = 0;
+        if ($request->has('search_keywords')) {
+
+            $search_keywords = $request->search_keywords;
+            $offices = Nasarawa::where('cadastral_zone', 'LIKE', "%$search_keywords%")
+                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->orderBy('pid', 'DESC')
+                ->paginate(20);
+        } else {
+
+            $offices = Nasarawa::where('paid_amount', '>=', $paid_amount)->where('grand_total', '!=', $paid_amount)->sortable('pid', 'DESC')->paginate(20);
+        }
+
+        return view('nasarawa_reminder.index', compact('offices'));
+    }
+
+    public function showReminder(Request $request)
+    {
+        if (Auth::user()->user_type == 'super') {
+            $office = Nasarawa::where('pid', $request->pid)->first();
+            return view('nasarawa_reminder.show', compact('office'));
+        } else {
+            $msg = 'you are not allow to view this page';
+            return Redirect::back()->with($msg);
+        }
+    }
+
 }
