@@ -162,15 +162,15 @@
                                     
                                     <div class="row">
                                          <div class="col-md-2">
-                                       <img src="{{asset('/img/logo.jpeg')}}" width="160px" >
+                                       <img src="{{asset('/img/Coat.svg.png')}}" width="160px" >
                                    </div>
                                       <div class="col-md-8">
-                                       <h1 style="font-family: tahoma; color: green;font-size:30px; font-weight: bold; text-align: center;">ABUJA MUNICIPAL AREA COUNCIL</h1>
-                                       <h2 style="font-family: tahoma; color:red;font-size:25px; text-align: center; font-weight:bold;">TENEMENT RATE & VALUATION OFFICE</h2>
-                                       <h3 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Secretariat: No 1 Olusegun Obasanjo Way, Area 10 Garki - Abuja</h3>
-                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 301, 3rd Floor Kano House, Ralph Shodeinde Street, </h4>
-                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Central Business District,Abuja.FCT </h5>
-                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2349085191698,+2348064677456,+2348096773456  </h6>
+                                       <h1 style="font-family: tahoma; color: green;font-size:30px; font-weight: bold; text-align: center;">KARU LOCAL GOVERNMENT COUNCIL</h1>
+                                       <h2 style="font-family: tahoma; color:black;font-size:25px; text-align: center; font-weight:bold;">SECRETARIAT, KARU NASARAWA STATE</h2>
+                                       <h3 style="font-family: tahoma; color:red;font-size:16px; text-align: center; font-weight:bold;">FINANCE DEPARMENT (REVENUE DIVISION)</h3>
+                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 31&32, Edgeville plaza No 19 Old Karu Road, mararaba, Opp Furtune Plaza Karu Local Government Council </h4>
+                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Nasarawa State</h5>
+                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+234903305005,07012166430,08065919908 </h6>
                                    </div>
                                     <div class="col-md-2">
                                        <img src="{{asset('/img/Coat.svg.png')}}" width="160px" >
