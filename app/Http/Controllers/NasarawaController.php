@@ -36,6 +36,7 @@ class NasarawaController extends Controller
             $offices = Nasarawa::where('cadastral_zone', 'LIKE', "%$search_keywords%")
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                ->orWhere('prop_type', 'LIKE', "%$search_keywords%")
                 ->orWhere('pid', 'LIKE', "%$search_keywords%")
                 ->orderBy('pid', 'DESC')
                 ->paginate(20);

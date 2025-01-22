@@ -170,7 +170,7 @@
                                        <h3 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Secretariat: No 1 Olusegun Obasanjo Way, Area 10 Garki - Abuja</h3>
                                         <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 411, 4th Floor MKK, Plaza Gudu, </h4>
                                         <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Gudu District,Abuja.FCT </h5>
-                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2347067287994,+2348063481900 </h6>
+                                        <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+2347067287994,+2347031674928 </h6>
                                    </div>
                                     <div class="col-md-2">
                                        <img src="{{asset('/img/Coat.svg.png')}}" width="160px" >

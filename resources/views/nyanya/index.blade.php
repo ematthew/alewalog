@@ -144,7 +144,7 @@
                                                     <a href="{{url('nyanya/demands/view')}}?pid={{ $demand->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
-                                                    <!-- <a href="{{ url('demands/edit/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Edit </a> -->
+                                                    <a href="{{ url('demands/edit/'.$demand->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
                                                 </td>
                                                 
                                             </tr>

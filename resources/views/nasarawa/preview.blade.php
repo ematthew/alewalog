@@ -167,9 +167,9 @@
                                       <div class="col-md-8">
                                        <h1 style="font-family: tahoma; color: green;font-size:30px; font-weight: bold; text-align: center;">KARU LOCAL GOVERNMENT COUNCIL</h1>
                                        <h2 style="font-family: tahoma; color:black;font-size:25px; text-align: center; font-weight:bold;">SECRETARIAT, KARU NASARAWA STATE</h2>
-                                       <h3 style="font-family: tahoma; color:red;font-size:16px; text-align: center; font-weight:bold;">FINANCE DEPARMENT (REVENUE DIVISION)</h3>
-                                        <h4 style="font-family: tahoma; color:black;font-size:16px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 31&32, Edgeville plaza No 19 Old Karu Road, mararaba, Opp Furtune Plaza Karu Local Government Council </h4>
-                                        <h5 style="font-family: tahoma; color:black;font-size:16px; text-align: center; font-weight:bold;">Nasarawa State</h5>
+                                       <h3 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">FINANCE DEPARMENT (REVENUE DIVISION)</h3>
+                                        <h4 style="font-family: tahoma; color:black;font-size:20px; text-align:center; 60px; font-weight:bold;">Annex Office: Suite 31&32, Edgeville plaza No 19 Old Karu Road, mararaba, Opp Furtune Plaza Karu Local Government Council </h4>
+                                        <h5 style="font-family: tahoma; color:black;font-size:20px; text-align: center; font-weight:bold;">Nasarawa State</h5>
                                         <h6 style="font-family: tahoma; color:red;font-size:20px; text-align: center; font-weight:bold;">Tel:+234903305005,07012166430,08065919908 </h6>
                                    </div>
                                     <div class="col-md-2">
@@ -290,10 +290,11 @@
                                         <div class="col-md-12">
                                             <div class="row-border px-4 py-2" style="color:#000 !important; border: 1px solid #000 !important; font-size:18px;justify-content: 10px;text-align: justify;">
                                                <b>
-                                                    In accordance with the provision of section 7 (4th Schedule ) of the 1999 constitution of the Federal Republic Of Nigeria ; Federal Capital Territory Act Cap 503, LFN 2004 (vol.3) as amended: Taxes and Levies ( Approved list of Collection ) Act 2015 (as amended) and AMAC Tenement Rate bye-laws of 2014. We forwarded herewith your bill for the year {{ date("Y ") }}, totaling  <span class="text-danger" style="font-family: sans-serif;"><strong><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> <b>in respect of the landed property (ies) you are occupying in Abuja Municipal Area Council as per details above. Rating District</b>
+                                                    This is pursuant to the provision of section 7 and fourth schedule to the constitution of the federal republic of Nigeria 1999 as amended and section 17 of KARU LOCAL GOVERNMENT COUNCIL Bye-law 2019 and other relevant law on the list of taxes and levies collectable by the local government council. We forwarded herewith your bill for the year {{ date("Y ") }}, totaling  <span class="text-danger" style="font-family: sans-serif;"><strong><b><span>&#8358;</span>{{ number_format($office->grand_total, 2) }}</b></strong></b></span> <b>in respect of the landed property (ies) you are occupying in AKARU LOCAL GOVERNMENT COUNCIL as per details above. Rating District</b>
     
 
                                             </b>
+
                                             </div>
                                         </div>
                                     </div>
@@ -304,22 +305,17 @@
                                                     <div class="col-md-10">
                                                         <p class="" style="font-family:sans-serif;font-size: 18px;">
                                                         <b>Payment Options:</b> <br >
-                                                        <b>1. AMAC Bank Draft</b> <br />
-                                                       <b>2. Internet Banking Transfer:<span class="text-danger" style="font-family: sans-serif;"> <strong><b><span style="font-family:tahoma;font-size: 18px;">Abuja Municipal Area Council, FCMB Account. No. 8672253011</span></b></strong></span> </b> <br />
-                                                        <b>3. Pay by Scanning QRCode on the right hand</b>
-                                                          <b> (Locate QR Payment on your mobile Banking App, (Choose NIBSS) and Scan QRCode to Pay) </b> <br>
+                                                        <b>1. Karu local Government Bank Draft</b> <br />
+                                                       <b>2. Internet Banking Transfer:<span class="text-danger" style="font-family: sans-serif;"> <strong><b><span style="font-family:tahoma;font-size: 18px;">Karu local Government Account, Union Bank plc Account No: 0022164640</span></b></strong></span> </b> <br />
                                                        <b>4.</b> <strong class="text-danger"style="font-family: sans-serif;">To avoid doubts, write your PID as Payment Reference for bank branch and Transfers.</strong> <br>
                                                         <b>Payment(s) made to location(s) other than as prescribed here shall be treated as invalid.</b>
-                                                         <b>Payment should be made in full withing 14 days Via Certified/bank draft (s) in favour of Abuja Municipal Area Council, </b>
+                                                         <b>Payment should be made in full withing 14 days Via Certified/bank draft (s) in favour of Karu local Government Council, </b>
 
                                                     </div>
 
 
                                                         <div class="col-md-2">
-                                                            <div class="text-center">
-                                                                   
-                                                            <p><img src="{{asset('/img/QR.jpeg')}}" width="160px" ></p>  
-                                                            </div>
+                                                            
                                                         </div> 
                                                 </div>
                                             </div>
@@ -339,7 +335,7 @@
                                                     <b style="font-family: tahoma; font-size:18px;">
                                                         HEAD OF TENEMENT RATE <br />
                                                    For Honourable Chairman <br />
-                                                   Abuja Municipal Area Council</b>
+                                                   KARU LOCAL GOVERNMENT</b>
                                                </div>
                                                <div class="col-md-6" style="color:#000 !important;">
 
@@ -350,7 +346,7 @@
                                                     <b style="font-family: tahoma; font-size:18px;">
                                                         DIRECTOR OF OPERATIONS <br />
                                                     For Honourable Chairman <br />
-                                                    Abuja Municipal Area Council</b>
+                                                    KARU LOCAL GOVERNMENT</b>
 
                                                </div>
                                             </div>

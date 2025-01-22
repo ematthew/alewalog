@@ -15,6 +15,7 @@ class GuduController extends Controller
 
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', "GUDU")
+                ->orWhere('cadastral_zone', "B01 - GUDU")
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
                 ->orWhere('pid', 'LIKE', "%$search_keywords%")
@@ -24,6 +25,7 @@ class GuduController extends Controller
 
             $offices = Office::where('paid_amount', '>=', $paid_amount)
             ->where('cadastral_zone', "GUDU")
+            ->orWhere('cadastral_zone', "B01 - GUDU")
             ->where('grand_total', '!=', $paid_amount)
             ->sortable('pid', 'DESC')->paginate(20);
         }
