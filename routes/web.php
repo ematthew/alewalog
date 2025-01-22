@@ -9,6 +9,7 @@ use App\Http\Controllers\GuduController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\JabiController;
 use App\Http\Controllers\JahiController;
+use App\Http\Controllers\KarshiController;
 use App\Http\Controllers\LifeCampController;
 use App\Http\Controllers\NasarawaController;
 use App\Http\Controllers\OfficeController;
@@ -291,6 +292,16 @@ Route::group(['prefix' => 'lokogoma'], function () {
 Route::group(['prefix' => 'gudu'], function () {
     Route::get('/', [GuduController::class, 'index'])->name('gudu.index');
     Route::get('/preview', [GuduController::class, 'previewAll'])->name('gudu.previewAll');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Karshi Controller 
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'karshi'], function () {
+    Route::get('/', [KarshiController::class, 'index'])->name('karshi.index');
+    Route::get('/preview', [KarshiController::class, 'previewAll'])->name('karshi.previewAll');
 });
 
 
