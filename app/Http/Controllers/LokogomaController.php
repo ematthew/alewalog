@@ -9,15 +9,16 @@ class LokogomaController extends Controller
 {
     public function index(Request $request)
     {
-        // return 'here';
         $paid_amount = 0;
         if ($request->has('search_keywords')) {
 
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', "LOKOGOMA")
-                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
-                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
-                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->where(function ($query) use ($search_keywords) {
+                    $query->where('asset_no', 'LIKE', "%$search_keywords%")
+                        ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                        ->orWhere('pid', "$search_keywords");
+                })
                 ->orderBy('pid', 'DESC')
                 ->paginate(20);
         } else {
@@ -26,8 +27,6 @@ class LokogomaController extends Controller
             ->where('cadastral_zone', "LOKOGOMA")
             ->where('grand_total', '!=', $paid_amount)
             ->sortable('pid', 'DESC')->paginate(20);
-            // $offices = Office::where('cadastral_zone', "LOKOGOMA")
-            // ->sortable('pid', 'DESC')->paginate(20);
         }
 
         return view('lokogoma.index', compact('offices'));

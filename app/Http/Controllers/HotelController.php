@@ -13,10 +13,12 @@ class HotelController extends Controller
         if ($request->has('search_keywords')) {
 
             $search_keywords = $request->search_keywords;
-            $offices = Office::where('prop_addr', 'LIKE',"%hotel%")
-                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
-                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
-                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                $offices = Office::where('prop_addr', 'LIKE',"%hotel%")
+                ->where(function ($query) use ($search_keywords) {
+                    $query->where('asset_no', 'LIKE', "%$search_keywords%")
+                        ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                        ->orWhere('pid', 'LIKE', "%$search_keywords%");
+                })
                 ->orderBy('pid', 'DESC')
                 ->paginate(20);
         } else {

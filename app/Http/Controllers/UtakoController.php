@@ -14,9 +14,11 @@ class UtakoController extends Controller
 
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', "UTAKO")
-                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
-                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
-                ->orWhere('pid', 'LIKE', "%$search_keywords%")
+                ->where(function ($query) use ($search_keywords) {
+                    $query->where('asset_no', 'LIKE', "%$search_keywords%")
+                        ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                        ->orWhere('pid', 'LIKE', "%$search_keywords%");
+                })
                 ->orderBy('pid', 'DESC')
                 ->paginate(20);
         } else {

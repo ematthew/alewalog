@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Office;
 use Illuminate\Support\Facades\Auth;
+
 class JabiController extends Controller
 {
     public function index(Request $request)
@@ -13,20 +14,25 @@ class JabiController extends Controller
         if ($request->has('search_keywords')) {
 
             $search_keywords = $request->search_keywords;
-            $offices = Office::where('cadastral_zone', "B04 - JABI")
-                ->orWhere('rating_dist',"JABI")
-                ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
-                ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
-                ->orWhere('pid', 'LIKE', "%$search_keywords%")
-                ->orderBy('pid', 'DESC')
-                ->paginate(20);
+            $search_keywords = trim($search_keywords);
+            $offices = Office::where(function ($query) use ($search_keywords) {
+                $query->where('asset_no', 'LIKE', "%$search_keywords%")
+                      ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                      ->orWhere('pid', 'LIKE', "%$search_keywords%");
+            })
+            ->orWhere(function ($query) {
+                $query->where('cadastral_zone', "B04 - JABI")
+                      ->orWhere('rating_dist', "JABI");
+            })
+            ->orderBy('pid', 'DESC')
+            ->paginate(20);
         } else {
 
             $offices = Office::where('paid_amount', '>=', $paid_amount)
-            ->where('cadastral_zone', "B04 - JABI")
-            ->orWhere('rating_dist', "JABI")
-            ->where('grand_total', '!=', $paid_amount)
-            ->sortable('pid', 'DESC')->paginate(20);
+                ->where('cadastral_zone', "B04 - JABI")
+                ->orWhere('rating_dist', "JABI")
+                ->where('grand_total', '!=', $paid_amount)
+                ->sortable('pid', 'DESC')->paginate(20);
         }
 
         return view('jabi.index', compact('offices'));
