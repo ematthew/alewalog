@@ -15,11 +15,25 @@ class WuyeController extends Controller
         if ($request->has('search_keywords')) {
 
             $search_keywords = $request->search_keywords;
+            // $offices = Office::where('cadastral_zone', "WUYE")
+            //     ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
+            //     ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+            //     ->orWhere('pid', 'LIKE', "%$search_keywords%")
+            //     ->orderBy('pid', 'DESC')
+            //     ->paginate(20);
             $offices = Office::where('cadastral_zone', "WUYE")
+
                 ->orWhere('cadastral_zone', "B03 - WUYE") 
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
                 ->orWhere('pid', 'LIKE', "%$search_keywords%")
+
+                ->where(function ($query) use ($search_keywords) {
+                    $query->where('asset_no', 'LIKE', "%$search_keywords%")
+                        ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
+                        ->orWhere('pid', 'LIKE', "%$search_keywords%");
+                })
+
                 ->orderBy('pid', 'DESC')
                 ->paginate(20);
         } else {
