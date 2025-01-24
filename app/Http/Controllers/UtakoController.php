@@ -14,6 +14,7 @@ class UtakoController extends Controller
 
             $search_keywords = $request->search_keywords;
             $offices = Office::where('cadastral_zone', "UTAKO")
+                ->orWhere('cadastral_zone', "B05 - UTAKO")
                 ->orWhere('asset_no', 'LIKE', "%$search_keywords%")
                 ->orWhere('prop_addr', 'LIKE', "%$search_keywords%")
                 ->orWhere('pid', 'LIKE', "%$search_keywords%")
@@ -22,6 +23,7 @@ class UtakoController extends Controller
         } else {
             $offices = Office::where('paid_amount', '>=', $paid_amount)
             ->where('cadastral_zone', "UTAKO")
+            ->orWhere('cadastral_zone', "B05 - UTAKO")
             ->where('grand_total', '!=', $paid_amount)
             ->sortable('pid', 'DESC')->paginate(20);
         }
