@@ -13,6 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i" rel="stylesheet">
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
 
     <style type="text/css">
         .table thead th {
@@ -76,6 +80,84 @@
                         </div>
                     </div>
                 @endif
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('gwarinpa')}}">Gwarinpa</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('wuye')}}">Wuye</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('life-camp')}}">Life-Camp</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('jabi')}}">Jabi</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('utako')}}">Utako</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('hotel')}}">Hotel</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('lokogoma')}}">Lokogoma</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('gudu')}}">Gudu</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('karshi')}}">Karshi</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('jahi')}}">Jahi</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('apo-new')}}">Apo New</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('appo/demands')}}">Apo(s)-Demand</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('nyanya/demands')}}">Nyanya(s)-Demand</a>
+                    </div>
+                </div>
                 
                 @if(checkIfHasMenuAccess("demands", auth()->user()->id))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -94,6 +176,20 @@
                     </div>
                 </div>
                 @endif
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Appo Reminder Data:</h6>
+                        <a class="collapse-item" href="{{ Route('appo_reminder.index') }}">Appo Reminder</a>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Nyanya Reminder Data:</h6>
+                        <a class="collapse-item" href="{{ Route('nyanya_reminder.index') }}">Nyanya Reminder</a>
+                    </div>
+                </div>
 
                 @if(checkIfHasMenuAccess("complete", auth()->user()->id))
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -122,6 +218,40 @@
                 </div>
                 @endif
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Nasarawa</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Data:</h6>
+                        <a class="collapse-item" href="{{url('nasarawa')}}">Nas Offices</a>
+                    </div>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Demand Data:</h6>
+                    <a class="collapse-item" href="{{ Route('nas_demands.index') }}">Demands</a>
+                    </div>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Reminder Data:</h6>
+                    <a class="collapse-item" href="{{ Route('nas_reminder.index') }}">Reminder</a>
+                    </div>
+                </div>
+                <!-- @if(checkIfHasMenuAccess("nas_demands", auth()->user()->id)) -->
+                <!-- <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Nas Demand Data:</h6>
+                        <a class="collapse-item" href="{{ Route('nas_demands.index') }}">Demands</a>
+                    </div>
+                </div> -->
+                <!-- @endif -->
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -138,6 +268,15 @@
                     <a class="nav-link" href="{{url('uploads')}}">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Upload Data</span></a>
+                </li>
+            @endif
+
+            @if(checkIfHasMenuAccess("uploads", auth()->user()->id))
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('uploads/nasarawa')}}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Upload Nasarawa Data</span></a>
                 </li>
             @endif
 
