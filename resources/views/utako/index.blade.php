@@ -19,7 +19,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">All Offices</h6>
-                            <a class="btn btn-success" href="{{ url('offices/create') }}" title="add of office"> <i class="fas fa-plus-circle"></i> </a>
+                            <a class="btn btn-success" href="{{ url('utako/create') }}" title="add of office"> <i class="fas fa-plus-circle"></i> </a>
                         </div>
                         <div class="card-body">
 
@@ -141,10 +141,10 @@
                                                 
 
                                                 <td>
-                                                    <a href="{{url('offices/view')}}?pid={{ $office->pid }}" class="">
+                                                    <a href="{{url('utako/view')}}?pid={{ $office->pid }}" class="">
                                                         <i class="fa fa-print"></i> Print
                                                     </a>
-                                                    <a href="{{ url('offices/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
+                                                    <a href="{{ url('utako/edit/'.$office->id) }}" class=""><i class="fa fa-edit"></i> Edit </a>
                                                 </td>
                                                 
                                             </tr>

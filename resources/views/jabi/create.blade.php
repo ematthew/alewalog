@@ -28,7 +28,7 @@
             Create new Office Record
         </div>
           <div class="card-header">
-            <a class="btn btn-primary" href="{{ url('offices') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('jabi') }}"> Back</a>
         </div>
     </div>
       <div class="card-body">
@@ -42,11 +42,11 @@
              </div><br />
         @endif
 
-         <form method="POST" action="{{ url('offices/store') }}">
+         <form method="POST" action="{{ url('jabi/store') }}">
             <div class="form-group">
                   @csrf
-                    <label for="name">Pid Number:</label>
-                    <input type="text" name="pid" class="form-control" value="{{ rand(111111,999999) }}" placeholder="Pid Number">
+                    <!-- <label for="name">Pid Number:</label>
+                    <input type="text" name="pid" class="form-control" value="{{ rand(111111,999999) }}" placeholder="Pid Number"> -->
             </div>
                 <div class="form-group">
                     <label for="cases">The Occupant :</label>

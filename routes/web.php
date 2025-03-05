@@ -6,6 +6,7 @@ use App\Http\Controllers\LokogomaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandController;
 use App\Http\Controllers\GuduController;
+use App\Http\Controllers\GwarinpaController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\JabiController;
 use App\Http\Controllers\JahiController;
@@ -202,8 +203,13 @@ Route::group(['prefix' => 'menu-roles'], function () {
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'gwarinpa'], function () {
-    Route::get('/', [OfficeController::class, 'gwarinpaIndex'])->name('gwarinpa.index');
-    Route::get('/preview', [OfficeController::class, 'gwarinpaPreviewAll'])->name('gwarinpa.previewAll');
+    Route::get('/', [GwarinpaController::class, 'index'])->name('gwarinpa.index');
+    Route::get('/preview', [GwarinpaController::class, 'previewAll'])->name('gwarinpa.previewAll');
+    Route::get('/create', [GwarinpaController::class, 'create']);
+    Route::get('/view', [GwarinpaController::class, 'view'])->name('gwarinpa.view');
+    Route::post('/store',      [GwarinpaController::class, 'store']);
+    Route::get('/edit/{id}', [GwarinpaController::class, 'edit']);
+    Route::post('/update/{id}',        [GwarinpaController::class, 'update'])->name('gwarinpa.update');
 });
 
 /*
@@ -214,6 +220,11 @@ Route::group(['prefix' => 'gwarinpa'], function () {
 Route::group(['prefix' => 'wuye'], function () {
     Route::get('/', [WuyeController::class, 'index'])->name('wuye.index');
     Route::get('/preview', [WuyeController::class, 'previewAll'])->name('wuye.previewAll');
+    Route::get('/create', [WuyeController::class, 'create']);
+    Route::get('/view', [WuyeController::class, 'view'])->name('wuye.view');
+    Route::post('/store',      [WuyeController::class, 'store']);
+    Route::get('/edit/{id}', [WuyeController::class, 'edit']);
+    Route::post('/update/{id}',        [WuyeController::class, 'update'])->name('wuye.update');
 });
 
 /*
@@ -224,6 +235,12 @@ Route::group(['prefix' => 'wuye'], function () {
 Route::group(['prefix' => 'life-camp'], function () {
     Route::get('/', [LifeCampController::class, 'index'])->name('life-camp.index');
     Route::get('/preview', [LifeCampController::class, 'previewAll'])->name('life-camp.previewAll');
+    Route::get('/create', [LifeCampController::class, 'create']);
+    Route::get('/view', [LifeCampController::class, 'view'])->name('life-camp.view');
+    Route::post('/store',      [LifeCampController::class, 'store']);
+    Route::get('/edit/{id}', [LifeCampController::class, 'edit']);
+    Route::post('/update/{id}',        [LifeCampController::class, 'update'])->name('life-camp.update');
+    
 });
 
 /*
@@ -233,8 +250,12 @@ Route::group(['prefix' => 'life-camp'], function () {
 */
 Route::group(['prefix' => 'jabi'], function () {
     Route::get('/', [JabiController::class, 'index'])->name('jabi.index');
+    Route::get('/create', [JabiController::class, 'create']);
     Route::get('/preview', [JabiController::class, 'previewAll'])->name('jabi.previewAll');
     Route::get('/view', [JabiController::class, 'view'])->name('jabi.view');
+    Route::post('/store',      [JabiController::class, 'store']);
+    Route::get('/edit/{id}', [JabiController::class, 'edit']);
+    Route::post('/update/{id}',        [JabiController::class, 'update'])->name('jabi.update');
 });
 /*
 |--------------------------------------------------------------------------
@@ -244,6 +265,11 @@ Route::group(['prefix' => 'jabi'], function () {
 Route::group(['prefix' => 'utako'], function () {
     Route::get('/', [UtakoController::class, 'index'])->name('utako.index');
     Route::get('/preview', [UtakoController::class, 'previewAll'])->name('utako.previewAll');
+    Route::get('/create', [UtakoController::class, 'create']);
+    Route::get('/view', [UtakoController::class, 'view'])->name('utako.view');
+    Route::post('/store',      [UtakoController::class, 'store']);
+    Route::get('/edit/{id}', [UtakoController::class, 'edit']);
+    Route::post('/update/{id}',        [UtakoController::class, 'update'])->name('utako.update');
 });
 /*
 |--------------------------------------------------------------------------
@@ -253,6 +279,11 @@ Route::group(['prefix' => 'utako'], function () {
 Route::group(['prefix' => 'hotel'], function () {
     Route::get('/', [HotelController::class, 'index'])->name('hotel.index');
     Route::get('/preview', [HotelController::class, 'previewAll'])->name('hotel.previewAll');
+    Route::get('/create', [HotelController::class, 'create']);
+    Route::get('/view', [HotelController::class, 'view'])->name('hotel.view');
+    Route::post('/store',      [HotelController::class, 'store']);
+    Route::get('/edit/{id}', [HotelController::class, 'edit']);
+    Route::post('/update/{id}',        [HotelController::class, 'update'])->name('hotel.update');
 });
 
 
@@ -282,6 +313,11 @@ Route::group(['prefix' => 'nasarawa'], function () {
 Route::group(['prefix' => 'lokogoma'], function () {
     Route::get('/', [LokogomaController::class, 'index'])->name('lokogoma.index');
     Route::get('/preview', [LokogomaController::class, 'previewAll'])->name('lokogoma.previewAll');
+    Route::get('/create', [LokogomaController::class, 'create']);
+    Route::get('/view', [LokogomaController::class, 'view'])->name('lokogoma.view');
+    Route::post('/store',      [LokogomaController::class, 'store']);
+    Route::get('/edit/{id}', [LokogomaController::class, 'edit']);
+    Route::post('/update/{id}',        [LokogomaController::class, 'update'])->name('lokogoma.update');
 });
 
 /*
@@ -292,6 +328,11 @@ Route::group(['prefix' => 'lokogoma'], function () {
 Route::group(['prefix' => 'gudu'], function () {
     Route::get('/', [GuduController::class, 'index'])->name('gudu.index');
     Route::get('/preview', [GuduController::class, 'previewAll'])->name('gudu.previewAll');
+    Route::get('/create', [GuduController::class, 'create']);
+    Route::get('/view', [GuduController::class, 'view'])->name('gudu.view');
+    Route::post('/store',      [GuduController::class, 'store']);
+    Route::get('/edit/{id}', [GuduController::class, 'edit']);
+    Route::post('/update/{id}',        [GuduController::class, 'update'])->name('gudu.update');
 });
 
 /*
@@ -302,6 +343,11 @@ Route::group(['prefix' => 'gudu'], function () {
 Route::group(['prefix' => 'karshi'], function () {
     Route::get('/', [KarshiController::class, 'index'])->name('karshi.index');
     Route::get('/preview', [KarshiController::class, 'previewAll'])->name('karshi.previewAll');
+    Route::get('/create', [KarshiController::class, 'create']);
+    Route::get('/view', [KarshiController::class, 'view'])->name('karshi.view');
+    Route::post('/store',      [KarshiController::class, 'store']);
+    Route::get('/edit/{id}', [KarshiController::class, 'edit']);
+    Route::post('/update/{id}',        [KarshiController::class, 'update'])->name('karshi.update');
 });
 
 
@@ -324,11 +370,17 @@ Route::group(['prefix' => 'apo-new'], function () {
 */
 Route::group(['prefix' => 'jahi'], function () {
     Route::get('/', [JahiController::class, 'index'])->name('jahi.index');
+    Route::get('/create',       [JahiController::class, 'create']);
+    Route::post('/store',      [JahiController::class, 'store']);
     Route::get('/preview', [JahiController::class, 'previewAll'])->name('jahi.previewAll');
     Route::get('/view', [JahiController::class, 'view'])->name('jahi.view');
-    Route::get('/edit/{id}', [JahiController::class, 'edit'])->name('jahi.view');
+    Route::get('/edit/{id}', [JahiController::class, 'edit']);
+    Route::post('/update/{id}',        [JahiController::class, 'update'])->name('offices.update');
+
 });
 
+Route::get('/jahi/upload', [JahiController::class, 'uploadForm'])->name('jahi.upload-form');
+Route::post('/jahi/bulk-upload', [JahiController::class, 'bulkUpload'])->name('jahi.bulk-upload');
 
 /*
 |--------------------------------------------------------------------------

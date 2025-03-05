@@ -28,7 +28,7 @@
             Create new Office Record
         </div>
           <div class="card-header">
-            <a class="btn btn-primary" href="{{ url('offices') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('gwarinpa') }}"> Back</a>
         </div>
     </div>
       <div class="card-body">
@@ -42,11 +42,11 @@
              </div><br />
         @endif
 
-         <form action="{{url('offices/update/'.$office->id)}}" method="POST">
+         <form action="{{url('gwarinpa/update/'.$office->id)}}" method="POST">
             <div class="form-group">
                   @csrf
                     <label for="name">Pid Number:</label>
-                    <input type="text" name="pid" class="form-control" value="{{ $office->pid }}" placeholder="Pid Number">
+                    <input type="text" name="pid" class="form-control" value="{{ $office->pid }}" placeholder="Pid Number" readonly>
             </div>
                 <div class="form-group">
                     <label for="cases">The Occupant :</label>

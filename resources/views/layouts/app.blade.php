@@ -270,6 +270,15 @@
                         <span>Upload Data</span></a>
                 </li>
             @endif
+                        
+            @if(checkIfHasMenuAccess("uploads", auth()->user()->id))
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/jahi/upload')}}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Upload Jahi Data</span></a>
+                </li>
+            @endif
 
             @if(checkIfHasMenuAccess("uploads", auth()->user()->id))
                 <!-- Nav Item - Charts -->

@@ -28,7 +28,7 @@
             Create new Office Record
         </div>
           <div class="card-header">
-            <a class="btn btn-primary" href="{{ url('offices') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ url('jahi') }}"> Back</a>
         </div>
     </div>
       <div class="card-body">
@@ -42,7 +42,7 @@
              </div><br />
         @endif
 
-         <form action="{{url('offices/update/'.$office->id)}}" method="POST">
+         <form action="{{url('jahi/update/'.$office->id)}}" method="POST">
             <div class="form-group">
                   @csrf
                     <label for="name">Pid Number:</label>
